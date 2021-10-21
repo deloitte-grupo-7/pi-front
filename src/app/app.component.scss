@@ -1,0 +1,11 @@
+@import "../assets/variables";
+:host{
+  display: grid;
+  grid-template:
+    "header"  $header-height
+    "main"    auto
+    "footer"  #{$footer-height} /
+    100%;
+  place-items: center center;
+  height: 100vh;
+}
