@@ -1,3 +1,18 @@
+@import '../../../assets/variables';
 :host{
+
+  display: flex;
   grid-area: header;
+  height: $header-height;
+  background-color: aquamarine;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  // position: fixed;
+  top: 0;
+  z-index: 2;
+  ul{
+    display: flex;
+    justify-content: space-between;
+  }
 }
