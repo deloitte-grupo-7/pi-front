@@ -6,11 +6,12 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { HomeComponent } from './components/home/home.component';
-import { AboutsComponent } from './components/abouts/abouts.component';
-import { ContactComponent } from './components/contact/contact.component';
+
+import { SignInPage } from './routes/signin/signin.component';
+import { SignUpPage } from './routes/signup/signup.component';
+import { HomePage } from './routes/home/home.component';
+import { ContactPage } from './routes/contact/contact.component';
+import { AboutPage } from './routes/about/about.component';
 
 @NgModule({
   declarations: [
@@ -18,11 +19,11 @@ import { ContactComponent } from './components/contact/contact.component';
     HeaderComponent,
     MainComponent,
     FooterComponent,
-    LoginComponent,
-    RegisterComponent,
-    HomeComponent,
-    AboutsComponent,
-    ContactComponent
+    SignInPage,
+    SignUpPage,
+    HomePage,
+    ContactPage,
+    AboutPage
   ],
   imports: [
     BrowserModule,
