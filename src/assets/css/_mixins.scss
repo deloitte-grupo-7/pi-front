@@ -1,0 +1,24 @@
+@mixin textButton {
+    background-color: transparent;
+    border: none;
+}
+
+@mixin active {
+    position: inherit;
+    visibility: visible;
+}
+
+@mixin activeImportant {
+    position: inherit !important;
+    visibility: visible !important;
+}
+
+@mixin inactive {
+    position: fixed;
+    visibility: hidden;
+}
+
+@mixin inactiveImportant {
+    position: fixed !important;
+    visibility: hidden !important;
+}
