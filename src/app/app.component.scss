@@ -1,4 +1,4 @@
-@import "../assets/variables";
+@import "../assets/css/variables";
 :host{
   display: grid;
   grid-template:
@@ -7,5 +7,5 @@
     "footer"  #{$footer-height} /
     100%;
   place-items: center center;
-  height: 100vh;
+  height: 100%;
 }

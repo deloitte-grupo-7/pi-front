@@ -8,7 +8,7 @@ import { SignUpPage } from './routes/signup/signup.component';
 
 const routes: Routes = [
   { path: ''          , component: HomePage },
-  { path: 'sigin'     , component: SignInPage },
+  { path: 'signin'     , component: SignInPage },
   { path: 'signup'    , component: SignUpPage },
   { path: 'about'     , component: AboutPage },
   { path: 'contact'   , component: ContactPage },

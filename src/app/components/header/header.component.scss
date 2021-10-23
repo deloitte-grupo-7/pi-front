@@ -1,18 +1,28 @@
-@import '../../../assets/variables';
-:host{
+@import '../../../assets/css/variables';
+@import '../../../assets/css/mixins';
 
-  display: flex;
-  grid-area: header;
-  height: $header-height;
-  background-color: aquamarine;
-  width: 100%;
-  align-items: center;
-  justify-content: space-around;
-  // position: fixed;
+:host{
+  @include colorAlt;
+  position: fixed;
   top: 0;
-  z-index: 2;
-  ul{
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: $header-height;
+  width: 100%;
+  font-weight: 600;
+  .logo {
+    padding-left: 1rem;
+  } 
+  button {
+    @include inactive;
+    @include textButton;
+  }
+  @include mobile {
+    .menu {
+      @include activeImportant;
+      padding-right: 1rem;
+    }
   }
 }

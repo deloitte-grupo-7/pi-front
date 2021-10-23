@@ -1,4 +1,16 @@
-:host{
+@import '../../../assets/css/variables';
+@import '../../../assets/css/mixins';
+
+:host{ 
+  z-index: 2;
   width: 100%;
   height: 100%;
+  grid-area: main;
+  display: grid;
+  grid-template:
+    "router"  100% /
+    100%;
+  .router {
+    position: fixed;
+  }
 }

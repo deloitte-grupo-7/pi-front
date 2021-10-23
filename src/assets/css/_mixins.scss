@@ -1,15 +1,26 @@
+@mixin colorDefault {
+    color: map-get($colors, "foreground");
+    background-color: map-get($colors, "background");
+}
+
+@mixin colorAlt {
+    color: map-get($colors, "background");
+    background-color: map-get($colors, "primary");
+}
+
 @mixin textButton {
+    color: inherit;
     background-color: transparent;
     border: none;
 }
 
 @mixin active {
-    position: inherit;
+    position: initial;
     visibility: visible;
 }
 
 @mixin activeImportant {
-    position: inherit !important;
+    position: initial;
     visibility: visible !important;
 }
 
@@ -21,4 +32,8 @@
 @mixin inactiveImportant {
     position: fixed !important;
     visibility: hidden !important;
+}
+
+@mixin mobile {
+    @media (max-width: 768px) { @content; }
 }

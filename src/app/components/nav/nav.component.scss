@@ -1,0 +1,33 @@
+@import '../../../assets/css/variables';
+@import '../../../assets/css/mixins';
+
+:host {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: 1rem;
+    ul {
+        display: flex;
+        flex-direction: row;
+        li {
+            padding-left: .5rem;
+        }
+    }
+    button {
+        @include inactive;
+        @include textButton;
+    }
+
+    @include mobile {
+      @include inactive;
+      @include colorDefault;
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
+      ul {
+          flex-direction: column;
+          justify-content: space-around;
+      }
+    }
+  }
