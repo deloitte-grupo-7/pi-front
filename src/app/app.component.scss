@@ -8,4 +8,15 @@
     100%;
   place-items: center center;
   height: 100%;
+  width: 100%;
+  main {
+    grid-area: main;
+    display: grid;
+    height: 100%;
+    width: 100%;
+  }
+  .router {
+    position: fixed;
+    grid-area: main;
+  }
 }

@@ -1,6 +1,19 @@
 <a routerLink="" class="logo">Lux</a>
 
-<app-nav>
-</app-nav>
+<ul>
+    <li>
+        <a routerLink="about">Sobre</a>
+    </li>
+    <li>
+        <a routerLink="contact">Contato</a>
+    </li>
 
-<button class="menu">☰</button>
+    <li>
+        <a routerLink="signin">Entrar</a>
+    </li>
+    <li>
+        <a routerLink="signup">Cadastrar</a>
+    </li>
+</ul>
+
+<button (click)="toggleNav()" class="menu">☰</button>

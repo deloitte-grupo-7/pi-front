@@ -10,3 +10,12 @@ $colors: (
     "foreground": black,
     "background": white,
 );
+
+@keyframes drop {
+    0% {
+        top: -100%;
+    }
+    100% {
+        top: 0;
+    }
+}

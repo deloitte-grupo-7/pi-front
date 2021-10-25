@@ -2,32 +2,19 @@
 @import '../../../assets/css/mixins';
 
 :host {
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    padding-right: 1rem;
+    @include colorDefault;
+    position: fixed;
+    top: $header-height;
+    display: grid;
+    font-weight: 600;
+    height: 100%;
+    width: 100%;
+    animation: drop ease-in-out .25s;
     ul {
         display: flex;
-        flex-direction: row;
-        li {
-            padding-left: .5rem;
-        }
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        height: 100%;
     }
-    button {
-        @include inactive;
-        @include textButton;
-    }
-
-    @include mobile {
-      @include inactive;
-      @include colorDefault;
-      position: absolute;
-      top: 0;
-      height: 100vh;
-      width: 100vw;
-      ul {
-          flex-direction: column;
-          justify-content: space-around;
-      }
-    }
-  }
+}

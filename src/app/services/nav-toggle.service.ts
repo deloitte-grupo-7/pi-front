@@ -6,14 +6,14 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class NavToggleService {
 
-  private static isNavActive$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  public static isNavActive$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   constructor() { }
 
   public static getIsNavActive(): Observable<boolean> {
     return this.isNavActive$.asObservable();
   }
-  public static toggleNav(isActive: boolean) {
-    this.isNavActive$.next(isActive);
+  public static toggleNav(): void {
+    this.isNavActive$.next(!this.isNavActive$.value);
   }
 }

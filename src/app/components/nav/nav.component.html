@@ -1,4 +1,4 @@
-<ul>
+<ul (click)="toggleNav()">
     <li>
         <a routerLink="about">Sobre</a>
     </li>
@@ -13,6 +13,6 @@
         <a routerLink="signup">Cadastrar</a>
     </li>
     <li>
-        <button [ngClass]="{ 'active': isNavActive }">✖</button>
+        <button>✖</button>
     </li>
 </ul>

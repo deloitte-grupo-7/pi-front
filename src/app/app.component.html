@@ -1,5 +1,7 @@
 <app-header></app-header>
-<app-nav *ngIf="isNavActive"></app-nav>
-<app-main></app-main>
+<main>
+    <app-nav *ngIf="isNavActive"></app-nav>
+    <router-outlet class="router"></router-outlet>
+</main>
 <app-footer></app-footer>
 

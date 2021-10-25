@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
-import { MainComponent } from './components/main/main.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 import { SignInPage } from './routes/signin/signin.component';
@@ -20,7 +19,6 @@ import { NavComponent } from './components/nav/nav.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    MainComponent,
     FooterComponent,
     SignInPage,
     SignUpPage,

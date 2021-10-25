@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NavToggleService } from 'src/app/services/nav-toggle.service';
 
 @Component({
   selector: 'app-nav',
@@ -7,18 +8,13 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class NavComponent implements OnInit {
 
-  @Output() navToggle = new EventEmitter();
-
-  isNavActive: boolean = false;
-
   constructor() { }
 
   ngOnInit(): void {
   }
 
   toggleNav(): void {
-    this.isNavActive = !this.isNavActive;
-    this.navToggle.emit();
+    NavToggleService.toggleNav();
   }
 
 }

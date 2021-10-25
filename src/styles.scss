@@ -16,6 +16,11 @@ html {
         color: inherit;
         text-decoration: none;
     }
+    
+    button {
+        @include textButton;
+        cursor: pointer;
+    }
 
     @for $i from 1 through 6 {
         h#{$i} {

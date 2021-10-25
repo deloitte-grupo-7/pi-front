@@ -1,28 +1,47 @@
 @import '../../../assets/css/variables';
 @import '../../../assets/css/mixins';
 
-:host{
+:host {
   @include colorAlt;
+  z-index: 2;
+  box-sizing: border-box;
   position: fixed;
   top: 0;
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template:
+    "logo menu" 100% /
+    auto  auto;
+  gap: 1rem;
   justify-content: space-between;
   align-items: center;
   height: $header-height;
   width: 100%;
   font-weight: 600;
-  .logo {
-    padding-left: 1rem;
-  } 
+  padding: 0 1rem;
   button {
     @include inactive;
-    @include textButton;
   }
+  ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+      li {
+          padding-left: .5rem;
+      }
+  }
+
   @include mobile {
-    .menu {
+    button {
       @include activeImportant;
       padding-right: 1rem;
+    }
+    ul {
+      @include inactive;
+      @include colorDefault;
+      position: absolute;
+      top: 0;
+      height: 100vh;
+      width: 100vw;
     }
   }
 }

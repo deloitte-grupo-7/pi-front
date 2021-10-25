@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 import { NavToggleService } from 'src/app/services/nav-toggle.service';
 
 @Component({
@@ -13,7 +13,10 @@ export class HeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // NavToggleService.getIsNavActive().subscribe(e => this.isNavActive);
   }
-
+  
+  toggleNav(): void {
+    NavToggleService.toggleNav();
+    console.log(NavToggleService.isNavActive$.value)
+  }
 }
