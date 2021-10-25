@@ -1,5 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+
+const fields: Object = {
+  'username': '[a-zA-Z\d]+',
+  'name': '[a-zA-ZÀ-ú\s]+',
+  'cpf': '\d+',
+  'email': '^[^\_\.\-][\w\d\.\-]{4,}(?<![\.\_\-])\@\w{2,}(\.{1}[a-zA-Z]{2,})(?!\.)$',
+  'birthday': '',
+  'password': '',
+  'passconf': ''
+};
 
 @Component({
   selector: 'app-signup',
@@ -8,30 +18,59 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 export class SignUpPage implements OnInit {
 
-  form: FormGroup = new FormGroup({
-    username: new FormControl(),
-    name: new FormControl(),    
-    cpf: new FormControl(),    
-    email: new FormControl(),    
-    birthday: new FormControl(),    
-    password: new FormControl(),    
-    passconf: new FormControl(),    
-  });
+  form: FormGroup;
 
-  constructor() { }
+  constructor(private fb: FormBuilder) {
+    this.form = fb.group({
+      username: ['', Validators.required ],
+      name: ['', Validators.required],
+      cpf: ['', Validators.required],
+      email: ['', Validators.required],
+      birthday: ['', Validators.required],
+      password: ['', Validators.required],
+      passconf: ['', Validators.required],
+    }, {
+      updateOn: 'blur',
+    });
+  }
+  
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  onFormSubmit(ev: Event): void {
+    ev.preventDefault();
+    for (const field in fields) {
+      if (Object.prototype
+                .hasOwnProperty
+                .call(fields, field)) {
+        console.log(`${field}: ${this.get(field)}`);
+      }
+    }
   }
 
-  usernameValidation(): void {
+  get(field: string): string {
+    return this.form.get(field)?.value;
   }
 
-  cpfValidation(): void {
-
+  getAll(): string {
+    let str: string = '';
+    for (const field in fields ) {
+      if (Object.prototype
+                .hasOwnProperty
+                .call(fields, field)) {
+        str += this.get(field) + ' ';
+      }
+    }
+    return str;
   }
 
-  onFormSubmit(): void {
-
+  iterate(fields: Object, f: Function) {
+    for (const field in fields) {
+      if (Object.prototype
+                .hasOwnProperty
+                .call(fields, field)) {
+        console.log(`${field}: ${this.get(field)}`);
+      }
+    }
   }
 
 }

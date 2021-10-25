@@ -2,9 +2,10 @@
 @import '../../../assets/css/mixins';
 
 :host {
-    display: grid;
-    place-items: center;
-    background-color: map-get($colors, "primary");
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     form {
         display: flex;
         flex-direction: column;
@@ -14,6 +15,7 @@
         background-color: white;
         padding: 2rem;
         border-radius: 8px;
+        box-shadow: 0 2px 4px 2px rgba(0, 0, 0, .1);
         input {
             border: solid #eee;
             border-radius: 4px;
@@ -22,6 +24,12 @@
         }
         label {
             padding: 0 0 .5rem .25rem;
+        }
+        button {
+            @include colorAlt;
+            font-weight: 600;
+            padding: .5rem;
+            border-radius: 4px;
         }
     }
 }

@@ -1,28 +1,29 @@
-<form [formGroup]="form" (ngSubmit)="onFormSubmit()" action="">
+<form [formGroup]="form" (ngSubmit)="onFormSubmit($event)" action="">
 
   <label for="username">Nome de usuário</label>
-  <input (blur)="usernameValidation()" type="text" name="username">
+  <input formControlName="username" type="text" name="username">
 
   <label for="name">Nome</label>
-  <input type="text" name="name">
+  <input formControlName="name" type="text" name="name">
 
   <label for="cpf">CPF</label>
-  <input (blur)="cpfValidation()" type="text" name="cpf">
+  <input formControlName="cpf" type="text" name="cpf">
 
   <label for="email">Email</label>
-  <input type="email" name="email">
+  <input formControlName="email" type="email" name="email">
 
   <label for="birthday">Data de nascimento</label>
-  <input type="date" name="birthday" min="">
+  <input formControlName="birthday" type="date" name="birthday">
 
   <label for="password">Senha</label>
-  <input type="password" name="password" placeholder="Insira uma senha">
+  <input formControlName="password" type="password" name="password">
 
   <label for="passconf">Confirmação de senha</label>
-  <input type="password" name="passconf" placeholder="Confirme a senha">
+  <input formControlName="passconf" type="password" name="passconf">
   
-  <button>Cadastrar</button>
+  <button type="submit">Cadastrar</button>
 </form>
 
 <pre>
+  {{ getAll()         }}
 </pre>

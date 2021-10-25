@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { BehaviorSubject, Subscription } from 'rxjs';
 import { NavToggleService } from 'src/app/services/nav-toggle.service';
 
 @Component({
