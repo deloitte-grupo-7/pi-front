@@ -16,9 +16,12 @@ export class SignUpPage implements OnInit {
   fields: FieldTemplate[];
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private validate: SignUpValidationService,
-    private router: Router) {
-   
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private validate: SignUpValidationService,
+    private router: Router
+  ) {
     this.fields = validate.fields;
     this.form = fb.group({
       username: ['', Validators.required],
@@ -32,12 +35,12 @@ export class SignUpPage implements OnInit {
       updateOn: 'blur',
     });
   }
-  
-  ngOnInit(): void {}
+
+  ngOnInit(): void { }
 
   onFormSubmit(ev: Event): void {
     ev.preventDefault();
-    this.iterate((field:FieldTemplate) => {
+    this.iterate((field: FieldTemplate) => {
 
     })
     const userForm: SignUpForm = {
@@ -53,7 +56,7 @@ export class SignUpPage implements OnInit {
     this.validate.postRequest(userForm).subscribe(
       {
         next: data => {
-        this.router.navigateByUrl('');
+          this.router.navigateByUrl('');
           console.log(data)
         }
       }
@@ -73,7 +76,7 @@ export class SignUpPage implements OnInit {
   }
 
   iterate(f: Function): void {
-   this.validate.fields.forEach((template: FieldTemplate) => f(template));
+    this.validate.fields.forEach((template: FieldTemplate) => f(template));
   }
 
   validator(field: string): void {

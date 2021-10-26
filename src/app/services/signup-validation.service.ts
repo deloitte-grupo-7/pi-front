@@ -73,4 +73,9 @@ export class SignUpValidationService {
     return this.http.post(`${this.apiURL}/register`, form)
   }
 
+  signInRequest(username: string, password: string){
+    return this.http.post(`${this.apiURL}/login`, {
+      username: username, password: password})
+  }
+
 }
