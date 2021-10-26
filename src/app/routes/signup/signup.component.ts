@@ -31,7 +31,8 @@ export class SignUpPage implements OnInit {
       birthday: ['', Validators.required],
       password: ['', Validators.required],
       passconf: ['', Validators.required],
-    }, {
+    }, 
+    {
       updateOn: 'blur',
     });
   }
