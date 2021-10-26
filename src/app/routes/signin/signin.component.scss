@@ -1,0 +1,35 @@
+@import '../../../assets/css/variables';
+@import '../../../assets/css/mixins';
+
+:host {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        max-width: 640px;
+        width: 50%;
+        background-color: white;
+        padding: 2rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px 2px rgba(0, 0, 0, .1);
+        input {
+            border: solid #eee;
+            border-radius: 4px;
+            padding: .25rem;
+            margin-bottom:1rem;
+        }
+        label {
+            padding: 0 0 .5rem .25rem;
+        }
+        button {
+            @include colorAlt;
+            font-weight: 600;
+            padding: .5rem;
+            border-radius: 4px;
+        }
+    }
+}
