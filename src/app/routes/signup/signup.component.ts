@@ -1,54 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-interface FieldTemplate {
-  title: string,
-  name: string,
-  type: string,
-  regex?: RegExp,
-}
-
-const fields: FieldTemplate[] = [
-  {
-    title: 'Nome de usuário', 
-    name: 'username',
-    type: 'text',
-    regex: /[a-zA-Z\d]+/,
-  },
-  {
-    title: 'Nome completo',
-    name: 'name',
-    type: 'text',
-    regex: /[a-zA-ZÀ-ú\s]+/,
-  },
-  {
-    title: 'CPF',
-    name: 'cpf',
-    type: 'text',
-    regex: /\d+/,
-  },
-  {
-    title: 'Email',
-    name: 'email',
-    type: 'email',
-    regex: /^[^\_\.\-][\w\d\.\-]{4,}(?<![\.\_\-])\@\w{2,}(\.{1}[a-zA-Z]{2,})(?!\.)$/,
-  },
-  {
-    title: 'Data de nascimento',
-    name: 'birthday',
-    type: 'date',
-  },
-  {
-    title: 'Senha',
-    name: 'password',
-    type: 'password',
-  },
-  {
-    title: 'Confirmação de senha',
-    name: 'passconf',
-    type: 'password',
-  }];
+import { FieldTemplate } from 'src/app/models/FieldTemplate';
+import { SignUpValidationService } from 'src/app/services/signup-validation.service';
+import { SignUpForm } from 'src/app/models/SignUpForm';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -57,13 +13,13 @@ const fields: FieldTemplate[] = [
 })
 export class SignUpPage implements OnInit {
 
-  readonly apiURL: string;
   fields: FieldTemplate[];
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private http: HttpClient) {
-    this.apiURL = 'http://localhost:8080';
-    this.fields = fields;
+  constructor(private fb: FormBuilder, private http: HttpClient, private validate: SignUpValidationService,
+    private router: Router) {
+   
+    this.fields = validate.fields;
     this.form = fb.group({
       username: ['', Validators.required],
       name: ['', Validators.required],
@@ -81,11 +37,27 @@ export class SignUpPage implements OnInit {
 
   onFormSubmit(ev: Event): void {
     ev.preventDefault();
-    this.iterate(() => {
-      this.http
-          .post(`${this.apiURL}/produtos`, this.form)
-          .subscribe(res => console.log(res));
-    });
+    this.iterate((field:FieldTemplate) => {
+
+    })
+    const userForm: SignUpForm = {
+      username: this.get('username'),
+      name: this.get('name'),
+      cpf: this.get('cpf'),
+      email: this.get('email'),
+      birthday: this.get('birthday'),
+      password: this.get('password'),
+      passconf: this.get('passconf')
+    }
+
+    this.validate.postRequest(userForm).subscribe(
+      {
+        next: data => {
+        this.router.navigateByUrl('');
+          console.log(data)
+        }
+      }
+    )
   }
 
   get(field: string): string {
@@ -101,7 +73,7 @@ export class SignUpPage implements OnInit {
   }
 
   iterate(f: Function): void {
-    fields.forEach((template: FieldTemplate) => f(template));
+   this.validate.fields.forEach((template: FieldTemplate) => f(template));
   }
 
   validator(field: string): void {
