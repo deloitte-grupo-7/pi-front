@@ -16,6 +16,5 @@ export class HeaderComponent implements OnInit {
   
   toggleNav(): void {
     NavToggleService.toggleNav();
-    console.log(NavToggleService.isNavActive$.value)
   }
 }

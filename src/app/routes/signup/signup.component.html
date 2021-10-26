@@ -1,29 +1,20 @@
-<form [formGroup]="form" (ngSubmit)="onFormSubmit($event)" action="">
+<form [formGroup]="form"
+      (ngSubmit)="onFormSubmit($event)"
+      action="">
 
-  <label for="username">Nome de usuário</label>
-  <input formControlName="username" type="text" name="username">
-
-  <label for="name">Nome</label>
-  <input formControlName="name" type="text" name="name">
-
-  <label for="cpf">CPF</label>
-  <input formControlName="cpf" type="text" name="cpf">
-
-  <label for="email">Email</label>
-  <input formControlName="email" type="email" name="email">
-
-  <label for="birthday">Data de nascimento</label>
-  <input formControlName="birthday" type="date" name="birthday">
-
-  <label for="password">Senha</label>
-  <input formControlName="password" type="password" name="password">
-
-  <label for="passconf">Confirmação de senha</label>
-  <input formControlName="passconf" type="password" name="passconf">
+  <ng-template  ngFor let-template
+                [ngForOf]="fields">
+    <label [for]="template.name">
+        {{template.title}}
+    </label>
+    <input  [formControlName]="template.name"
+            [type]="template.type"
+            [name]="template.name">
+  </ng-template>
   
   <button type="submit">Cadastrar</button>
 </form>
 
 <pre>
-  {{ getAll()         }}
+  {{getAll()}}
 </pre>
