@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FieldTemplate } from 'src/app/models/FieldTemplate';
 import { SignUpValidationService } from 'src/app/services/signup-validation.service';
+import { SignInForm } from 'src/app/models/UserForm';
 
 @Component({
   selector: 'app-signin',
@@ -44,7 +45,7 @@ export class SignInPage implements OnInit {
 
   onFormSubmit(ev: Event): void {
     ev.preventDefault();
-    const signInForm={
+    const signInForm: SignInForm = {
       username: this.get('username'),
       password: this.get('password'),
      }

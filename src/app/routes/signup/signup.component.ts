@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { FieldTemplate } from 'src/app/models/FieldTemplate';
 import { SignUpValidationService } from 'src/app/services/signup-validation.service';
-import { SignUpForm } from 'src/app/models/SignUpForm';
+import { SignUpForm } from 'src/app/models/UserForm';
 import { Router } from '@angular/router';
 
 @Component({
@@ -50,7 +50,6 @@ export class SignUpPage implements OnInit {
       email: this.get('email'),
       birthday: this.get('birthday'),
       password: this.get('password'),
-      passconf: this.get('passconf')
     }
 
     this.validate.postRequest(userForm).subscribe(

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FieldTemplate } from '../models/FieldTemplate';
-import { SignUpForm } from '../models/SignUpForm';
+import { SignInForm, SignUpForm } from '../models/UserForm';
 
 const fields: FieldTemplate[] = [
   {
@@ -63,7 +63,7 @@ export class SignUpValidationService {
   }
 
   constructor(private http:HttpClient){
-    this.apiURL = 'http://localhost:8080';
+    this.apiURL = 'https://pi-back7.herokuapp.com';
   }
 
   static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
@@ -73,9 +73,8 @@ export class SignUpValidationService {
     return this.http.post(`${this.apiURL}/register`, form)
   }
 
-  signInRequest(username: string, password: string){
-    return this.http.post(`${this.apiURL}/login`, {
-      username: username, password: password})
+  signInRequest(form: SignInForm){
+    return this.http.post(`${this.apiURL}/login`, form)
   }
 
 }
