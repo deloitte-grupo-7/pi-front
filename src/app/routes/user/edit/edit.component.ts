@@ -22,22 +22,16 @@ export class EditPage implements OnInit {
   ) { 
     this.fields = [
       {
-        title: 'Nome', name: 'name', type: 'text',
+        title: 'Nome de usuário', name: 'username', type: 'text',
       },
       {
-        title: 'CPF', name: 'cpf', type: 'text',
+        title: 'Nome', name: 'name', type: 'text',
       },
       {
         title: 'Email', name: 'email', type: 'text',
       },
       {
-        title: 'Data de nascimento', name: 'birthday', type: 'text',
-      },
-      {
         title: 'Senha', name: 'password', type: 'password',
-      },
-      {
-        title: 'Descrição', name: 'description', type: 'text',
       },
     ]
     this.form = this.fb.group({
@@ -46,6 +40,7 @@ export class EditPage implements OnInit {
     name: ['', Validators.required],
     email: ['', Validators.required],
     password: ['', Validators.required],
+    description:[''],
   },
   {
     updateOn: 'blur',
@@ -70,10 +65,12 @@ export class EditPage implements OnInit {
         next: data => {
           this.router.navigateByUrl('');
           console.log(data)
-        }
+        },
+
+        error: err => console.log(err),
+        complete: () => console.log("Requisição terminada")
       }
     )
-
   }
 
   get(field: string): string {
