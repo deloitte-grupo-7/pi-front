@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FieldTemplate } from '../models/FieldTemplate';
-import { SignInForm, SignUpForm } from '../models/UserForm';
+import { SignInForm, SignUpForm, UserForm } from '../models/UserForm';
 
 const fields: FieldTemplate[] = [
   {
@@ -75,6 +75,10 @@ export class SignUpValidationService {
 
   signInRequest(form: SignInForm){
     return this.http.post(`${this.apiURL}/login`, form)
+  }
+
+  update(form: UserForm){
+    return this.http.put(`${this.apiURL}/register/user`, form)
   }
 
 }

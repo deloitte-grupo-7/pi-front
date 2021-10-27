@@ -2,11 +2,11 @@
     (ngSubmit)="onFormSubmit($event)">
 
 <ng-template ngFor let-template
-     [ngForOf]="fields">
-     <label [for]="template.name">
-        {{template.title}}
-     </label>
-     <input  [formControlName]="template.name"
+             [ngForOf]="fields">
+   <label [for]="template.name">
+       {{template.title}}
+   </label>
+   <input  [formControlName]="template.name"
            [type]="template.type"
            [name]="template.name">
 </ng-template>

@@ -1,1 +1,14 @@
-<form #f='ngForm'>
+<form [formGroup]="form"
+    (ngSubmit)="onFormSubmit($event)">
+
+<ng-template ngFor let-template
+             [ngForOf]="fields">
+   <label [for]="template.name">
+       {{template.title}}
+   </label>
+   <input  [formControlName]="template.name"
+           [type]="template.type"
+           [name]="template.name">
+</ng-template>
+   <button type="submit">Salvar alterações</button>    
+</form>
