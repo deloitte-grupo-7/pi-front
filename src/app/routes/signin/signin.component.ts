@@ -49,6 +49,18 @@ export class SignInPage implements OnInit {
       username: this.get('username'),
       password: this.get('password'),
      }
+
+     this.validate.signInRequest(signInForm).subscribe(
+      {
+        next: data => {
+          this.router.navigateByUrl('');
+          console.log(data)
+        },
+
+        error: err => console.log(err),
+        complete: () => console.log("Requisição terminada")
+      }
+    )
   }
   get(field: string): string {
     return this.form.get(field)?.value;

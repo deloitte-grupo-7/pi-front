@@ -15,8 +15,7 @@ import { HomePage } from './routes/home/home.component';
 import { ContactPage } from './routes/contact/contact.component';
 import { AboutPage } from './routes/about/about.component';
 import { NavComponent } from './components/nav/nav.component';
-import { UserPage } from './routes/user/user.component';
-import { EditComponent } from './routes/user/edit/edit.component';
+import { EditPage } from './routes/user/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +28,7 @@ import { EditComponent } from './routes/user/edit/edit.component';
     ContactPage,
     AboutPage,
     NavComponent,
-    UserPage,
-    EditComponent,
+    EditPage,
   ],
   imports: [
     BrowserModule,

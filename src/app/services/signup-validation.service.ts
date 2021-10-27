@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FieldTemplate } from '../models/FieldTemplate';
-import { SignInForm, SignUpForm, UserForm } from '../models/UserForm';
+import { SignInForm, SignUpForm, EditForm } from '../models/UserForm';
 
 const fields: FieldTemplate[] = [
   {
@@ -69,7 +69,7 @@ export class SignUpValidationService {
   static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
   }
 
-  postRequest(form: SignUpForm) {
+  signUpRequest(form: SignUpForm) {
     return this.http.post(`${this.apiURL}/register`, form)
   }
 
@@ -77,8 +77,8 @@ export class SignUpValidationService {
     return this.http.post(`${this.apiURL}/login`, form)
   }
 
-  update(form: UserForm){
-    return this.http.put(`${this.apiURL}/register/user`, form)
+  update(form: EditForm){
+    return this.http.put(`${this.apiURL}/edit`, form)
   }
 
 }
