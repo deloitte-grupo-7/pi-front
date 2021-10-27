@@ -1,56 +1,66 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SignUpValidationService } from 'src/app/services/signup-validation.service';
 import { Router } from '@angular/router';
 import { FieldTemplate } from 'src/app/models/FieldTemplate';
-import { SignUpValidationService } from 'src/app/services/signup-validation.service';
-import { SignInForm } from 'src/app/models/UserForm';
+import { EditForm } from 'src/app/models/UserForm';
 
 @Component({
-  selector: 'app-signin',
-  templateUrl: './signin.component.html',
-  styleUrls: ['./signin.component.scss']
+  selector: 'app-edit',
+  templateUrl: './edit.component.html',
+  styleUrls: ['./edit.component.scss']
 })
-export class SignInPage implements OnInit {
+
+export class EditPage implements OnInit {
   fields: FieldTemplate[];
   form: FormGroup;
 
   constructor(
-    private router: Router,
     private fb: FormBuilder,
     private validate: SignUpValidationService,
+    private router: Router
   ) { 
-    this.fields= [
+    this.fields = [
       {
-        title: 'Nome de usuário',
-        name: 'username',
-        type: 'text',
+        title: 'Nome de usuário', name: 'username', type: 'text',
       },
       {
-        title: 'Senha',
-        name: 'password',
-        type: 'password',
-      }
+        title: 'Nome', name: 'name', type: 'text',
+      },
+      {
+        title: 'Email', name: 'email', type: 'text',
+      },
+      {
+        title: 'Senha', name: 'password', type: 'password',
+      },
     ]
-    this.form=fb.group({
-      username:['', Validators.required],
-      password:['', Validators.required]
-    },
-    {
-      updateOn: 'blur',
-    })
+    this.form = this.fb.group({
+    
+    username: ['', Validators.required],
+    name: ['', Validators.required],
+    email: ['', Validators.required],
+    password: ['', Validators.required],
+    description:[''],
+  },
+  {
+    updateOn: 'blur',
+  });
   }
 
   ngOnInit(): void {
   }
 
-  onFormSubmit(ev: Event): void {
+  onFormSubmit(ev: Event): void{
     ev.preventDefault();
-    const signInForm: SignInForm = {
+    const editForm: EditForm = {
       username: this.get('username'),
+      name: this.get('name'),
+      email: this.get('email'),
       password: this.get('password'),
-     }
+      description: this.get('description')
+    }
 
-     this.validate.signInRequest(signInForm).subscribe(
+    this.validate.update(editForm).subscribe(
       {
         next: data => {
           this.router.navigateByUrl('');
@@ -62,6 +72,7 @@ export class SignInPage implements OnInit {
       }
     )
   }
+
   get(field: string): string {
     return this.form.get(field)?.value;
   }
@@ -77,4 +88,5 @@ export class SignInPage implements OnInit {
   iterate(f: Function): void {
     this.validate.fields.forEach((template: FieldTemplate) => f(template));
   }
+
 }

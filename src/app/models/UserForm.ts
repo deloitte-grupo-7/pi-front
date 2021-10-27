@@ -9,3 +9,9 @@ export interface SignUpForm extends SignInForm {
     email: string, 
     birthday: string,
 };
+
+export interface EditForm extends SignInForm {
+    name: string,
+    email: string, 
+    description: string,
+}

@@ -31,7 +31,8 @@ export class SignUpPage implements OnInit {
       birthday: ['', Validators.required],
       password: ['', Validators.required],
       passconf: ['', Validators.required],
-    }, {
+    }, 
+    {
       updateOn: 'blur',
     });
   }
@@ -52,12 +53,15 @@ export class SignUpPage implements OnInit {
       password: this.get('password'),
     }
 
-    this.validate.postRequest(userForm).subscribe(
+    this.validate.signUpRequest(userForm).subscribe(
       {
         next: data => {
           this.router.navigateByUrl('');
           console.log(data)
-        }
+        },
+
+        error: err => console.log(err),
+        complete: () => console.log("Requisição terminada")
       }
     )
   }
