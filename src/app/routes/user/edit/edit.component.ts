@@ -25,7 +25,7 @@ export class EditPage implements OnInit {
         title: 'Nome de usuário', name: 'username', type: 'text',
       },
       {
-        title: 'Nome', name: 'name', type: 'text',
+        title: 'Nome completo', name: 'name', type: 'text',
       },
       {
         title: 'Email', name: 'email', type: 'text',
@@ -88,5 +88,4 @@ export class EditPage implements OnInit {
   iterate(f: Function): void {
     this.validate.fields.forEach((template: FieldTemplate) => f(template));
   }
-
 }
