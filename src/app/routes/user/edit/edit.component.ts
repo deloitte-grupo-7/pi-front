@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { SignUpValidationService } from 'src/app/services/signup-validation.service';
 import { Router } from '@angular/router';
 import { FieldTemplate } from 'src/app/models/FieldTemplate';
@@ -14,6 +14,7 @@ import { EditForm } from 'src/app/models/UserForm';
 export class EditPage implements OnInit {
   fields: FieldTemplate[];
   form: FormGroup;
+  submitted = false;
 
   constructor(
     private fb: FormBuilder,
@@ -25,7 +26,7 @@ export class EditPage implements OnInit {
         title: 'Nome de usuário', name: 'username', type: 'text',
       },
       {
-        title: 'Nome', name: 'name', type: 'text',
+        title: 'Nome completo', name: 'name', type: 'text',
       },
       {
         title: 'Email', name: 'email', type: 'text',
@@ -36,11 +37,11 @@ export class EditPage implements OnInit {
     ]
     this.form = this.fb.group({
     
-    username: ['', Validators.required],
-    name: ['', Validators.required],
-    email: ['', Validators.required],
-    password: ['', Validators.required],
-    description:[''],
+    username: ['', Validators.required, Validators.minLength(2), Validators.maxLength(20)],
+    name: ['', Validators.required, Validators.minLength(3), Validators.maxLength(64)],
+    email: ['', Validators.required, Validators.minLength(6), Validators.maxLength(64)],
+    password: ['', Validators.required, Validators.minLength(8), Validators.maxLength(168)],
+    description:['', Validators.maxLength(500)],
   },
   {
     updateOn: 'blur',
@@ -59,6 +60,12 @@ export class EditPage implements OnInit {
       password: this.get('password'),
       description: this.get('description')
     }
+
+    // this.submitted = true;
+    // if (this.form.invalid){
+    //   return;
+    // } console.log(JSON.stringify(this.form.value, null, 2));
+    
 
     this.validate.update(editForm).subscribe(
       {
@@ -88,5 +95,4 @@ export class EditPage implements OnInit {
   iterate(f: Function): void {
     this.validate.fields.forEach((template: FieldTemplate) => f(template));
   }
-
 }
