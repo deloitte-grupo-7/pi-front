@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {
+   ngOnInit() {
     NavToggleService.getIsNavActive().subscribe((bool) => this.isNavActive = bool );
-  }
+   }
 }
