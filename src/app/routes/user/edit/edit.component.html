@@ -6,9 +6,11 @@
    <label [for]="template.name">
        {{template.title}}
    </label>
+
    <input  [formControlName]="template.name"
            [type]="template.type"
-           [name]="template.name">
+           [name]="template.name"
+           >    
 </ng-template>
 <label for="description">Descrição</label>
 <textarea formControlName="description" name="description">
