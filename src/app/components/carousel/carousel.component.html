@@ -1,0 +1,44 @@
+<!--
+  nome / tipo / default / descrição
+  height - number - - carrossel height
+  width - number - - carrossel width
+  cellWidth - number, '100%' - 200 - width da celula do carrossel
+  cellsToShow - number - - numero de imagens que vão ser mostradas independente do tamanho do container
+  loop - boolean - false - ativa/desativa o loop
+  autoplay - boolean - false - ativa/desativa o start automatico do carrossel no carregamento
+  autoplayInterval - number - 5000 - intervalo entre as imagens, usado em conjunto com o autoplay
+  pauseOnHover - boolean - true - interrompe o autoplay se o curtor estiver no carrossel
+  dots - boolean - false - aqueles pontinhos em baixo pra pular de imagem
+  margin - number - 10 - margem entre as imagens
+  transitionDuration - number - 300 - duração da animação de transição
+  borderRadius - number - 0 - borda do carrossel
+  arrows - boolean - true - setinhas pra navegar entre as imagens
+  arrowsOutside - boolean - false - setinhas do lado de fora do container do carrossel
+  arrowsTheme - 'light', 'dark' - light - cores da setinha
+-->
+<div>
+	<h3>testando o carrossel</h3>
+	<carousel
+		[images]="imagesForSlider"
+		[objectFit]="'contain'"
+    [cellWidth]="'100%'"
+		[height]="500"
+    [autoplay]="true"
+		[dots]="false"
+		[loop]="true">
+	</carousel>
+</div>
+<div>
+	<h3>testando o carrossel</h3>
+	<carousel
+		[images]="imagesForSlider"
+		[objectFit]="'contain'"
+    [cellsToShow]="3"
+		[height]="200"
+    [autoplay]="true"
+		[dots]="false"
+    [margin]="20"
+    [arrows]="false"
+		[loop]="true">
+	</carousel>
+</div>
