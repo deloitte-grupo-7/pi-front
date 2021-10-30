@@ -9,12 +9,32 @@ html {
     height: 100%;
     width: 100%;
     body {
+        color: map-get($colors, "background");
+        background-color: map-get($colors, "alt-bg");
         height: 100%;
     }
 
     a {
         color: inherit;
         text-decoration: none;
+    }
+
+    strong {
+        &.invalid {
+            color: map-get($colors, "primary")
+        }
+        &.valid {
+            color: map-get($colors, "secondary")
+        }
+    }
+
+    input {
+        &.invalid {
+            outline: solid 2px map-get($colors, "primary");
+        }
+        &.valid {
+            outline: solid 2px map-get($colors, "secondary");
+        }
     }
 
     button {
@@ -31,5 +51,10 @@ html {
 
     .active {
         @include activeImportant;
+    }
+
+    .disabled {
+        background-color: gray !important;
+        cursor: auto;
     }
 }

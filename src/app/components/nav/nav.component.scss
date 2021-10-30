@@ -2,7 +2,7 @@
 @import '../../../assets/css/mixins';
 
 :host {
-    @include colorDefault;
+    @include colorLight;
     position: fixed;
     top: $header-height;
     display: grid;

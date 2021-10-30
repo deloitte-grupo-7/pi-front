@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SignUpValidationService } from 'src/app/services/signup-validation.service';
+import { ValidationService } from 'src/app/services/validation.service';
 import { Router } from '@angular/router';
 import { FieldTemplate } from 'src/app/models/FieldTemplate';
-import { EditForm } from 'src/app/models/UserForm';
+// import { EditForm } from 'src/app/models/UserForm';
 
 @Component({
   selector: 'app-edit',
@@ -18,21 +18,21 @@ export class EditPage implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private validate: SignUpValidationService,
+    private validate: ValidationService,
     private router: Router
   ) { 
     this.fields = [
       {
-        title: 'Nome de usuário', name: 'username', type: 'text',
+        title: 'Nome de usuário', name: 'username', type: 'text', validators: [],
       },
       {
-        title: 'Nome completo', name: 'name', type: 'text',
+        title: 'Nome completo', name: 'name', type: 'text', validators: [],
       },
       {
-        title: 'Email', name: 'email', type: 'text',
+        title: 'Email', name: 'email', type: 'text', validators: [],
       },
       {
-        title: 'Senha', name: 'password', type: 'password',
+        title: 'Senha', name: 'password', type: 'password', validators: [],
       },
     ]
     this.form = this.fb.group({
@@ -53,13 +53,13 @@ export class EditPage implements OnInit {
 
   onFormSubmit(ev: Event): void{
     ev.preventDefault();
-    const editForm: EditForm = {
-      username: this.get('username'),
-      name: this.get('name'),
-      email: this.get('email'),
-      password: this.get('password'),
-      description: this.get('description')
-    }
+    // const editForm: EditForm = {
+    //   username: this.get('username'),
+    //   name: this.get('name'),
+    //   email: this.get('email'),
+    //   password: this.get('password'),
+    //   description: this.get('description')
+    // }
 
     // this.submitted = true;
     // if (this.form.invalid){
@@ -67,17 +67,17 @@ export class EditPage implements OnInit {
     // } console.log(JSON.stringify(this.form.value, null, 2));
     
 
-    this.validate.update(editForm).subscribe(
-      {
-        next: data => {
-          this.router.navigateByUrl('');
-          console.log(data)
-        },
+    // this.validate.update(editForm).subscribe(
+    //   {
+    //     next: data => {
+    //       this.router.navigateByUrl('');
+    //       console.log(data)
+    //     },
 
-        error: err => console.log(err),
-        complete: () => console.log("Requisição terminada")
-      }
-    )
+    //     error: err => console.log(err),
+    //     complete: () => console.log("Requisição terminada")
+    //   }
+    // )
   }
 
   get(field: string): string {
