@@ -1,17 +1,70 @@
 <!-- <form [formGroup]="form"
     (ngSubmit)="onFormSubmit($event)">
 
-<ng-template ngFor let-template
+<!-- <ng-template ngFor let-template
              [ngForOf]="fields">
    <label [for]="template.name">
        {{template.title}}
-   </label>
+   </label> -->
 
-   <input  [formControlName]="template.name"
+   <!-- <input  [formControlName]="template.name"
            [type]="template.type"
            [name]="template.name"
-           >    
-</ng-template>
+           [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
+           <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Nome Completo requerido!</div>  
+           </div> -->
+    <div class="form-group">
+        <label>Nome de usuário</label>
+        <input type= "text"
+            name= "username"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f.username.errors }"/>
+            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+            <div *ngIf="f.username.errors.required">Nome de usuário requerido!</div>
+            <div *ngIf="f.username.errors.minlength">Nome de usuário com menos de 4 caracteres</div>
+            <div *ngIf="f.username.errors.maxlength">Nome de usuário com menos de 20 caracteres</div>  
+            </div> 
+    </div>        
+
+    <div class="form-group">
+        <label>Nome Completo</label>
+        <input type= "text"
+           name= "name"
+           class="form-control"
+           [ngClass]="{ 'is-invalid': submitted && f.name.errors }"/>
+           <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+            <div *ngIf="f.name.errors.required">Nome Completo requerido!</div>  
+           </div> 
+    </div> 
+    
+    <div class="form-group">
+        <label>Email</label>
+        <input type= "text"
+           name= "email"
+           class="form-control"
+           [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+           <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+            <div *ngIf="f.email.errors.required">Email requerido!</div>
+            <div *ngIf="f.email.errors.email">Email inválido!</div>  
+           </div> 
+    </div> 
+
+    <div class="form-group">
+        <label>Senha</label>
+        <input type= "text"
+           name= "password"
+           class="form-control"
+           [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+           <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+            <div *ngIf="f.password.errors.required">Senha requerida</div>
+            <div *ngIf="f.password.errors.minlength">A senha precisa de pelo menos 8 characters</div>
+            <div *ngIf="f.password.errors.maxlength">A senha excedeu o número de caracteres</div>    
+            <div *ngIf="f.password.errors.password">Senha inválida!</div>  
+           </div> 
+    </div> 
+    
+<!-- </ng-template> -->
 <label for="description">Descrição</label>
 <textarea formControlName="description" name="description">
 </textarea>

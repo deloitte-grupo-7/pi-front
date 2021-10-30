@@ -37,7 +37,7 @@ export class EditPage implements OnInit {
     ]
     this.form = this.fb.group({
     
-    username: ['', Validators.required, Validators.minLength(2), Validators.maxLength(20)],
+    username: ['', Validators.required, Validators.minLength(4), Validators.maxLength(20)],
     name: ['', Validators.required, Validators.minLength(3), Validators.maxLength(64)],
     email: ['', Validators.required, Validators.minLength(6), Validators.maxLength(64)],
     password: ['', Validators.required, Validators.minLength(8), Validators.maxLength(168)],
@@ -51,7 +51,11 @@ export class EditPage implements OnInit {
   ngOnInit(): void {
   }
 
-  onFormSubmit(ev: Event): void{
+  get f(): {[key: string]: AbstractControl}{
+    return this.form.controls;
+  }
+
+  onFormSubmit(ev: Event): void {
     ev.preventDefault();
     // const editForm: EditForm = {
     //   username: this.get('username'),
@@ -61,10 +65,10 @@ export class EditPage implements OnInit {
     //   description: this.get('description')
     // }
 
-    // this.submitted = true;
-    // if (this.form.invalid){
-    //   return;
-    // } console.log(JSON.stringify(this.form.value, null, 2));
+    this.submitted = true;
+    if (this.form.invalid){
+      return;
+    } console.log(JSON.stringify(this.form.value, null, 2));
     
 
     // this.validate.update(editForm).subscribe(
@@ -79,20 +83,25 @@ export class EditPage implements OnInit {
     //   }
     // )
   }
-
-  get(field: string): string {
-    return this.form.get(field)?.value;
+  
+  onReset(): void {
+    this.submitted=false;
+    this.form.reset();
   }
 
-  getAll(): string {
-    let str: string = '';
-    this.iterate((template: FieldTemplate) => {
-      str += this.form.get(template.name)?.value + '\n';
-    })
-    return str;
-  }
+  // get(field: string): string {
+  //   return this.form.get(field)?.value;
+  // }
 
-  iterate(f: Function): void {
-    this.validate.fields.forEach((template: FieldTemplate) => f(template));
-  }
+  // getAll(): string {
+  //   let str: string = '';
+  //   this.iterate((template: FieldTemplate) => {
+  //     str += this.form.get(template.name)?.value + '\n';
+  //   })
+  //   return str;
+  // }
+
+  // iterate(f: Function): void {
+  //   this.validate.fields.forEach((template: FieldTemplate) => f(template));
+  // }
 }
