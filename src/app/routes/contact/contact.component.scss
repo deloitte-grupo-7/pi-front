@@ -1,25 +1,29 @@
 
 section.conteiner{
     padding: 70px;
-    
 }
 
 .intro p{
-    font-size: 25px;
-    color: #000000;
-    padding-left: 20px;
-    line-height: 35px;
-    
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+
+}
+
+span{
+    font-size: 30px;
+    color:white; 
 }
 
 h1{
     margin-bottom: 50px;
-    color:#09532b;
-    font-size: 45px
+    color:rgb(0, 0, 0);
+    font-size: 45px;
+    display: flex;
+    justify-content: center;
  
 }
-
-
 
 .rede{
     display:flex;
@@ -28,22 +32,7 @@ h1{
 }
 
 .rede img{
-    width: 100px;
-    height: 100px;
-}
-
-.oi{
-    background-color: #0cc,;
-}
-
-.ee{
-    background-color:#000;
-}
-
-.ei{
-    background-color: #eee,;
-}
-
-.iu{
-    background-color:#90c,;
+    width: 50px;
+    height: 50px;
+    padding: 10px;
 }

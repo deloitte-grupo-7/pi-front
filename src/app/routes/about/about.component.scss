@@ -1,13 +1,9 @@
 // Desktop
 @media(min-width: 700px){
-    section.conteiner{
-    
-    }
-
     h1{
-        color:purple;
+        color:black;
         font-size: 45px;
-        padding:70px 30px 70px 30px;
+        padding:70px 30px 30px 30px;
     }
 
     .intro p{
@@ -16,34 +12,40 @@
         padding-left: 20px;
         line-height: 35px;
         text-align: justify;
-        margin-bottom: 25px;
+        margin-bottom: 70px;
     }
 
     .texto{
         text-align: center;
         padding:70px;
-        width: 500px;
-        height: 200px;
-        font-size: 24px 
+        width: 100%;
+        height: 100%;
+        font-size: 24px ;
+        align-items: center;
     }
 
     .texto h2{
         margin-bottom: 25px;
-        color:purple;
+        color:black;
         font-size: 35px
     }
 
     article {
         display: flex;
         justify-content: space-around;
-        align-items: center;
         margin-bottom: 70px;
+        align-items: center;
     }
 
     article .img img{
         width: 500px;
         height: 500px;
     }
+}
+
+
+@media(max-width: 900px){
+ 
 }
 
 // Mobile
@@ -59,37 +61,38 @@
         font-size: 16px;
     }
     
-    .sr-only{
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        padding: 0;
-        margin: -1px;
-        overflow: hidden;
-        clip: rect(0, 0, 0, 0);
-        white-space: nowrap;
-        border-width: 0;
-    }
-
-    article h1{
-        color:green !important;
+    article h2{
+        color:black;
+        margin-bottom: 20px;
     }
     
     article{
         display: flex;
-        flex-direction: column-reverse;
         margin-bottom: 20px;
         align-items: center;
-        
     }
-    
+    article:nth-child(1),
+    article:nth-child(3){
+        flex-direction: column-reverse;
+    }
+
+    article:nth-child(2){
+        flex-direction: column;
+    }
+
     article .texto{
         text-align: center;
+        margin-bottom: 20px;
     }
     
     article .img img{
-        max-width: 150px;
-        max-height: 150px;
+        max-width: 200px;
+        max-height: 200px;
+    }
+
+    h1{
+        color:black;
+        margin-bottom: 20px;
     }
 
     .intro p{
@@ -97,5 +100,6 @@
         margin-bottom: 20px;
     }
 }
+
 
 
