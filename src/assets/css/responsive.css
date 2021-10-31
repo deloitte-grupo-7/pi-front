@@ -1,0 +1,91 @@
+/* =====================================
+Template Name: Eshop
+Author Name: Naimur Rahman
+Author URI: http://www.wpthemesgrid.com/
+Description: Eshop - eCommerce HTML5 Template.
+Version:1.0
+========================================*/
+/* Tablet Screen */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+.section{
+	padding:50px 0px;
+}
+.post.single {
+	padding: 30px 0 50px 0;
+}
+}
+/* Mobile Screen */
+@media only screen and (max-width: 767px) {
+.section{
+	padding:50px 0px;
+}
+
+.post-home-list .post-section-title {
+	margin-top: 20px;
+}
+.post-home-list .single-list .content {
+	padding: 0;
+	padding: 20px;
+	text-align: center;
+}
+.post.single .profile-des .size {
+	margin-top: 10px;
+}
+.post.single .profile-des .short h4 {
+	font-size: 20px;
+	font-weight: 500;
+	margin-top: 0;
+	line-height: 24px;
+}
+.post.single .profile-des {
+	margin-top: 20px;
+}
+.post.single .profile-des .rating {
+	margin-top: 6px;
+}
+.post.single .profile-des .short .description {
+	font-size: 14px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-bottom: 11px;
+}
+.post.single .form .form-group textarea {
+	height: 150px;
+}
+.post.single .nav-tabs li a {
+	padding: 8px 22px;
+}
+.post.single .single-des p {
+	font-size: 14px;
+	font-weight: 400;
+}
+.post.single .single-des {
+	margin-top: 18px;
+}
+.post.single .single-des ul li {
+	margin-bottom: 4px;
+}
+.post.single .rating-des {
+	padding: 17px 20px 17px 107px;
+}
+.post.single .form .form-group button {
+	padding: 14px 40px;
+}
+
+}
+/* Mobile Screen */
+@media only screen and (max-width: 450px) {
+.post.single {
+	padding: 20px 0 30px 0;
+}
+.section{
+	padding:50px 0px;
+}
+
+.post.single .rating-author {
+	margin-right:0;
+}
+.post.single .rating-des {
+	padding: 17px 20px 17px 95px;
+}
+}

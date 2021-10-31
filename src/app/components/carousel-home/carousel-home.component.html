@@ -1,0 +1,32 @@
+<h3>Carrossel Superior</h3>
+			<carousel
+				#myCarousel="carousel"
+        [autoplay]="true"
+				[autoplayInterval]="2000"
+        [height]="400"
+        [cellWidth]="'100%'"
+        [cellsToShow]="1"
+        [transitionDuration]="1000"
+        [overflowCellsLimit]="1">
+
+				<div class="carousel-cell" *ngFor="let img of images; index as i;">
+					<a href="{{img.url}}"><img src="{{img.path}}" style="object-fit: contain; border-radius: 10px" ></a>
+				</div>
+			</carousel>
+      <br><br>
+      <h3>Carrossel Inferior</h3>
+      <carousel
+				#myCarousel="carousel"
+        [autoplay]="true"
+				[autoplayInterval]="2000"
+        [height]="200"
+        [cellsToShow]="3"
+        [freeScroll]="true"
+        [transitionDuration]="1000"
+        [arrows]="false"
+        [overflowCellsLimit]="1">
+
+				<div class="carousel-cell" *ngFor="let img of images; index as i;">
+					<a href="{{img.url}}"><img src="{{img.path}}" style="object-fit: cover; border-radius: 10px" ></a>
+				</div>
+			</carousel>

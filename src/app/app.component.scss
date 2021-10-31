@@ -1,17 +1,17 @@
 @import "../assets/css/variables";
 :host{
-  display: grid;
+  display: grid; /* <-- quebrando o carrossel */
   grid-template:
     "header"  $header-height
     "main"    auto
     "footer"  #{$footer-height} /
     100%;
-  place-items: center center;
+  place-items: center center; /* <-- quebrando a postagem */
   height: 100%;
   width: 100%;
   main {
     grid-area: main;
-    // display: grid;
+    display: grid;
     height: 100%;
     width: 100%;
   }
