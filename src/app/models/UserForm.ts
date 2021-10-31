@@ -1,17 +1,22 @@
-export interface SignInForm {
-    username: string,
-    password: string,
+export class SignInForm {
+    username: string = '';
+    name: string = '';
+    constructor(arr: any[]) {
+        let i = 0;
+        for (let prop in this) {
+            prop = arr[i];
+            i++;
+        }
+    }
 }
 
-export interface SignUpForm extends SignInForm {
-    name: string,
-    cpf: string,
-    email: string, 
-    birthday: string,
-};
+export class SignUpForm extends SignInForm {
+    name: string = '';
+    cpf: string = '';
+    email: string = '';
+    birthday: Date = new Date;
 
-export interface EditForm extends SignInForm {
-    name: string,
-    email: string, 
-    description: string,
+    constructor(arr: any[]) {
+        super(arr);
+    }
 }

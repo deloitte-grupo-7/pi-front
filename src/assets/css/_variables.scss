@@ -5,10 +5,13 @@ $sans: 'Source Sans Pro', sans-serif;
 $serif: 'Source Serif Pro' , serif;
 
 $colors: (
-    "primary": #486,
-    "secondary": red,
-    "foreground": black,
-    "background": white,
+    "primary": #90c,
+    "secondary": #0cc,
+    "foreground": #000,
+    "background": #eee,
+    "alt-bg": #333,
+    "success": #484,
+    "alert": #d44,
 );
 
 @keyframes drop {

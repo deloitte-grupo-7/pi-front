@@ -1,6 +1,11 @@
-@mixin colorDefault {
+@mixin colorLight {
     color: map-get($colors, "foreground");
     background-color: map-get($colors, "background");
+}
+
+@mixin colorDark {
+    color: map-get($colors, "background");
+    background-color: map-get($colors, "foreground");
 }
 
 @mixin colorAlt {

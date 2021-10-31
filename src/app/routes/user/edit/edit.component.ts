@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { SignUpValidationService } from 'src/app/services/signup-validation.service';
+import { ValidationService } from 'src/app/services/validation.service';
 import { Router } from '@angular/router';
 import { FieldTemplate } from 'src/app/models/FieldTemplate';
-import { EditForm } from 'src/app/models/UserForm';
+// import { EditForm } from 'src/app/models/UserForm';
 
 @Component({
   selector: 'app-edit',
@@ -18,21 +18,21 @@ export class EditPage implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private validate: SignUpValidationService,
+    private validate: ValidationService,
     private router: Router
   ) { 
     this.fields = [
       {
-        title: 'Nome de usuário', name: 'username', type: 'text',
+        title: 'Nome de usuário', name: 'username', type: 'text', validators: [],
       },
       {
-        title: 'Nome completo', name: 'name', type: 'text',
+        title: 'Nome completo', name: 'name', type: 'text', validators: [],
       },
       {
-        title: 'Email', name: 'email', type: 'text',
+        title: 'Email', name: 'email', type: 'text', validators: [],
       },
       {
-        title: 'Senha', name: 'password', type: 'password',
+        title: 'Senha', name: 'password', type: 'password', validators: [],
       },
     ]
     this.form = this.fb.group({
@@ -55,7 +55,7 @@ export class EditPage implements OnInit {
     return this.form.controls;
   }
 
-  onFormSubmit(ev: Event): void{
+  onFormSubmit(ev: Event): void {
     ev.preventDefault();
     // const editForm: EditForm = {
     //   username: this.get('username'),
@@ -82,9 +82,8 @@ export class EditPage implements OnInit {
     //     complete: () => console.log("Requisição terminada")
     //   }
     // )
-
   }
-
+  
   onReset(): void {
     this.submitted=false;
     this.form.reset();

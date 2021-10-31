@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { FieldTemplate } from 'src/app/models/FieldTemplate';
-import { SignUpValidationService } from 'src/app/services/signup-validation.service';
+import { ValidationService } from 'src/app/services/validation.service';
 import { SignInForm } from 'src/app/models/UserForm';
 
 @Component({
@@ -17,18 +17,20 @@ export class SignInPage implements OnInit {
   constructor(
     private router: Router,
     private fb: FormBuilder,
-    private validate: SignUpValidationService,
+    private validate: ValidationService,
   ) { 
     this.fields= [
       {
         title: 'Nome de usuário',
         name: 'username',
         type: 'text',
+        validators: []
       },
       {
         title: 'Senha',
         name: 'password',
         type: 'password',
+        validators: []
       }
     ]
     this.form=fb.group({
@@ -45,22 +47,22 @@ export class SignInPage implements OnInit {
 
   onFormSubmit(ev: Event): void {
     ev.preventDefault();
-    const signInForm: SignInForm = {
-      username: this.get('username'),
-      password: this.get('password'),
-     }
+    // const signInForm: SignInForm = {
+    //   username: this.get('username'),
+    //   password: this.get('password'),
+    //  }
 
-     this.validate.signInRequest(signInForm).subscribe(
-      {
-        next: data => {
-          this.router.navigateByUrl('');
-          console.log(data)
-        },
+    //  this.validate.signInRequest(signInForm).subscribe(
+    //   {
+    //     next: data => {
+    //       this.router.navigateByUrl('');
+    //       console.log(data)
+    //     },
 
-        error: err => console.log(err),
-        complete: () => console.log("Requisição terminada")
-      }
-    )
+    //     error: err => console.log(err),
+    //     complete: () => console.log("Requisição terminada")
+    //   }
+    // )
   }
   get(field: string): string {
     return this.form.get(field)?.value;
