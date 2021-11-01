@@ -42,3 +42,7 @@
 @mixin mobile {
     @media (max-width: 768px) { @content; }
 }
+
+@mixin phone {
+    @media (max-width: 392px) { @content; }
+}
