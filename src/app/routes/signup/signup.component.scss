@@ -8,7 +8,7 @@
     align-items: center;
     justify-content: center;
     .border {
-        background: linear-gradient(90deg, rgba(144,0,192,1) 0%, rgba(0,202,205,1) 100%);
+        background: linear-gradient(135deg, rgba(144,0,192,1) 0%, rgba(0,202,205,1) 100%);
         padding: .25rem;
         border-radius: .5rem;
         form {
@@ -17,7 +17,7 @@
             flex-direction: row;
             justify-content: space-between;
             flex-wrap: wrap;
-            max-width: 30rem;
+            max-width: 24rem;
             width: 100%;
             background-color: white;
             padding: 2rem;
@@ -41,8 +41,8 @@
                 right: .5rem;
                 font-size: 1.25rem;
                 font-weight: 800;
-                height: 16px;
-                width: 16px;
+                height: 1rem;
+                width: 1rem;
                 background-color: white;
             }
             .submit {

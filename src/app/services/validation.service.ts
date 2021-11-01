@@ -15,7 +15,6 @@ const fields: FieldTemplate[] = [
       Validators.maxLength(20),
       Validators.pattern(/[a-zA-Z\d]+/)
     ],
-    regex: /[a-zA-Z\d]+/,
   },
   {
     title: 'Nome completo',
@@ -27,7 +26,6 @@ const fields: FieldTemplate[] = [
       Validators.maxLength(64),
       Validators.pattern(/[a-zA-Z\d]+/),
     ],
-    regex: /[a-zA-ZÀ-ú\s]+/,
   },
   {
     title: 'CPF',
@@ -39,7 +37,6 @@ const fields: FieldTemplate[] = [
       Validators.maxLength(11),
       Validators.pattern(/\d+/),
     ],
-    regex: /\d+/,
   },
   {
     title: 'Email',
@@ -51,7 +48,6 @@ const fields: FieldTemplate[] = [
       Validators.maxLength(64),
       Validators.email,
     ],
-    regex: /^[^\_\.\-][\w\d\.\-]{4,}(?<![\.\_\-])\@\w{2,}(\.{1}[a-zA-Z]{2,})(?!\.)$/,
   },
   {
     title: 'Data de nascimento',
