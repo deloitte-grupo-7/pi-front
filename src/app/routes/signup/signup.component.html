@@ -4,24 +4,23 @@
                   [ngForOf]="form.controls"
                   let-i="index">
       <label [for]="fields[i].name">
-          {{fields[i].title}}
+        {{ fields[i].title }}
       </label>
       <strong class="status"
               [ngClass]="validateClass(field)"
-              *ngIf="field.touched">{{validateSymbol(field)}}</strong>
-      
+              *ngIf="field.touched">
+        {{ validateSymbol(field) }}
+      </strong>
       <input  [ngClass]="field.touched ? validateClass(field) : ''"
               [formControl]="getControl(i)"
               [type]="fields[i].type"
               [name]="fields[i].name">
     </ng-template>
-    <button [disabled]="form.status == 'INVALID'"
+    <button [disabled]="isInvalid(form)"
             [ngClass]="{ 'submit': true,
-                         'disabled': form.status == 'INVALID' }"
-            type="submit">Cadastrar</button>
+                         'disabled': isInvalid(form) }"
+            type="submit">
+      Cadastrar
+    </button>
   </form>
 </div>
-
-<pre>
-  {{getValues()}}
-</pre>

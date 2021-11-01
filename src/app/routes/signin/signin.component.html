@@ -1,14 +1,23 @@
-<!-- <form [formGroup]="form"
-    (ngSubmit)="onFormSubmit($event)">
+<div class="border">
+  <form (ngSubmit)="onFormSubmit($event)">
+    <ng-template    ngFor let-field
+                    [ngForOf]="form.controls"
+                    let-i="index">
+        <label [for]="fields[i].name">
+            {{ fields[i].title }}
+        </label>
+        <input
+               [formControl]="getControl(i)"
+               [type]="fields[i].type"
+               [name]="fields[i].name">               
+    </ng-template>
 
-<ng-template ngFor let-template
-             [ngForOf]="fields">
-   <label [for]="template.name">
-       {{template.title}}
-   </label>
-   <input  [formControlName]="template.name"
-           [type]="template.type"
-           [name]="template.name">
-</ng-template>
-   <button type="submit">Entrar</button>    
-</form> -->
+    <input class="checkbox" name="staysignedin" type="checkbox">
+    <label for="staysignedin">Permanecer logado</label>
+        
+        <button type="submit"
+                class="submit">
+            Entrar
+        </button>
+  </form>
+</div>

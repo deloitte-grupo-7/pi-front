@@ -1,10 +1,10 @@
 export class SignInForm {
     username: string = '';
-    name: string = '';
-    constructor(arr: any[]) {
+    password: string = '';
+    constructor(fields: any[]) {
         let i = 0;
         for (let prop in this) {
-            prop = arr[i];
+            prop = fields[i];
             i++;
         }
     }
@@ -16,7 +16,17 @@ export class SignUpForm extends SignInForm {
     email: string = '';
     birthday: Date = new Date;
 
-    constructor(arr: any[]) {
-        super(arr);
+    constructor(fields: any[]) {
+        super(fields);
+    }
+}
+
+export class ProfileEditForm extends SignInForm {
+    name: string = '';
+    email: string = '';
+    description: string = '';
+
+    constructor(fields: any[]) {
+        super(fields);
     }
 }
