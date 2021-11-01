@@ -1,7 +1,7 @@
 // Desktop
 @media(min-width: 700px){
     h1{
-        color:black;
+        color:purple;
         font-size: 45px;
         padding:70px 30px 30px 30px;
     }
@@ -22,11 +22,12 @@
         height: 100%;
         font-size: 24px ;
         align-items: center;
+        color:black;
     }
 
     .texto h2{
         margin-bottom: 25px;
-        color:black;
+        color:purple;
         font-size: 35px
     }
 
@@ -35,6 +36,7 @@
         justify-content: space-around;
         margin-bottom: 70px;
         align-items: center;
+        background-color:white;
     }
 
     article .img img{
@@ -78,6 +80,7 @@
     article h2{
         color:black;
         margin-bottom: 20px;
+        font-size:20px
     }
     
     article{
