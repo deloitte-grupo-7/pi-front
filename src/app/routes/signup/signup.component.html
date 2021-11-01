@@ -1,20 +1,26 @@
-<form [formGroup]="form"
-      (ngSubmit)="onFormSubmit($event)"
-      action="">
-
-  <ng-template  ngFor let-template
-                [ngForOf]="fields">
-    <label [for]="template.name">
-        {{template.title}}
-    </label>
-    <input  [formControlName]="template.name"
-            [type]="template.type"
-            [name]="template.name">
-  </ng-template>
-  
-  <button type="submit">Cadastrar</button>
-</form>
-
-<pre>
-  {{getAll()}}
-</pre>
+<div class="border">
+  <form (ngSubmit)="onFormSubmit($event)">
+    <ng-template  ngFor let-field
+                  [ngForOf]="form.controls"
+                  let-i="index">
+      <label [for]="fields[i].name">
+        {{ fields[i].title }}
+      </label>
+      <strong class="status"
+              [ngClass]="validateClass(field)"
+              *ngIf="field.touched">
+        {{ validateSymbol(field) }}
+      </strong>
+      <input  [ngClass]="field.touched ? validateClass(field) : ''"
+              [formControl]="getControl(i)"
+              [type]="fields[i].type"
+              [name]="fields[i].name">
+    </ng-template>
+    <button [disabled]="isInvalid(form)"
+            [ngClass]="{ 'submit': true,
+                         'disabled': isInvalid(form) }"
+            type="submit">
+      Cadastrar
+    </button>
+  </form>
+</div>

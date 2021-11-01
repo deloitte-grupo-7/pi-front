@@ -4,7 +4,7 @@
   grid-template:
     "header"  $header-height
     "main"    auto
-    "footer"  #{$footer-height} /
+    "footer"  auto /
     100%;
   // place-items: center center; /* <-- quebrando a postagem */
   height: 100%;

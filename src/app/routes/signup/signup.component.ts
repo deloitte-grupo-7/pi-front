@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FieldTemplate } from 'src/app/models/FieldTemplate';
-import { SignUpValidationService } from 'src/app/services/signup-validation.service';
+import { ValidationService } from 'src/app/services/validation.service';
 import { SignUpForm } from 'src/app/models/UserForm';
 import { Router } from '@angular/router';
 
@@ -14,54 +14,38 @@ import { Router } from '@angular/router';
 export class SignUpPage implements OnInit {
 
   fields: FieldTemplate[];
-  form: FormGroup;
+  form: FormArray;
 
   constructor(
     private fb: FormBuilder,
     private http: HttpClient,
-    private validate: SignUpValidationService,
+    private validate: ValidationService,
     private router: Router
   ) {
-    this.fields = validate.fields;
-    this.form = fb.group({
-      username: ['', Validators.required],
-      name: ['', Validators.required],
-      cpf: ['', Validators.required],
-      email: ['', Validators.required],
-      birthday: ['', Validators.required],
-      password: ['', Validators.required],
-      passconf: ['', Validators.required],
-    }, 
-    {
-      updateOn: 'blur',
-    });
+    this.fields = validate.fields.filter(field =>
+      field.name.match(/(username)|(name)|(cpf)|(email)|(birthday)|(password)|(passconf)/)
+    );
+    this.form = fb.array([], { updateOn: 'blur' });
   }
 
-  ngOnInit(): void { }
+  ngOnInit(): void {
+    this.fields.forEach(field => this.form.push(new FormControl(null, field.validators)));
+    console.log(this.form);
+  }
 
   onFormSubmit(ev: Event): void {
     ev.preventDefault();
-    this.iterate((field: FieldTemplate) => {
+    console.log(this.form);
 
-    })
-    const userForm: SignUpForm = {
-      username: this.get('username'),
-      name: this.get('name'),
-      cpf: this.get('cpf'),
-      email: this.get('email'),
-      birthday: this.get('birthday'),
-      password: this.get('password'),
-    }
-
-    this.validate.signUpRequest(userForm).subscribe(
+    this.validate.signUpRequest(new SignUpForm(this.form.value)).subscribe(
       {
         next: data => {
           this.router.navigateByUrl('');
-          console.log(data)
+          console.log(data);
         },
 
         error: err => console.log(err),
-        complete: () => console.log("Requisição terminada")
+        complete: () => console.log("Requisição terminada"),
       }
     )
   }
@@ -82,8 +66,37 @@ export class SignUpPage implements OnInit {
     this.validate.fields.forEach((template: FieldTemplate) => f(template));
   }
 
-  validator(field: string): void {
-
+  getValues(): string {
+    let values: string = '';
+    this.getControls().forEach(control => values += control.value + '\n');
+    return values;
   }
 
+  getValue(i: number): string {
+    return this.getControl(i).value;
+  }
+
+  getControl(i: number): FormControl {
+    return <FormControl>this.form.controls[i];
+  }
+
+  getControls(): FormControl[] {
+    return <FormControl[]>this.form.controls;
+  }
+
+  log() {
+    console.log(this.form);
+  }
+
+  isInvalid(control: AbstractControl | FormArray): boolean {
+    return control.status == 'INVALID';
+  }
+
+  validateSymbol(control: AbstractControl): string {
+    return this.isInvalid(control) ? '⚠' : '✔'; 
+  }
+
+  validateClass(control: AbstractControl): string {
+    return this.isInvalid(control) ? 'invalid' : 'valid';
+  }
 }
