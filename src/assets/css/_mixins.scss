@@ -1,6 +1,11 @@
-@mixin colorDefault {
+@mixin colorLight {
     color: map-get($colors, "foreground");
     background-color: map-get($colors, "background");
+}
+
+@mixin colorDark {
+    color: map-get($colors, "background");
+    background-color: map-get($colors, "foreground");
 }
 
 @mixin colorAlt {
@@ -36,4 +41,8 @@
 
 @mixin mobile {
     @media (max-width: 768px) { @content; }
+}
+
+@mixin phone {
+    @media (max-width: 392px) { @content; }
 }
