@@ -22,8 +22,10 @@ export class SignUpPage implements OnInit {
     private validate: ValidationService,
     private router: Router
   ) {
-    this.fields = validate.fields;
-    this.form = fb.array([], {updateOn: 'blur'});
+    this.fields = validate.fields.filter(field =>
+      field.name.match(/(username)|(name)|(cpf)|(email)|(birthday)|(password)|(passconf)/)
+    );
+    this.form = fb.array([], { updateOn: 'blur' });
   }
 
   ngOnInit(): void {
@@ -33,17 +35,17 @@ export class SignUpPage implements OnInit {
 
   onFormSubmit(ev: Event): void {
     ev.preventDefault();
-    console.log('form submitted');
+    console.log(this.form);
 
     this.validate.signUpRequest(new SignUpForm(this.form.value)).subscribe(
       {
         next: data => {
           this.router.navigateByUrl('');
-          console.log(data)
+          console.log(data);
         },
 
         error: err => console.log(err),
-        complete: () => console.log("Requisição terminada")
+        complete: () => console.log("Requisição terminada"),
       }
     )
   }
@@ -86,7 +88,7 @@ export class SignUpPage implements OnInit {
     console.log(this.form);
   }
 
-  isInvalid(control: AbstractControl): boolean {
+  isInvalid(control: AbstractControl | FormArray): boolean {
     return control.status == 'INVALID';
   }
 
