@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import {IvyCarouselModule} from 'angular-responsive-carousel';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -17,7 +16,9 @@ import { ContactPage } from './routes/contact/contact.component';
 import { AboutPage } from './routes/about/about.component';
 import { NavComponent } from './components/nav/nav.component';
 import { EditPage } from './routes/user/edit/edit.component';
-import { CarouselComponent } from './components/carousel/carousel.component';
+import { PostComponent } from './routes/post/post.component';
+import {IvyCarouselModule} from './components/carousel/carousel.module';
+import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { CarouselComponent } from './components/carousel/carousel.component';
     AboutPage,
     NavComponent,
     EditPage,
-    CarouselComponent,
+    PostComponent,
+    CarouselHomeComponent,
   ],
   imports: [
     BrowserModule,
