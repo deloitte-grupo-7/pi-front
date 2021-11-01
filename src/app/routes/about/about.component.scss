@@ -8,7 +8,7 @@
 
     .intro p{
         font-size: 25px;
-        color: white;
+        color: white; 
         padding-left: 20px;
         line-height: 35px;
         text-align: justify;
@@ -43,8 +43,22 @@
     }
 }
 
-
+//Tablet
 @media(max-width: 900px){
+    .container{
+        box-sizing: border-box;
+        width: 100vw;
+
+        padding: 30px 50px ;
+    }
+    article:nth-child(1),
+    article:nth-child(3){
+        flex-direction: column-reverse;
+    }
+
+    article:nth-child(2){
+        flex-direction: column;
+    }
  
 }
 
