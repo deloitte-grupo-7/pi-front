@@ -9,15 +9,15 @@
         <input
                [formControl]="getControl(i)"
                [type]="fields[i].type"
-               [name]="fields[i].name">               
+               [name]="fields[i].name"
+               (keydown.enter)="getControl(i)">
+                              
     </ng-template>
 
     <input class="checkbox" name="staysignedin" type="checkbox">
     <label for="staysignedin">Permanecer logado</label>
-        
         <button type="submit"
-                class="submit">
-            Entrar
+                class="submit">Entrar
         </button>
   </form>
 </div>
