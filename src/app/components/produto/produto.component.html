@@ -1,0 +1,15 @@
+<div class="grid">
+  <article *ngFor="let produto of produtos">
+      <!-- <img src="{{produto.imagem}}">  -->
+    <img src="assets\img\banana.jpg"> 
+    <div class="text">
+      <h3>{{produto.nome}}</h3>
+      <p>{{produto.descricao}}</p>
+      <p>{{produto.avaliacao}}</p>
+      <button>Ver mais</button>
+    </div>
+  </article>
+</div>
+
+<!-- Aqui está o formato do card, por enquanto to usando a msm imagem, mas acredito q seja mais ou menos
+daquela forma q vai ser pra trocar -->
