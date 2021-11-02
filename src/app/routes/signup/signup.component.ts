@@ -37,11 +37,21 @@ export class SignUpPage implements OnInit {
     ev.preventDefault();
     console.log(this.form);
 
-    this.validate.signUpRequest(new SignUpForm(this.form.value)).subscribe(
+    const form: Map<string, any> = new Map();
+
+    let i = 0;
+    this.fields.forEach(field => {
+      form.set(field.name, this.form.value[i]);
+      i++;
+    });
+
+    console.log(new SignUpForm(form));
+    this.validate.signUpRequest(new SignUpForm(form)).subscribe(
       {
         next: data => {
           this.router.navigateByUrl('');
           console.log(data);
+          window.localStorage.setItem('getserv', JSON.stringify(data));
         },
 
         error: err => console.log(err),

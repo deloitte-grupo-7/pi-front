@@ -1,4 +1,7 @@
+@import '../../../assets/css/variables';
+
 :host {
+  z-index: -1;
   grid-area: footer;
   background-color: #24262b;
   padding: 70px 0;
@@ -28,7 +31,7 @@
           position: absolute;
           left: 0;
           bottom: -10px;
-          background-color: purple;
+          background-color: map-get($colors, "primary");
           height: 2px;
           box-sizing: border-box;
           width: 50px;

@@ -1,12 +1,9 @@
 export class SignInForm {
     username: string = '';
     password: string = '';
-    constructor(fields: any[]) {
-        let i = 0;
-        for (let prop in this) {
-            prop = fields[i];
-            i++;
-        }
+    constructor(form: Map<string, any>) {
+        this.username = form.get('username');
+        this.password = form.get('password');
     }
 }
 
@@ -16,8 +13,12 @@ export class SignUpForm extends SignInForm {
     email: string = '';
     birthday: Date = new Date;
 
-    constructor(fields: any[]) {
-        super(fields);
+    constructor(form: Map<string, any>) {
+        super(form);
+        this.name = form.get('name');
+        this.cpf = form.get('cpf');
+        this.email = form.get('email');
+        this.birthday = form.get('birthday');
     }
 }
 
@@ -26,7 +27,7 @@ export class ProfileEditForm extends SignInForm {
     email: string = '';
     description: string = '';
 
-    constructor(fields: any[]) {
-        super(fields);
+    constructor(form: Map<string, any>) {
+        super(form);
     }
 }
