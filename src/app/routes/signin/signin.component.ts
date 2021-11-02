@@ -11,8 +11,10 @@ import { ValidationService } from 'src/app/services/validation.service';
   styleUrls: ['./signin.component.scss']
 })
 export class SignInPage implements OnInit {
+  
   fields: FieldTemplate[];
   form: FormArray;
+  showError: boolean = false;
 
   constructor(
     private router: Router,
@@ -28,6 +30,10 @@ export class SignInPage implements OnInit {
   ngOnInit(): void {
     this.fields.forEach(field => this.form.push(new FormControl()));
     console.log (this.form);
+
+    // this.fields = this.form.({
+    //   staysignedin: [''],
+    // })
   }
 
   onFormSubmit(ev: Event): void {
@@ -37,14 +43,16 @@ export class SignInPage implements OnInit {
      this.validate.signInRequest(signInForm).subscribe(
       {
         next: data => {
-          this.router.navigateByUrl('');
-          console.log(data)
+          window.sessionStorage.setItem('token', (<{token:string}>data).token);
+          this.router.navigateByUrl('/home')
         },
-
-        error: err => console.log(err),
-        complete: () => console.log("Requisição terminada")
+   
+        error: err => {
+          this.showError = true;
+        }
       }
     )
+    // console.log(this.staysignedin.value);
   }
   get(field: string): string {
     return this.form.get(field)?.value;
@@ -65,4 +73,13 @@ export class SignInPage implements OnInit {
   getControl(i: number): FormControl {
     return <FormControl>this.form.controls[i];
   }
+
+  getControls(): FormControl[] {
+    return<FormControl[]>this.form.controls;
+  }
+
+  staysignedin(){
+    console.log("Permanecendo logado");
+  }
+
 }
