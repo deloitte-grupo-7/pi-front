@@ -19,6 +19,7 @@ import { EditPage } from './routes/user/edit/edit.component';
 import { PostComponent } from './routes/post/post.component';
 import {IvyCarouselModule} from './components/carousel/carousel.module';
 import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
+import { ProdutoComponent } from './components/produto/produto.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { CarouselHomeComponent } from './components/carousel-home/carousel-home.
     EditPage,
     PostComponent,
     CarouselHomeComponent,
+    ProdutoComponent,
   ],
   imports: [
     BrowserModule,
