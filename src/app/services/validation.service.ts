@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpXhrBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FieldTemplate } from '../models/FieldTemplate';
@@ -85,35 +85,15 @@ const fields: FieldTemplate[] = [
   providedIn: 'root'
 })
 export class ValidationService {
-  fields: FieldTemplate[] = fields;
-  private readonly apiURL: string;
+  static readonly fields: FieldTemplate[] = fields;
+  private static readonly apiURL: string = 'https://pi-back7.herokuapp.com';
+  static http: HttpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }));
 
-  config = {
-    required: 'Obrigatório',
-    invalidUsername: 'O nome de usuário deve ter somente letras e números',
-    invalidName: 'O nome não pode ter caracteres especiais',
-    invalidCpf: 'CPF inválido',
-    invalidEmail: 'Email inválido',
-    invalidPassword: 'A senha deve ter pelo menos 8 caracteres e incluir uma letra maiúcula, uma minúscula, um número, e um caractere especial.',
-  }
-
-  constructor(private http:HttpClient){
-    this.apiURL = 'https://pi-back7.herokuapp.com';
-  }
-
-  static getValidatorErrorMessage(validatorName: string, validatorValue?: any) {
-  }
-
-  signUpRequest(form: SignUpForm) {
+  static signUpRequest(form: SignUpForm) {
     return this.http.post(`${this.apiURL}/register`, form)
   }
 
-  signInRequest(form: SignInForm){
+  static signInRequest(form: SignInForm){
     return this.http.post(`${this.apiURL}/login`, form)
   }
-
-  // update(form: EditForm){
-  //   return this.http.put(`${this.apiURL}/edit`, form)
-  // }
-
 }

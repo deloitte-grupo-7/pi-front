@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormArray, AbstractControl } from '@angular/forms';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { FieldTemplate } from 'src/app/models/FieldTemplate';
+import { FormTemplate } from 'src/app/components/form/form.component';
 import { SignInForm } from 'src/app/models/UserForm';
 import { ValidationService } from 'src/app/services/validation.service';
 
@@ -10,59 +9,33 @@ import { ValidationService } from 'src/app/services/validation.service';
   templateUrl: './signin.component.html',
   styleUrls: ['./signin.component.scss']
 })
-export class SignInPage implements OnInit {
-  fields: FieldTemplate[];
-  form: FormArray;
+export class SignInPage extends FormTemplate {
+  
+  showError: boolean = false;
 
-  constructor(
-    private router: Router,
-    private fb: FormBuilder,
-    private validate: ValidationService,
-  ) { 
-    this.fields = validate.fields.filter(field =>
-      field.name.match(/(username)|(password)/)
-    );
-    this.form = fb.array([], { updateOn: 'blur' });
-  }
-
-  ngOnInit(): void {
-    this.fields.forEach(field => this.form.push(new FormControl()));
-    console.log (this.form);
-  }
+  constructor(private router: Router) { super(/(username)|(password)/); }
 
   onFormSubmit(ev: Event): void {
     ev.preventDefault();
     const signInForm: SignInForm = new SignInForm(this.form.value);
 
-     this.validate.signInRequest(signInForm).subscribe(
+     ValidationService.signInRequest(signInForm).subscribe(
       {
         next: data => {
-          this.router.navigateByUrl('');
-          console.log(data)
+          window.sessionStorage.setItem('token', (<{token:string}>data).token);
+          this.router.navigateByUrl('/home')
         },
-
-        error: err => console.log(err),
-        complete: () => console.log("Requisição terminada")
+   
+        error: err => {
+          this.showError = true;
+        }
       }
     )
-  }
-  get(field: string): string {
-    return this.form.get(field)?.value;
+    // console.log(this.staysignedin.value);
   }
 
-  getAll(): string {
-    let str: string = '';
-    this.iterate((template: FieldTemplate) => {
-      str += this.form.get(template.name)?.value + '\n';
-    })
-    return str;
+  staysignedin(){
+    console.log("Permanecendo logado");
   }
 
-  iterate(f: Function): void {
-    this.validate.fields.forEach((template: FieldTemplate) => f(template));
-  }
-
-  getControl(i: number): FormControl {
-    return <FormControl>this.form.controls[i];
-  }
 }
