@@ -7,18 +7,18 @@
         {{ fields[i].title }}
       </label>
       <strong class="status"
-              [ngClass]="validateClass(field)"
+              [ngClass]="validate(field, 'valid', 'invalid')"
               *ngIf="field.touched">
-        {{ validateSymbol(field) }}
+        {{ validate(field, '✔', '⚠') }}
       </strong>
-      <input  [ngClass]="field.touched ? validateClass(field) : ''"
+      <input  [ngClass]="field.touched ? validate(field, 'valid', 'invalid') : ''"
               [formControl]="getControl(i)"
               [type]="fields[i].type"
               [name]="fields[i].name">
     </ng-template>
-    <button [disabled]="isInvalid(form)"
+    <button [disabled]="form.invalid"
             [ngClass]="{ 'submit': true,
-                         'disabled': isInvalid(form) }"
+                         'disabled': form.invalid }"
             type="submit">
       Cadastrar
     </button>
