@@ -6,7 +6,7 @@ import { SignInForm, SignUpForm } from '../models/UserForm';
 
 const fields: FieldTemplate[] = [
   {
-    title: 'Nome de usuário', 
+    title: 'Nome de usuário',
     name: 'username',
     type: 'text',
     validators: [
@@ -77,6 +77,7 @@ const fields: FieldTemplate[] = [
       Validators.maxLength(32),
     ]
   },
+  
 ];
 
 

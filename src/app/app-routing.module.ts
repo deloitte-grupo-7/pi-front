@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutPage } from './routes/about/about.component';
 import { ContactPage } from './routes/contact/contact.component';
 import { HomePage } from './routes/home/home.component';
+import { PostComponent } from './routes/post/post.component';
 import { SignInPage } from './routes/signin/signin.component';
 import { SignUpPage } from './routes/signup/signup.component';
 import { EditPage } from './routes/user/edit/edit.component';
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'about'     , component: AboutPage },
   { path: 'contact'   , component: ContactPage },
   { path: 'edit'      , component: EditPage },
+  { path: 'p'      , component:  PostComponent},
 ];
 
 @NgModule({
