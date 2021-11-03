@@ -20,6 +20,7 @@ import { PostComponent } from './routes/post/post.component';
 import {IvyCarouselModule} from './components/carousel/carousel.module';
 import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
 import { ProdutoComponent } from './components/produto/produto.component';
+import { FormTemplate } from './components/form/form.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { ProdutoComponent } from './components/produto/produto.component';
     PostComponent,
     CarouselHomeComponent,
     ProdutoComponent,
+    FormTemplate,
   ],
   imports: [
     BrowserModule,
