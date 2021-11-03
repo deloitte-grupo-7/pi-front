@@ -1,15 +1,43 @@
 <div class="grid">
   <article *ngFor="let produto of produtos">
-      <!-- <img src="{{produto.imagem}}">  -->
-    <img src="assets\img\banana.jpg"> 
+    <img src="{{produto.imagem}}"> 
     <div class="text">
       <h3>{{produto.nome}}</h3>
       <p>{{produto.descricao}}</p>
-      <p>{{produto.avaliacao}}</p>
+      <div class="avaliacao">
+        <i class="fa-solid fa-star" *ngFor="let star of starsB(produto.avaliacao)"></i>
+        <i class="fa-regular fa-star" *ngFor="let star of starsW(produto.avaliacao)"></i>
+      </div>
       <button>Ver mais</button>
     </div>
   </article>
 </div>
 
-<!-- Aqui está o formato do card, por enquanto to usando a msm imagem, mas acredito q seja mais ou menos
-daquela forma q vai ser pra trocar -->
+<section>
+<div class="container">
+   <div class="post">
+     <div class="text">Digite sua avaliação do serviço prestado</div>
+   </div>
+  <div class="star-widget">
+    <input type="radio" name="rate" id="rate-5" value=5>
+    <label for="rate-5" class="fa-solid fa-star" ></label>
+
+    <input type="radio" name="rate" id="rate-4" value=4>
+    <label for="rate-4" class="fa-solid fa-star"></label>
+
+    <input type="radio" name="rate" id="rate-3" value=3>
+    <label for="rate-3" class="fa-solid fa-star"></label>
+
+    <input type="radio" name="rate" id="rate-2" value=2>
+    <label for="rate-2" class="fa-solid fa-star"></label>
+
+    <input type="radio" name="rate" id="rate-1" value=1>
+    <label for="rate-1" class="fa-solid fa-star"></label>
+    
+  </div>
+  <button type="submit" (click)="teste($event)" >Enviar</button>
+</div>
+</section>
+
+
+

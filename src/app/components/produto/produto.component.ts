@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Produto } from 'src/app/models/Produto';
 import { ProdutoService } from 'src/app/services/produto.service';
 
@@ -11,30 +11,39 @@ export class ProdutoComponent implements OnInit {
 
   produtos: Produto[] = [
     {
-      nome:"Aula de violão",
+      nome:"Banana",
       descricao: "Aula de  violão para crianças de 10 anos em 3 meses",
       avaliacao:2,
-      // imagem: "assets//img//banana.jpg"
+      imagem: "assets/img/banana.jpg"
     },
     {
-      nome:"Aula de violão",
-      descricao: "Aula de  violão para crianças de 10 anos em 3 meses",
+      nome:"Narutinho",
+      descricao: "Naruto correndo atrás do sasuke por 9 temporadas",
       avaliacao:2,
+      imagem: "assets/img/naruto.jpg"
     },
     {
-      nome:"Aula de violão",
+      nome:"Calopsita",
       descricao: "Aula de  violão para crianças de 10 anos em 3 meses",
       avaliacao:3,
+      imagem: "assets/img/capos1.jpeg"
     },
     {
-      nome:"Aula de violão",
+      nome:"Dog",
       descricao: "Aula de  violão para crianças de 10 anos em 3 meses",
       avaliacao:4,
+      imagem: "assets/img/dog1.jpeg"
     },
     {
-      nome:"Aula de violão",
+      nome:"Pera",
       descricao: "Aula de  violão para crianças de 10 anos em 3 meses",
-      avaliacao:4,
+      avaliacao:0,
+      imagem: "assets/img/pera.jpg"
+    },
+    {
+      nome:"Pera",
+      descricao: "Aula de  violão para crianças de 10 anos em 3 meses",
+      imagem: "assets/img/pera.jpg"
     },
   ];
 
@@ -43,4 +52,24 @@ export class ProdutoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  starsB(n?:number){
+    if(n==null){
+      return new Array(0)
+    }else{
+      return new Array(n);
+    }
+  }
+
+  starsW(n?:number){
+    if(n==null){
+      return new Array(5)
+    }else{
+      let valor= 5-n!;
+      return new Array(valor);
+    }
+  }
+  
+  teste(event: any){
+    console.log(event)
+  }
 }
