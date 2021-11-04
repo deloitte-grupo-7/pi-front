@@ -45,7 +45,8 @@ import { FormTemplate } from './components/form/form.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
