@@ -16,6 +16,9 @@ export class SignUpForm extends SignInForm {
 
     constructor(form: Map<string, any>) {
         super(form);
+        Object.keys(this).forEach(
+            (prop) => Object.defineProperty(this,prop, { value: form.get(prop), writable: false })
+        );
     }
 }
 
