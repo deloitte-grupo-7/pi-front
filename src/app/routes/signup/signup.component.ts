@@ -11,9 +11,7 @@ import { FormTemplate } from 'src/app/components/form/form.component';
 })
 export class SignUpPage extends FormTemplate {
 
-  constructor(
-    private router: Router
-  ) {
+  constructor(private router: Router) {
     super(/(username)|(name)|(cpf)|(email)|(birthday)|(password)|(passconf)/);
   }
 
@@ -21,15 +19,10 @@ export class SignUpPage extends FormTemplate {
     ev.preventDefault();
     console.log(this.form);
 
-    const form: Map<string, any> = new Map();
+    this.signUpRequest(this.formMap());
+  }
 
-    let i = 0;
-    this.fields.forEach(field => {
-      form.set(field.name, this.form.value[i]);
-      i++;
-    });
-
-    console.log(new SignUpForm(form));
+  signUpRequest(form: Map<string, any>): void {
     ValidationService.signUpRequest(new SignUpForm(form)).subscribe(
       {
         next: data => {
@@ -43,5 +36,4 @@ export class SignUpPage extends FormTemplate {
       }
     )
   }
-
 }
