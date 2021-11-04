@@ -13,7 +13,8 @@
       <input  [ngClass]="field.touched ? validate(field, 'valid', 'invalid') : ''"
               [formControl]="getControl(i)"
               [type]="fields[i].type"
-              [name]="fields[i].name">
+              [name]="fields[i].name"
+              cpf>
     </ng-template>
     <p>Já se registrou? Entre <a routerLink="/siginin">aqui.</a></p>
     <button [disabled]="form.invalid"

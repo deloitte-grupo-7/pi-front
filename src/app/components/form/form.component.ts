@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, ValidatorFn } from '@angular/forms';
 import { FieldTemplate } from 'src/app/models/FieldTemplate';
 import { ValidationService } from 'src/app/services/validation.service';
 
@@ -19,7 +19,11 @@ export class FormTemplate implements OnInit {
       this.fields = ValidationService.fields.filter(
           field => field.name.match(regex)
       );
-      this.form = this.fb.array([], { updateOn: 'blur' });
+      this.form = this.fb.array([],
+        {
+          updateOn: 'blur'
+        }
+      );
   }
 
   ngOnInit(): void {
