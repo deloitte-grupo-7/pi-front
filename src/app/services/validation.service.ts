@@ -1,4 +1,4 @@
-import { HttpClient, HttpXhrBackend } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpXhrBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FieldTemplate } from '../models/FieldTemplate';
@@ -89,10 +89,21 @@ export class ValidationService {
   static http: HttpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }));
 
   static signUpRequest(form: SignUpForm) {
-    return this.http.post(`${this.apiURL}/register`, form)
+    return this.http.post(`${this.apiURL}/signup`, form);
   }
 
   static signInRequest(form: SignInForm){
-    return this.http.post(`${this.apiURL}/login`, form)
+    const params = new URLSearchParams()
+    params.set('username', form.username);
+    params.set('password', form.password);
+    const body = params.toString();
+    const options = {
+      headers: new HttpHeaders()
+                    .set('Content-Type', 'application/x-www-form-urlencoded')
+                    .set('Access-Control-Allow-Origin', '*')
+    }
+    console.log(body);
+    console.log(options);
+    return this.http.post(`${this.apiURL}/signin`, body, options);
   }
 }
