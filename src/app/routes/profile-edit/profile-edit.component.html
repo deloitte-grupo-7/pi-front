@@ -1,0 +1,42 @@
+<div class="personal-image">
+  <label class="label">
+    <input type="file" />
+    <figure class="personal-figure">
+      <img
+        src="https://i1.sndcdn.com/artworks-000223684427-ygy1zd-t500x500.jpg"
+        class="personal-avatar"
+        alt="avatar"
+      />
+      <figcaption class="personal-figcaption">
+        <img src="../../assets/img/camera-white.png" />
+      </figcaption>
+    </figure>
+  </label>
+</div>
+<h4>Edite seu perfil</h4>
+<div class="gradient">
+  <form (ngSubmit)="onFormSubmit($event)">
+    <ng-template  ngFor let-field
+                  [ngForOf]="form.controls"
+                  let-i="index">
+      <label [for]="fields[i].name">
+        {{ fields[i].title }}
+      </label>
+      <strong class="status"
+              [ngClass]="validate(field, 'valid', 'invalid')"
+              *ngIf="field.touched">
+        {{ validate(field, '✔', '⚠') }}
+      </strong>
+      <input  [ngClass]="field.touched ? validate(field, 'valid', 'invalid') : ''"
+              [formControl]="getControl(i)"
+              [type]="fields[i].type"
+              [name]="fields[i].name">
+    </ng-template>
+    <button [disabled]="form.invalid"
+            [ngClass]="{ 'submit': true,
+                         'disabled': form.invalid }"
+            type="submit">
+      Atualizar perfil
+    </button>
+  </form>
+</div>

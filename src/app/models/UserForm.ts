@@ -23,11 +23,18 @@ export class SignUpForm extends SignInForm {
 }
 
 export class ProfileEditForm extends SignInForm {
+    adress: string = '';
+    bio: string = '';
     name: string = '';
     email: string = '';
-    description: string = '';
+    birthday: Date = new Date;
 
     constructor(form: Map<string, any>) {
         super(form);
+        this.adress = form.get('adress');
+        this.bio = form.get('bio');
+        this.name = form.get('name');
+        this.email = form.get('email');
+        this.birthday = form.get('birthday')
     }
 }

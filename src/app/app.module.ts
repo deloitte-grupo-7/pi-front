@@ -21,6 +21,7 @@ import {IvyCarouselModule} from './components/carousel/carousel.module';
 import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
 import { ProdutoComponent } from './components/produto/produto.component';
 import { FormTemplate } from './components/form/form.component';
+import { ProfileEditComponent } from './routes/profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { FormTemplate } from './components/form/form.component';
     CarouselHomeComponent,
     ProdutoComponent,
     FormTemplate,
+    ProfileEditComponent,
   ],
   imports: [
     BrowserModule,
