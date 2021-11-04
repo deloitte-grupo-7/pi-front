@@ -42,14 +42,6 @@ export class ServiceCreateComponent implements OnInit {
     this.router.navigateByUrl('/')
   }
 
-  // addDescricao():void{
-  //   this.newService.descricao
-  // }
-
-  // removeDescricao():void{
-  //   this.newService.descricao;
-  // }
-
   ngOnInit(): void {
   }
 }

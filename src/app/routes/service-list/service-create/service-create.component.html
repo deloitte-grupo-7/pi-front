@@ -1,4 +1,4 @@
-<div id="create">
+<div id="modal">
     <form>
         <label>
             Nome:
@@ -7,15 +7,7 @@
         <label>
             Descrição:
             <input type="text" name="descricao" [(ngModel)]="newService.descricao">
-            <div *ngFor="let desc of newService.descricao; let i = index;">
-
-                <!-- <a *ngIf="i==0" (click)="addDescricao">
-                    <i class="material-icons">add_circle</i>
-                </a>
-                <a *ngIf="i!=0" (click)="removeDescricao" class="remove">
-                    <i class="material-icons">remove_circle</i>
-                </a> -->
-                
+            <div *ngFor="let desc of newService.descricao; let i = index;">         
             </div>
         <label action="/upload" method="post" enctype="multipart/form-data">
             Imagem

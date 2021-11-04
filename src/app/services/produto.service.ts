@@ -15,7 +15,7 @@ export class ProdutoService {
   constructor(private http: HttpClient) { }
 
   getService() {
-    return this.http.get<Produto[]>(this.url);
+    return this.http.get<Produto[]>(`${this.url}/service`);
   }
 
   postService(newService:Produto){
