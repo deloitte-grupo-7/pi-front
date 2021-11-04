@@ -21,6 +21,9 @@ import {IvyCarouselModule} from './components/carousel/carousel.module';
 import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
 import { ProdutoComponent } from './components/produto/produto.component';
 import { FormTemplate } from './components/form/form.component';
+import { UserProfileComponent } from './routes/user-profile/user-profile.component';
+import { ServiceList } from './routes/service-list/service-list.component';
+import { ServiceCreateComponent } from './routes/service-list/service-create/service-create.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +41,9 @@ import { FormTemplate } from './components/form/form.component';
     CarouselHomeComponent,
     ProdutoComponent,
     FormTemplate,
+    UserProfileComponent,
+    ServiceList,
+    ServiceCreateComponent,
   ],
   imports: [
     BrowserModule,

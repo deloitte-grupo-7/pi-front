@@ -4,6 +4,8 @@ import { ProdutoComponent } from './components/produto/produto.component';
 import { AboutPage } from './routes/about/about.component';
 import { ContactPage } from './routes/contact/contact.component';
 import { HomePage } from './routes/home/home.component';
+import { ServiceCreateComponent } from './routes/service-list/service-create/service-create.component';
+import { ServiceList } from './routes/service-list/service-list.component';
 import { SignInPage } from './routes/signin/signin.component';
 import { SignUpPage } from './routes/signup/signup.component';
 import { EditPage } from './routes/user/edit/edit.component';
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'contact'   , component: ContactPage },
   { path: 'edit'      , component: EditPage },
   { path: 'produto'      , component: ProdutoComponent },
+  { path: 'service'   , component: ServiceList},
+  { path: 'screate'   , component: ServiceCreateComponent},
 ];
 
 @NgModule({
