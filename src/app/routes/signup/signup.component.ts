@@ -3,6 +3,8 @@ import { ValidationService } from 'src/app/services/validation.service';
 import { SignUpForm } from 'src/app/models/UserForm';
 import { Router } from '@angular/router';
 import { FormTemplate } from 'src/app/components/form/form.component';
+import { AbstractControl, FormArray, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { CpfPipe } from './cpf.pipe';
 
 @Component({
   selector: 'app-signup',
@@ -11,25 +13,29 @@ import { FormTemplate } from 'src/app/components/form/form.component';
 })
 export class SignUpPage extends FormTemplate {
 
-  constructor(
-    private router: Router
-  ) {
+  constructor(private router: Router) {
     super(/(username)|(name)|(cpf)|(email)|(birthday)|(password)|(passconf)/);
+    this.form.setValidators(this.checkPasswords);
+  }
+
+  checkPasswords: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
+    const form: FormArray = <FormArray>control;
+    const password = form.value[form.length - 2];
+    const passconf = form.value[form.length - 1];
+    const err: ValidationErrors | null = (password === passconf) ? null : { passwordsDontMatch: true };
+    form.controls[form.length - 1].setErrors(err);
+    console.log(this.form);
+    return null;
   }
 
   onFormSubmit(ev: Event): void {
     ev.preventDefault();
     console.log(this.form);
 
-    const form: Map<string, any> = new Map();
+    this.signUpRequest(this.formMap());
+  }
 
-    let i = 0;
-    this.fields.forEach(field => {
-      form.set(field.name, this.form.value[i]);
-      i++;
-    });
-
-    console.log(new SignUpForm(form));
+  signUpRequest(form: Map<string, any>): void {
     ValidationService.signUpRequest(new SignUpForm(form)).subscribe(
       {
         next: data => {
@@ -44,4 +50,8 @@ export class SignUpPage extends FormTemplate {
     )
   }
 
+  isCPF(name: string) {
+    if (name === 'cpf') return CpfPipe;
+    return null;
+  }
 }
