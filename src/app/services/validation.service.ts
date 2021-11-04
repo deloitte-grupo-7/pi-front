@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders, HttpXhrBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Validators } from '@angular/forms';
+import { CustomValidator } from '../models/CustomValidator';
 import { FieldTemplate } from '../models/FieldTemplate';
 import { SignInForm, SignUpForm } from '../models/UserForm';
 
@@ -36,6 +37,7 @@ const fields: FieldTemplate[] = [
       Validators.minLength(11),
       Validators.maxLength(11),
       Validators.pattern(/\d+/),
+      CustomValidator.validateCPF
     ],
   },
   {
@@ -93,17 +95,6 @@ export class ValidationService {
   }
 
   static signInRequest(form: SignInForm){
-    const params = new URLSearchParams()
-    params.set('username', form.username);
-    params.set('password', form.password);
-    const body = params.toString();
-    const options = {
-      headers: new HttpHeaders()
-                    .set('Content-Type', 'application/x-www-form-urlencoded')
-                    .set('Access-Control-Allow-Origin', '*')
-    }
-    console.log(body);
-    console.log(options);
-    return this.http.post(`${this.apiURL}/signin`, body, options);
+    return this.http.post(`${this.apiURL}/signin`, form);
   }
 }
