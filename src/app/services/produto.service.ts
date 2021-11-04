@@ -9,13 +9,17 @@ export class ProdutoService {
   produtos: Produto[] = []
   private services: Produto [] = [];
 
-  private readonly API = 'https://localhost:4200/produto';
+  private readonly url = 'https://pi-back7.herokuapp.com';
+  
 
   constructor(private http: HttpClient) { }
 
   getService() {
-    return this.http.get<Produto[]>(this.API);
+    return this.http.get<Produto[]>(this.url);
   }
 
-  addService(p:Produto): void{}
+  postService(newService:Produto){
+    return this.http.post(`${this.url}/screate`, newService);
+  }
+
 }

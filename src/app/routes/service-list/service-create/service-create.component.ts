@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { Produto } from 'src/app/models/Produto';
 import { ProdutoService } from 'src/app/services/produto.service';
 
@@ -17,17 +18,16 @@ export class ServiceCreateComponent implements OnInit {
     imagem:'',
   }
 
-  constructor(private ps:ProdutoService) { }
-  
-  cancel(){
-    console.log('tentando cancelar')
-    this.cancelService.emit();
-  }
+  constructor(
+    private ps:ProdutoService,
+    private router: Router,
+    ) { }
 
-  save(){
+  postService(newService: Produto){
+    alert(JSON.stringify(newService, null, 3));
     console.log('tentando salvar')
-    this.ps.addService(this.newService);
-    
+
+    this.ps.postService(this.newService);
     //limpando a tela para adicionar mais um serviço.
     this.newService = {
       nome:'',
@@ -36,12 +36,19 @@ export class ServiceCreateComponent implements OnInit {
     }
   }
 
-  addService():void{
+  cancel(){
+    console.log('tentando cancelar')
+    this.cancelService.emit();
+    this.router.navigateByUrl('/')
   }
 
-  removeService():void{
-    this.newService.descricao;
-  }
+  // addDescricao():void{
+  //   this.newService.descricao
+  // }
+
+  // removeDescricao():void{
+  //   this.newService.descricao;
+  // }
 
   ngOnInit(): void {
   }

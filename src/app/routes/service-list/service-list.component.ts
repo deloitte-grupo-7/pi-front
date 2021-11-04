@@ -8,8 +8,8 @@ import { ProdutoService } from 'src/app/services/produto.service';
   styleUrls: ['./service-list.component.scss']
 })
 export class ServiceList implements OnInit {
-  
-  private services!: Produto[];
+    // private services!: Produto[];
+  services: Produto[] = [];
 
   constructor( private ps: ProdutoService) { 
      this.ps.getService().subscribe(
@@ -21,11 +21,6 @@ export class ServiceList implements OnInit {
       }
     );
   }
-
-  // onFormSubmit(ev: Event): void {
-  //   ev.preventDefault();
-  //   const form: Map<string, any> = new Map();
-  // }
 
   ngOnInit(): void {
   }
