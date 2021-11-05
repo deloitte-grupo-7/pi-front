@@ -1,21 +1,18 @@
 <div id="modal">
     <form>
         <label>
-            Nome:
-        <input type="text" name="nome" id="nome" [(ngModel)]="newService.nome">
+            Título:
+        <input type="text" name="nome" id="title" [(ngModel)]="newService.title">
         </label>
         <label>
             Descrição:
-            <input type="text" name="descricao" [(ngModel)]="newService.descricao">
-            <div *ngFor="let desc of newService.descricao; let i = index;">         
-            </div>
+            <input type="text" name="descricao" [(ngModel)]="newService.description">        
         <label action="/upload" method="post" enctype="multipart/form-data">
             Imagem
-            <input type="file" accept="image/*" name="photo">
+            <input type="text" accept="image/*" name="photo">
             <input type="submit" value="upload">
         </label>
         </label>
-         
         <div class="controles">
             <button (click)="cancel()" type="submit">Cancelar</button> 
             <button (click)="postService(newService)">Salvar</button>   
