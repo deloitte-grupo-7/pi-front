@@ -6,6 +6,8 @@ import { Produto } from '../models/Produto';
   providedIn: 'root'
 })
 export class ProdutoService {
+
+  constructor() { }
   produtos: Produto[] = []
   private services: Produto [] = [];
 

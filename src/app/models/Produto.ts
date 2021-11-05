@@ -11,4 +11,3 @@ export class Produto {
         this.imagem = form.get('imagem');
         this.avaliacao = form.get('avaliacao');
     }
-}

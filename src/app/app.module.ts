@@ -53,7 +53,8 @@ import { ServiceCreateComponent } from './routes/service-list/service-create/ser
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
