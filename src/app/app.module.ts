@@ -20,7 +20,11 @@ import { PostComponent } from './routes/post/post.component';
 import {IvyCarouselModule} from './components/carousel/carousel.module';
 import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
 import { ProdutoComponent } from './components/produto/produto.component';
-import { CpfPipe } from './routes/signup/cpf.pipe';
+
+import { FormTemplate } from './components/form/form.component';
+import { UserProfileComponent } from './routes/user-profile/user-profile.component';
+import { ServiceList } from './routes/service-list/service-list.component';
+import { ServiceCreateComponent } from './routes/service-list/service-create/service-create.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,11 @@ import { CpfPipe } from './routes/signup/cpf.pipe';
     PostComponent,
     CarouselHomeComponent,
     ProdutoComponent,
-    CpfPipe,
+    FormTemplate,
+    UserProfileComponent,
+    ServiceList,
+    ServiceCreateComponent,
+
   ],
   imports: [
     BrowserModule,
