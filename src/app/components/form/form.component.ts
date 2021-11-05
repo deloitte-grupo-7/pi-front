@@ -50,11 +50,9 @@ export class FormTemplate implements OnInit {
 
   formMap() {
     const form: Map<string, any> = new Map();
-
-    let i = 0;
-    this.fields.forEach(field => {
+   
+    this.fields.forEach((field, i) => {
       form.set(field.name, this.form.value[i]);
-      i++;
     });
 
     console.log(form);

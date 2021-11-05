@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { Produto } from 'src/app/models/Produto';
-import { ProdutoService } from 'src/app/services/produto.service';
+import { Post } from 'src/app/models/Post';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-service-create',
@@ -12,28 +12,25 @@ export class ServiceCreateComponent implements OnInit {
 
   cancelService:EventEmitter<null> = new EventEmitter();
   
-  newService:Produto = {
-    nome:'',
-    descricao:'',
-    imagem:'',
-  }
+  newService:Post;
 
   constructor(
-    private ps:ProdutoService,
+    private ps:PostService,
     private router: Router,
-    ) { }
+    ) {
+      this.newService = new Post()
+     }
 
-  postService(newService: Produto){
-    alert(JSON.stringify(newService, null, 3));
+  postService(p: Post){
     console.log('tentando salvar')
-
-    this.ps.postService(this.newService);
-    //limpando a tela para adicionar mais um serviço.
-    this.newService = {
-      nome:'',
-      descricao:'',
-      imagem:'',
-    }
+    this.ps.postService(this.newService).subscribe(
+      {
+        next: data => {
+          console.log(data)
+        },
+        error: err => console.error(err)  
+      }
+    );
   }
 
   cancel(){

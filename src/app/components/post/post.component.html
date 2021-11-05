@@ -1,15 +1,15 @@
 <div class="grid">
-  <article *ngFor="let produto of produtos">
-    <img src="{{produto.imagem}}"> 
+  <article *ngFor="let post of posts">
+    <img src="{{post.imgUrl}}"> 
     <div class="text">
-      <h3>{{produto.nome}}</h3>
-      <p>{{produto.descricao}}</p>
-      <div class="avaliacao">
-        <i class="fa-solid fa-star" *ngFor="let star of starsB(produto.avaliacao)"></i>
-        <i class="fa-regular fa-star" *ngFor="let star of starsW(produto.avaliacao)"></i>
+      <h3>{{post.title}}</h3>
+      <p>{{post.description}}</p>
+      <div class="rating">
+        <i class="fa-solid fa-star" *ngFor="let star of starsB(post.rating)"></i>
+        <i class="fa-regular fa-star" *ngFor="let star of starsW(post.rating)"></i>
       </div>
       <button>Ver mais</button>
-      <button (click)="toggle()" (click)="onDelete(produto.id)">Deletar</button>
+      <button (click)="toggle()" (click)="onDelete(post.id)">Deletar</button>
     </div>
   </article>
 </div>
@@ -21,7 +21,7 @@
     <div class="modal">
       <span>Tem certeza que deseja deletar esse serviço?</span>
       <div class="buttons">
-        <button class="bnt-s" (click)="onDelete(produto.id)">Confirmar</button>
+        <button class="bnt-s" (click)="onDelete(post.id)">Confirmar</button>
         <button class="btn-n" (click)="toggle()">Cancelar</button>
       </div>
     </div>

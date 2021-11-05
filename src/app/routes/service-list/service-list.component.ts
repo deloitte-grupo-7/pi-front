@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Produto } from 'src/app/models/Produto';
-import { ProdutoService } from 'src/app/services/produto.service';
+import { Post } from 'src/app/models/Post';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
   selector: 'app-service-list',
@@ -8,10 +8,10 @@ import { ProdutoService } from 'src/app/services/produto.service';
   styleUrls: ['./service-list.component.scss']
 })
 export class ServiceList implements OnInit {
-    // private services!: Produto[];
-  services: Produto[] = [];
+   
+  services: Post[] = [];
 
-  constructor( private ps: ProdutoService) { 
+  constructor( private ps: PostService) { 
      this.ps.getService().subscribe(
       {
         next: services => {
