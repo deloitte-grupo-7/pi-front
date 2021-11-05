@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'produto'   , component: ProdutoComponent },
   { path: 'service'   , component: ServiceList},
   { path: 'screate'   , component: ServiceCreateComponent},
-
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
