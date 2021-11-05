@@ -8,6 +8,7 @@ import { ServiceCreateComponent } from './routes/service-list/service-create/ser
 import { ServiceList } from './routes/service-list/service-list.component';
 import { SignInPage } from './routes/signin/signin.component';
 import { SignUpPage } from './routes/signup/signup.component';
+import { UserProfileComponent } from './routes/user-profile/user-profile.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   { path: 'post'      , component: PostComponent },
   { path: 'service'   , component: ServiceList},
   { path: 'screate'   , component: ServiceCreateComponent},
+  { path: 'user'      , component: UserProfileComponent},
 ];
 
 @NgModule({
