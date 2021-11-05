@@ -8,7 +8,7 @@ import { PostService } from 'src/app/services/post.service';
   styleUrls: ['./service-list.component.scss']
 })
 export class ServiceList implements OnInit {
-    // private services!: Produto[];
+   
   services: Post[] = [];
 
   constructor( private ps: PostService) { 

@@ -6,7 +6,7 @@ import { Post } from '../models/Post';
   providedIn: 'root'
 })
 export class PostService {
-  produtos: Post[] = []
+  posts: Post[] = []
   private services: Post [] = [];
 
   private readonly url = 'https://pi-back7.herokuapp.com';
