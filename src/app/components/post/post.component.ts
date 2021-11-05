@@ -1,56 +1,56 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Produto } from 'src/app/models/Produto';
-import { ProdutoService } from 'src/app/services/produto.service';
+import { Post } from 'src/app/models/Post';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
-  selector: 'app-produto',
-  templateUrl: './produto.component.html',
-  styleUrls: ['./produto.component.scss']
+  selector: 'app-post',
+  templateUrl: './post.component.html',
+  styleUrls: ['./post.component.scss']
 })
-export class ProdutoComponent implements OnInit {
+export class PostComponent implements OnInit {
 
   y:number=0;
   list5:Array<any>= new Array(5);
 
-  produtos: Produto[] = [
+  posts: Post[] = [
     {
       id:"1",
-      nome:"Banana",
-      descricao: "Aula de  violão para crianças de 10 anos em 3 meses",
-      avaliacao:2,
-      imagem: "assets/img/banana.jpg"
+      title:"Banana",
+      description: "Aula de  violão para crianças de 10 anos em 3 meses",
+      rating:2,
+      imgUrl: "assets/img/banana.jpg"
     },
     {
       id:"2",
-      nome:"Narutinho",
-      descricao: "Naruto correndo atrás do sasuke por 9 temporadas",
-      avaliacao:2,
-      imagem: "assets/img/naruto.jpg"
+      title:"Narutinho",
+      description: "Naruto correndo atrás do sasuke por 9 temporadas",
+      rating:2,
+      imgUrl: "assets/img/naruto.jpg"
     },
     {
       id:"3",
-      nome:"Calopsita",
-      descricao: "Aula de  violão para crianças de 10 anos em 3 meses",
-      avaliacao:3,
-      imagem: "assets/img/capos1.jpeg"
+      title:"Calopsita",
+      description: "Aula de  violão para crianças de 10 anos em 3 meses",
+      rating:3,
+      imgUrl: "assets/img/capos1.jpeg"
     },
     {
       id:"4",
-      nome:"Dog",
-      descricao: "Aula de  violão para crianças de 10 anos em 3 meses",
-      avaliacao:4,
-      imagem: "assets/img/dog1.jpeg"
+      title:"Dog",
+      description: "Aula de  violão para crianças de 10 anos em 3 meses",
+      rating:4,
+      imgUrl: "assets/img/dog1.jpeg"
     },
     {
       id:"5",
-      nome:"Pera",
-      descricao: "Aula de  violão para crianças de 10 anos em 3 meses",
-      avaliacao:0,
-      imagem: "assets/img/pera.jpg"
+      title:"Pera",
+      description: "Aula de  violão para crianças de 10 anos em 3 meses",
+      rating:0,
+      imgUrl: "assets/img/pera.jpg"
     },
   ];
 
-  constructor(private produtoService: ProdutoService) { }
+  constructor(private ps: PostService) { }
 
   ngOnInit(): void {
   }
@@ -72,7 +72,7 @@ export class ProdutoComponent implements OnInit {
     }
   }
 
-  //avaliacao
+  //rating
   toggleButtonEnable(){
     const submit = document.querySelector('button#submit')
     submit?.attributes.removeNamedItem('disabled')
@@ -80,12 +80,12 @@ export class ProdutoComponent implements OnInit {
   }
 
   submitRate(){
-    const avaliacao = <any> document.getElementsByName('rate')
+    const rating = <any> document.getElementsByName('rate')
     
-    for (let i = 0; i < avaliacao.length; i++) {
-      if(avaliacao[i].checked==true){
-        this.y=avaliacao[i].value;
-        console.log(avaliacao[i].value)     
+    for (let i = 0; i < rating.length; i++) {
+      if(rating[i].checked==true){
+        this.y=rating[i].value;
+        console.log(rating[i].value)     
       }
     }
     
@@ -123,7 +123,4 @@ export class ProdutoComponent implements OnInit {
     console.log(this.prodSelect);
     this.toggle();
   }
-
-
-
 }

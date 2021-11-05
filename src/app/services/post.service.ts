@@ -1,26 +1,24 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Produto } from '../models/Produto';
+import { Post } from '../models/Post';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProdutoService {
+export class PostService {
 
-  produtos: Produto[] = []
-  private services: Produto [] = [];
+  posts: Post[] = []
+  private services: Post [] = [];
 
   private readonly url = 'https://pi-back7.herokuapp.com';
   
-
   constructor(private http: HttpClient) { }
 
   getService() {
-    return this.http.get<Produto[]>(`${this.url}/service`);
+    return this.http.get<Post[]>(`${this.url}/service`);
   }
 
-  postService(newService:Produto){
+  postService(newService:Post){
     return this.http.post(`${this.url}/screate`, newService);
   }
-
 }
