@@ -7,7 +7,6 @@ import { Produto } from '../models/Produto';
 })
 export class ProdutoService {
 
-  constructor() { }
   produtos: Produto[] = []
   private services: Produto [] = [];
 
