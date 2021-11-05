@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormTemplate } from 'src/app/components/form/form.component';
 import { SignInForm } from 'src/app/models/UserForm';
+import { AuthService } from 'src/app/services/auth.service';
 import { ValidationService } from 'src/app/services/validation.service';
 
 @Component({
@@ -16,6 +17,7 @@ export class SignInPage extends FormTemplate {
 
   constructor(private router: Router) {
     super(/(username)|(password)/);
+    console.log(window.sessionStorage.getItem('GETSERV_ACC'));
   }
 
   onFormSubmit(ev: Event): void {
@@ -33,16 +35,7 @@ export class SignInPage extends FormTemplate {
       {
         next: data => {
           console.log(data);
-          const acctoken = (<{access_token: string}>data).access_token;
-          const reftoken = (<{refresh_token: string}>data).refresh_token;
-          const PARTIAL_STORAGE_KEY = 'GETSERV'
-
-          if (this.staySignedIn) {
-            window.localStorage.setItem(PARTIAL_STORAGE_KEY + '_REF', reftoken);
-          } else {
-            window.sessionStorage.setItem(PARTIAL_STORAGE_KEY + '_REF', reftoken);
-          }
-          window.sessionStorage.setItem(PARTIAL_STORAGE_KEY + '_ACC', acctoken);
+          AuthService.handleTokenResponse(data, this.staySignedIn);
           this.router.navigateByUrl('');
         },
         error: err => {
