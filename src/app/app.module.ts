@@ -40,6 +40,7 @@ import { ServiceCreateComponent } from './routes/service-list/service-create/ser
     CarouselHomeComponent,
     PostComponent,
     FormTemplate,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
