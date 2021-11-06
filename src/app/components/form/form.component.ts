@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormArray, FormBuilder, FormControl } from '@angular/forms';
+import { AbstractControl, FormArray, FormBuilder, FormControl, ValidatorFn } from '@angular/forms';
 import { FieldTemplate } from 'src/app/models/FieldTemplate';
 import { ValidationService } from 'src/app/services/validation.service';
 
@@ -14,14 +14,16 @@ export class FormTemplate implements OnInit {
   fields: FieldTemplate[];
   form: FormArray;
 
-  constructor(
-      regex: RegExp,
-  ) {
+  constructor(regex: RegExp) {
       this.fb = new FormBuilder();
       this.fields = ValidationService.fields.filter(
           field => field.name.match(regex)
       );
-      this.form = this.fb.array([], { updateOn: 'blur' });
+      this.form = this.fb.array([],
+        {
+          updateOn: 'blur'
+        }
+      );
   }
 
   ngOnInit(): void {
@@ -42,12 +44,18 @@ export class FormTemplate implements OnInit {
       return <FormControl[]>this.form.controls;
   }
 
-  isValid(control: AbstractControl | FormArray): boolean {
-    console.log(control.valid);
-      return control.valid;
+  validate(control: AbstractControl, valid: string, invalid: string, extra?: string): string {
+      return (control.valid ? valid : invalid) + (extra ? ' ' + extra : ''); 
   }
 
-  validate(control: AbstractControl, valid: string, invalid: string): string {
-      return control.valid ? valid : invalid; 
+  formMap() {
+    const form: Map<string, any> = new Map();
+   
+    this.fields.forEach((field, i) => {
+      form.set(field.name, this.form.value[i]);
+    });
+
+    console.log(form);
+    return form;
   }
 }

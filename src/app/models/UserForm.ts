@@ -2,8 +2,9 @@ export class SignInForm {
     username: string = '';
     password: string = '';
     constructor(form: Map<string, any>) {
-        this.username = form.get('username');
-        this.password = form.get('password');
+        Object.keys(this).forEach(
+            (prop) => Object.defineProperty(this,prop, { value: form.get(prop), writable: false })
+        );
     }
 }
 
@@ -15,10 +16,9 @@ export class SignUpForm extends SignInForm {
 
     constructor(form: Map<string, any>) {
         super(form);
-        this.name = form.get('name');
-        this.cpf = form.get('cpf');
-        this.email = form.get('email');
-        this.birthday = form.get('birthday');
+        Object.keys(this).forEach(
+            (prop) => Object.defineProperty(this,prop, { value: form.get(prop), writable: false })
+        );
     }
 }
 
@@ -27,14 +27,13 @@ export class ProfileEditForm extends SignInForm {
     bio: string = '';
     name: string = '';
     email: string = '';
-    birthday: Date = new Date;
+    description: string = '';
+    image: string = '';
 
     constructor(form: Map<string, any>) {
         super(form);
-        this.adress = form.get('adress');
-        this.bio = form.get('bio');
-        this.name = form.get('name');
-        this.email = form.get('email');
-        this.birthday = form.get('birthday')
+        Object.keys(this).forEach(
+            (prop) => Object.defineProperty(this,prop, { value: form.get(prop), writable: false })
+        );
     }
 }

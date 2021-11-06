@@ -21,20 +21,24 @@ html {
 
     strong {
         &.invalid {
-            color: map-get($colors, "primary")
+            color: map-get($colors, "primary");
         }
         &.valid {
-            color: map-get($colors, "secondary")
+            color: map-get($colors, "secondary");
         }
     }
 
     input {
         &.invalid {
-            outline: solid 2px map-get($colors, "primary");
+                outline: solid 2px map-get($colors, "primary");
         }
         &.valid {
-            outline: solid 2px map-get($colors, "secondary");
+                outline: solid 2px map-get($colors, "secondary");
         }
+    }
+
+    .valid, .invalid {
+        visibility: visible !important;
     }
 
     button {
@@ -62,39 +66,51 @@ html {
         background: linear-gradient(135deg, rgba(144,0,192,1) 0%, rgba(0,202,205,1) 100%);
         padding: .25rem;
         border-radius: .5rem;
+        width: 28rem;
     }
 
     form {
         @include colorLight;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        flex-wrap: wrap;
+        display: grid;
+        grid: auto auto / auto auto;
         max-width: 24rem;
         width: 100%;
         background-color: white;
         padding: 2rem;
         border-radius: 6px;
+        p {
+            margin: 1rem 0;
+        }
+        button {
+            grid-column: 1 / 3;
+            margin-top: .5rem;
+        }
         input {
-            width: 100%;
+            width: 95%;
+            place-self: center;
+            grid-column: 1 / 3;
             border: solid .125rem map-get($colors, "background");
             border-radius: .25rem;
             padding: .25rem;
-            margin-bottom: 1rem;
+            margin: .5rem;
             &[type="checkbox"] {
                 width: auto;
+                grid-column: 1 / 2;
+                place-self: end;
             }
         }
         label {
-            padding: 0 0 .5rem .25rem;
+            padding: .5rem 0 0 .25rem;
         }
         .status {
+            visibility: hidden;
+            place-self: center end;
             display: grid;
             place-items: center;
             z-index: 1;
             position: relative;
-            top: 1.85rem;
-            right: .5rem;
+            top: 2rem;
+            right: .75rem;
             font-size: 1.25rem;
             font-weight: 800;
             height: 1rem;
