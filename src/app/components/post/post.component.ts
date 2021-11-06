@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Post } from 'src/app/models/Post';
 import { PostService } from 'src/app/services/post.service';
 
@@ -50,7 +51,10 @@ export class PostComponent implements OnInit {
     },
   ];
 
-  constructor(private ps: PostService) { }
+  constructor(
+    private ps: PostService,
+    private router: Router,
+    ) { }
 
   ngOnInit(): void {
   }
@@ -73,7 +77,7 @@ export class PostComponent implements OnInit {
   }
 
   teste(){
-    alert("olá")
+    this.router.navigateByUrl('/user')
   }
 
 }

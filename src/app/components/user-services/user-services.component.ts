@@ -80,7 +80,6 @@ export class UserServicesComponent implements OnInit {
     }
   }
 
-
   onDelete(id?:string){
     if(id){
       this.prodSelect=id;

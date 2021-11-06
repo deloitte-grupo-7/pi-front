@@ -13,9 +13,12 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  //Precisa dar um get no componente de usuário e no componente de pesquisa de usuário.
+  // Precisa dar um get no componente de usuário.
   getUser(){
-    return this.http.get<ProfileEditForm[]>(`${this.url}/u/username`)
+    return this.http.get<ProfileEditForm[]>(`${this.url}/u/jessy`)
   }
 
+  postUser(user: ProfileEditForm){
+    return this.http.post(`${this.url}/u/jessy`, user);
+  }
 }
