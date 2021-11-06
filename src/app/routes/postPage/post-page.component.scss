@@ -1,0 +1,333 @@
+@import "../../../assets/css/bootstrap.css";
+
+:host{
+  width: 50%;
+
+  /*======================================
+     Inicio CSS da postagem
+  ========================================*/
+  .post.single{
+    padding: 10px;
+  }
+  .post.single .post-gallery {
+    margin-top: 30px;
+  }
+  .post.single .flexslider-thumbnails {
+    position: relative;
+  }
+  .post.single .post-gallery .slides li{
+    position:relative;
+  }
+  .post.single .post-gallery .slides li img{
+    width:100%;
+  }
+  .post.single .flex-control-nav{
+    margin-top:15px;
+  }
+  .post.single .flex-control-thumbs li {
+    width: 20%;
+    position: relative;
+    margin: 0 8px 10px -3px;
+  }
+  .post.single .flex-control-thumbs li img {
+    border: none;
+    padding: 0;
+    border:1px solid transparent;
+  }
+  .post.single .flex-control-thumbs li img.flex-active{
+    border-color:#F7941D;
+  }
+  .post.single .flex-direction-nav{
+    display:none;
+  }
+  .post.single .profile-des{
+    margin-top:30px;
+  }
+  .post.single .profile-des .short h4 {
+    font-size: 22px;
+    font-weight: 600;
+    margin-top: -5px;
+    line-height: 28px;
+  }
+  .post.single .profile-des .short .description {
+    font-size: 14px;
+    color: #555555;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+  }
+  .post.single .profile-des .total-review{
+    font-size:14px;
+    font-weight:500;
+    margin-left:10px;
+    display:inline-block;
+  }
+  .post.single .profile-des .total-review:hover{
+    color:#F7941D;
+  }
+  .post.single .profile-des  .rating{
+    margin-top:20px;
+    display:inline-block;
+  }
+  .post.single .profile-des .rating li{
+    display:inline-block;
+  }
+  .post.single .profile-des .rating li i{
+    color:#F7941D;
+  }
+  .post.single .profile-des .rating li.dark i{
+    color:#555;
+  }
+
+
+  /* Descrição/Avaliação tabs */
+  .post.single .post-info {
+    margin-top: 50px;
+  }
+  .post.single .nav-tabs {
+    border:none;
+  }
+  .post.single .nav-tabs li {
+    margin-right: 10px;
+  }
+  .post.single .nav-tabs li:last-child{
+    margin-right:0;
+  }
+  .post.single .nav-tabs li a {
+    border: 0px solid;
+    border-radius: 0px;
+    background: #fff;
+    color: #333;
+    padding: 10px 30px;
+    font-weight: 500;
+    font-size: 14px;
+    border: 1px solid #eee;
+  }
+  .post.single .nav-tabs li a i{
+    margin-right:10px;
+  }
+  .post.single .nav-tabs li a.active,
+  .post.single .nav-tabs li:hover a{
+    background:#F7941D;
+    color:#fff;
+    border-color:transparent;
+  }
+  .post.single .single-des {
+    margin-top:35px;
+  }
+  .post.single .single-des h4{
+    margin-bottom:15px;
+    font-weight:500;
+    font-size:22px;
+
+  }
+  .post.single .single-des ul li {
+    color: #555;
+    display: block;
+    margin-bottom: 10px;
+    position:relative;
+    padding-left:20px;
+  }
+  .post.single .single-des ul li::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 9px;
+    height: 7px;
+    width: 7px;
+    background: #f7941d;
+    border-radius: 50%;
+  }
+  .post.single .avg-ratting {
+    margin-bottom: 20px;
+  }
+  .post.single .avg-ratting h4 {
+    font-size: 18px;
+    margin: 0;
+  }
+  .post.single .avg-ratting h4 span{
+    font-size:14px;
+  }
+  .post.single .single-rating {
+    margin-bottom: 20px;
+  }
+  .post.single .single-rating:last-child{
+    margin:0;
+    border:none;
+    padding:0;
+  }
+  .post.single .rating-author {
+    float: left;
+    margin-right: 10px;
+    padding: 20px;
+    padding-right: 10px;
+  }
+  .post.single .rating-author img {
+    width: 60px;
+    border-radius: 100%;
+    height: 60px;
+  }
+  .post.single .rating-des {
+    padding-left: 72px;
+    background: #f9f8f8;
+    padding: 17px 20px 17px 107px;
+  }
+  .post.single .rating-des .ratings {
+    margin: 0;
+  }
+  .post.single .rating-des h6 {
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+  }
+  .post.single .ratting-main .single-rating ul li{
+    display:inline-block;
+  }
+  .post.single .ratting-main .single-rating ul li i{
+    color:#F7941D;
+    font-size:14px;
+  }
+  .post.single .review-inner label {
+    display: inline-block;
+    margin: 0 5px 0 0;
+  }
+  .post.single .review-inner .ratings {
+    overflow: visible;
+    display: inline-block;
+    margin: 0;
+  }
+  .post.single .review-inner .ratings ul{
+    display:inline-block;
+  }
+  .post.single .ratting-main .single-rating ul {
+    display: inline-block;
+    margin-right: 5px;
+  }
+  .post.single .ratings .rate-count {
+    display: inline-block;
+    color: #666;
+    font-size: 13px;
+  }
+  .post.single .comment-review {
+    margin-bottom: 30px;
+  }
+  .post.single .comment-review .add-review{
+    margin-top:30px;
+  }
+  .post.single .comment-review .add-review h5{
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 7px;
+  }
+  .post.single .comment-review .add-review p{
+    color:#333;
+  }
+  .post.single .comment-review h4 {
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 7px;
+    margin-top:20px;
+  }
+  .post.single .comment-review .review-inner{
+    margin-bottom:15px;
+    display:block;
+  }
+  .post.single .comment-review .rating li {
+    display:inline-block;
+  }
+  .post.single .comment-review .rating li i{
+    color:#F7941D;
+    font-size: 14px;
+  }
+  .post.single .rating-des p{
+    margin-top:5px;
+  }
+  .post.single .avg-ratting h4 {
+    font-size: 20px;
+    color: #333;
+  }
+  .post.single .form .form-group button {
+    border: none;
+    padding: 17px 50px;
+  }
+  .post.single .form .form-group textarea {
+    width: 100%;
+    height:200px;
+    padding: 20px;
+    background:#fff;
+    border:1px solid #ddd;
+    resize:none;
+    border-radius:0;
+    color:#333;
+  }
+  .post.single .form .form-group label {
+    color: #333;
+    position: relative;
+  }
+  .post.single .review-panel{
+    margin-top:35px;
+  }
+
+  /* Avatar do anunciante */
+  .personal-image {
+    text-align: center;
+  }
+  .personal-figure {
+    position: relative;
+    width: 120px;
+    height: 120px;
+  }
+  .personal-avatar {
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    box-sizing: border-box;
+    border-radius: 100%;
+    border: 2px solid transparent;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.2);
+    transition: all ease-in-out .3s;
+  }
+  .personal-avatar:hover {
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.5);
+  }
+  .orcamento {
+    display: flex;
+    align-items: center;
+  }
+  .cart-btn {
+    display: inline-block;
+    background-color: #7DC855;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #FFFFFF;
+    text-decoration: none;
+    padding: 12px 30px;
+  }
+  .cart-btn:hover {
+    background-color: #64af3d;
+  }
+  .btn {
+    position: relative;
+    font-weight: 500;
+    font-size:14px;
+    color: #fff;
+    background: #333;
+    display: inline-block;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+    z-index: 5;
+    display: inline-block;
+    padding: 13px 32px;
+    border-radius: 0px;
+    text-transform:uppercase;
+  }
+  .btn:hover{
+    color:#fff;
+    background:#F7941D;
+  }
+  /*======================================
+     Final do CSS da postagem
+  ========================================*/
+}

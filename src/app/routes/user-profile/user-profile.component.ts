@@ -19,7 +19,7 @@ export class UserProfileComponent implements OnInit {
   user: any;
   // user: ProfileEditForm[] = [];
 
-  constructor(private us: UserService ) { 
+  constructor(private us: UserService ) {
     this.user = mockUser;
 
     this.us.getUser().subscribe(
