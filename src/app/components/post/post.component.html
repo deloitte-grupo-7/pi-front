@@ -8,26 +8,10 @@
         <i class="fa-solid fa-star" *ngFor="let star of starsB(post.rating)"></i>
         <i class="fa-regular fa-star" *ngFor="let star of starsW(post.rating)"></i>
       </div>
-      <button>Ver mais</button>
-      <button (click)="toggle()" (click)="onDelete(post.id)">Deletar</button>
+      <button (click)="teste()">Ver mais</button>
     </div>
   </article>
 </div>
-
-
-<!-- MODAL DELETE PROD -->
-<!-- <ng-template *ngIf="mostrar">
-  <ng-template>
-    <div class="modal">
-      <span>Tem certeza que deseja deletar esse serviço?</span>
-      <div class="buttons">
-        <button class="bnt-s" (click)="onDelete(post.id)">Confirmar</button>
-        <button class="btn-n" (click)="toggle()">Cancelar</button>
-      </div>
-    </div>
-    <div class="overlay"></div>
-  </ng-template>
-</ng-template> -->
 
 <section>
   <div class="container">

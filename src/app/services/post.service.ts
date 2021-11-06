@@ -6,6 +6,7 @@ import { Post } from '../models/Post';
   providedIn: 'root'
 })
 export class PostService {
+
   posts: Post[] = []
   private services: Post [] = [];
 

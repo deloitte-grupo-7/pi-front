@@ -25,6 +25,8 @@ import { FormTemplate } from './components/form/form.component';
 import { UserProfileComponent } from './routes/user-profile/user-profile.component';
 import { ServiceList } from './routes/service-list/service-list.component';
 import { ServiceCreateComponent } from './routes/service-list/service-create/service-create.component';
+import { UserComponent } from './components/user/user.component';
+import { UserServicesComponent } from './components/user-services/user-services.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +45,7 @@ import { ServiceCreateComponent } from './routes/service-list/service-create/ser
     FormTemplate,
     CreatePostComponent,
     ServiceCreateComponent,
-    ServiceList,
-    UserProfileComponent,
+
   ],
   imports: [
     BrowserModule,
