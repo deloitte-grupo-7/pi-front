@@ -68,6 +68,7 @@ const fields: FieldTemplate[] = [
     type: 'date',
     validators: [
       Validators.required,
+      CustomValidator.validateBirthday
     ],
   },
   {
@@ -130,6 +131,16 @@ export class ValidationService {
   static readonly fields: FieldTemplate[] = fields;
   private static readonly apiURL: string = 'https://pi-back7.herokuapp.com';
   static http: HttpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }));
+
+  static msg: Map<string, string> = new Map ([
+    ['required', 'Campo obrigatório'],
+    ['minlength', 'Não há caracteres suficientes'],
+    ['maxlength', 'Caracteres máximos excedidos'],
+    ['pattern', 'Caracteres inválidos'],
+    ['invalidCPF', 'CPF inválido'],
+    ['minor', 'Você deve ter pelo menos 18 anos para se cadastrar'],
+    ['passwordsDontMatch', 'As senhas não são iguais'],
+  ])
 
   static signUpRequest(form: SignUpForm) {
     return this.http.post(`${this.apiURL}/signup`, form);

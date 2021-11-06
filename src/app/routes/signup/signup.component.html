@@ -6,17 +6,24 @@
       <label [for]="fields[i].name">
         {{ fields[i].title }}
       </label>
-      <strong class="status"
-              [ngClass]="field.touched ? validate(field, 'valid', 'invalid') : ''">
-        {{ validate(field, '✔', '⚠') }}
-      </strong>
+      <section class="validation">
+        <div  class="error"
+              [ngClass]="hover[i] ? validate(field, '', 'show') : ''"
+              *ngIf="field.touched">{{ errorText(getControl(i)) }}</div>
+        <strong (mouseenter)="showErrors(i, true)"
+                (mouseleave)="showErrors(i, false)"
+                class="status"
+                [ngClass]="field.touched ? validate(field, 'valid', 'invalid') : ''">
+          {{ validate(field, '✔', '⚠') }}
+        </strong>
+      </section>
       <input  [ngClass]="field.touched ? validate(field, 'valid', 'invalid') : ''"
               [formControl]="getControl(i)"
               [type]="fields[i].type"
               [name]="fields[i].name"
               cpf>
     </ng-template>
-    <p>Já se registrou? Entre <a routerLink="/siginin">aqui.</a></p>
+    <p>Já se registrou? Entre <a routerLink="../signin">aqui.</a></p>
     <button [disabled]="form.invalid"
             [ngClass]="{ 'submit': true,
                          'disabled': form.invalid }"

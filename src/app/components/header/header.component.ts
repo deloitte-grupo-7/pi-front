@@ -8,7 +8,6 @@ import { NavToggleService } from 'src/app/services/nav-toggle.service';
 })
 export class HeaderComponent implements OnInit {
 
-
   constructor() { }
 
   ngOnInit(): void {
