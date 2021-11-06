@@ -1,0 +1,27 @@
+<div class="gradient">
+  <form (ngSubmit)="onFormSubmit($event)">
+    <ng-template  ngFor let-field
+                  [ngForOf]="form.controls"
+                  let-i="index">
+      <label [for]="fields[i].name">
+        {{ fields[i].title }}
+      </label>
+      <strong class="status"
+              [ngClass]="validate(field, 'valid', 'invalid')"
+              *ngIf="field.touched">
+        {{ validate(field, '✔', '⚠') }}
+      </strong>
+      <input  [ngClass]="field.touched ? validate(field, 'valid', 'invalid') : ''"
+              [formControl]="getControl(i)"
+              [type]="fields[i].type"
+              [name]="fields[i].name">
+    </ng-template>
+    <input type="file">
+    <button [disabled]="form.invalid"
+            [ngClass]="{ 'submit': true,
+                         'disabled': form.invalid }"
+            type="submit">
+      Criar novo anuncio
+    </button>
+  </form>
+</div>

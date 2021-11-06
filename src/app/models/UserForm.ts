@@ -23,6 +23,8 @@ export class SignUpForm extends SignInForm {
 }
 
 export class ProfileEditForm extends SignInForm {
+    adress: string = '';
+    bio: string = '';
     name: string = '';
     email: string = '';
     description: string = '';

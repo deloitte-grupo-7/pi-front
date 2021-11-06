@@ -9,7 +9,7 @@
             <input type="text" name="descricao" [(ngModel)]="newService.description">        
         <label action="/upload" method="post" enctype="multipart/form-data">
             Imagem
-            <input type="text" accept="image/*" name="photo">
+            <input type="url" accept="image/*" name="photo">
             <input type="submit" value="upload">
         </label>
         </label>
