@@ -46,10 +46,9 @@ import { UserServicesComponent } from './components/user-services/user-services.
     CreatePostComponent,
     ServiceCreateComponent,
     UserComponent,
-    UserProfileComponent,
     UserServicesComponent,
-    ServiceList,
-
+    UserProfileComponent,
+    ServiceList
 
   ],
   imports: [
