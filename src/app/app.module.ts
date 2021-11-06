@@ -15,15 +15,15 @@ import { HomePage } from './routes/home/home.component';
 import { ContactPage } from './routes/contact/contact.component';
 import { AboutPage } from './routes/about/about.component';
 import { NavComponent } from './components/nav/nav.component';
-import { EditPage } from './routes/user/edit/edit.component';
-import { PostComponent } from './routes/post/post.component';
+import { PostPage } from './routes/postPage/post-page.component';
 import {IvyCarouselModule} from './components/carousel/carousel.module';
 import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
-import { ProdutoComponent } from './components/produto/produto.component';
+import { PostComponent } from './components/post/post.component';
+
 import { FormTemplate } from './components/form/form.component';
-import { ProfileEditComponent } from './routes/profile-edit/profile-edit.component';
-import { CreatePostComponent } from './routes/create-post/create-post.component';
-import { UserComponent } from './routes/user/user.component';
+import { UserProfileComponent } from './routes/user-profile/user-profile.component';
+import { ServiceList } from './routes/service-list/service-list.component';
+import { ServiceCreateComponent } from './routes/service-list/service-create/service-create.component';
 
 @NgModule({
   declarations: [
@@ -36,22 +36,17 @@ import { UserComponent } from './routes/user/user.component';
     ContactPage,
     AboutPage,
     NavComponent,
-    EditPage,
-    PostComponent,
+    PostPage,
     CarouselHomeComponent,
-    ProdutoComponent,
+    PostComponent,
     FormTemplate,
-    ProfileEditComponent,
-    CreatePostComponent,
-    UserComponent
-  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
-    IvyCarouselModule
+    IvyCarouselModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

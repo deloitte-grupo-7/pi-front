@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EditPage } from './edit.component';
+import { ServiceList } from './service-list.component';
 
-describe('EditPage', () => {
-  let component: EditPage;
-  let fixture: ComponentFixture<EditPage>;
+describe('ServiceCreateComponent', () => {
+  let component: ServiceList;
+  let fixture: ComponentFixture<ServiceList>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ EditPage ]
+      declarations: [ ServiceList ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EditPage);
+    fixture = TestBed.createComponent(ServiceList);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
