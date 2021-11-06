@@ -3,8 +3,9 @@ import { ValidationService } from 'src/app/services/validation.service';
 import { SignUpForm } from 'src/app/models/UserForm';
 import { Router } from '@angular/router';
 import { FormTemplate } from 'src/app/components/form/form.component';
-import { AbstractControl, FormArray, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { AbstractControl, FormArray, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { CpfPipe } from './cpf.pipe';
+import { CustomValidator } from 'src/app/models/CustomValidator';
 
 @Component({
   selector: 'app-signup',
@@ -13,19 +14,12 @@ import { CpfPipe } from './cpf.pipe';
 })
 export class SignUpPage extends FormTemplate {
 
+  hover: boolean[];
+
   constructor(private router: Router) {
     super(/(username)|(name)|(cpf)|(email)|(birthday)|(password)|(passconf)/);
-    this.form.setValidators(this.checkPasswords);
-  }
-
-  checkPasswords: ValidatorFn = (control: AbstractControl): ValidationErrors | null => {
-    const form: FormArray = <FormArray>control;
-    const password = form.value[form.length - 2];
-    const passconf = form.value[form.length - 1];
-    const err: ValidationErrors | null = (password === passconf) ? null : { passwordsDontMatch: true };
-    form.controls[form.length - 1].setErrors(err);
-    console.log(this.form);
-    return null;
+    this.form.setValidators(CustomValidator.checkPasswords);
+    this.hover = new Array(this.fields.length);
   }
 
   onFormSubmit(ev: Event): void {
@@ -53,5 +47,18 @@ export class SignUpPage extends FormTemplate {
   isCPF(name: string) {
     if (name === 'cpf') return CpfPipe;
     return null;
+  }
+
+  showErrors(n: number, yn: boolean) {
+    this.hover[n] = yn;
+    console.log(this.hover);
+  }
+
+  errorText(control: AbstractControl): string {
+    let msg: string = '';
+    for (const err in control.errors) {
+      msg += ValidationService.msg.get(err);
+    }
+    return msg
   }
 }

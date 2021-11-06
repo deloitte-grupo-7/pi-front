@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { PostComponent } from './components/post/post.component';
 import { AboutPage } from './routes/about/about.component';
 import { ContactPage } from './routes/contact/contact.component';
+import { CreatePostComponent } from './routes/create-post/create-post.component';
 import { HomePage } from './routes/home/home.component';
 import { ServiceCreateComponent } from './routes/service-list/service-create/service-create.component';
 import { ServiceList } from './routes/service-list/service-list.component';

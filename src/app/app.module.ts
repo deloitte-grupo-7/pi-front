@@ -19,6 +19,7 @@ import { PostPage } from './routes/postPage/post-page.component';
 import {IvyCarouselModule} from './components/carousel/carousel.module';
 import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
 import { PostComponent } from './components/post/post.component';
+import { CreatePostComponent } from './routes/create-post/create-post.component';
 
 import { FormTemplate } from './components/form/form.component';
 import { UserProfileComponent } from './routes/user-profile/user-profile.component';
@@ -42,21 +43,18 @@ import { UserServicesComponent } from './components/user-services/user-services.
     CarouselHomeComponent,
     PostComponent,
     FormTemplate,
-    UserProfileComponent,
-    ServiceList,
+    CreatePostComponent,
     ServiceCreateComponent,
-    UserComponent,
-    UserServicesComponent,
 
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
     HttpClientModule,
     IvyCarouselModule,
-    
+    ReactiveFormsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
