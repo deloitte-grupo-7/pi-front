@@ -2,6 +2,7 @@ import { HttpClient, HttpXhrBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { FieldTemplate } from '../models/FieldTemplate';
+import { NewService } from '../models/NewService';
 import { ProfileEditForm, SignInForm, SignUpForm } from '../models/UserForm';
 
 const fields: FieldTemplate[] = [
@@ -96,6 +97,26 @@ const fields: FieldTemplate[] = [
       Validators.maxLength(32),
     ]
   },
+  {
+    title: 'Título do anuncio',
+    name: 'titulo',
+    type: 'text',
+    validators: [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(32),
+    ]
+  },
+  {
+    title: 'Descrição',
+    name: 'descricao',
+    type: 'text',
+    validators: [
+      Validators.required,
+      Validators.minLength(8),
+      Validators.maxLength(150),
+    ]
+  },
 
 ];
 
@@ -117,5 +138,8 @@ export class ValidationService {
   }
   static updateProfile(form: ProfileEditForm){
     return this.http.put(`${this.apiURL}/editp`, form)
+  }
+  static createServicePost(form: NewService){
+    return this.http.post(`${this.apiURL}/creates`, form)
   }
 }

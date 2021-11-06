@@ -22,6 +22,8 @@ import { CarouselHomeComponent } from './components/carousel-home/carousel-home.
 import { ProdutoComponent } from './components/produto/produto.component';
 import { FormTemplate } from './components/form/form.component';
 import { ProfileEditComponent } from './routes/profile-edit/profile-edit.component';
+import { CreatePostComponent } from './routes/create-post/create-post.component';
+import { UserComponent } from './routes/user/user.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +42,8 @@ import { ProfileEditComponent } from './routes/profile-edit/profile-edit.compone
     ProdutoComponent,
     FormTemplate,
     ProfileEditComponent,
+    CreatePostComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
