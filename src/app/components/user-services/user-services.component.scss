@@ -54,9 +54,9 @@
     border-radius: 8px;
     border:none;
     color:#fff;
-    padding: 10px;
-    width:50%;
-    margin-top:8px ;
+    padding: 8px;
+    width:40%;
+    
 }
 
 .text button:hover{
@@ -65,9 +65,13 @@
 }
 
 .avaliacao i{
-    margin:5px;
+    margin:2px;
 }
 
+.grid button{
+    margin:8px;
+    margin-top:20px; 
+}
 @media(max-width:768px){
     .grid{
         grid-template-columns: repeat(2, 1fr);
@@ -134,3 +138,4 @@
     background: purple;
     cursor: pointer;
 }
+

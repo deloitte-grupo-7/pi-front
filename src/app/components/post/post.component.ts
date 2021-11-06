@@ -104,24 +104,8 @@ export class PostComponent implements OnInit {
     return a+b;
   }
 
-  //deletar
-  mostrar: boolean = false;
-
-  prodSelect?:string;
-
-  toggle () {
-    this.mostrar = !this.mostrar;
+  teste(){
+    alert("olá")
   }
 
-  onDelete(id?:string){
-    //if(id){
-      this.prodSelect=id;
-    //} 
-  }
-
-  onConfirmar(){
-    console.log(this.prodSelect);
-    console.log("imprimi");
-    this.toggle();
-  }
 }
