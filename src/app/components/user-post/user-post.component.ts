@@ -1,15 +1,14 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Post } from 'src/app/models/Post';
 import { PostService } from 'src/app/services/post.service';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  selector: 'app-user-post',
+  templateUrl: './user-post.component.html',
+  styleUrls: ['./user-post.component.scss']
 })
-export class PostComponent implements OnInit {
+export class UserPostComponent implements OnInit {
 
-  
   list5:Array<any>= new Array(5);
 
   posts: Post[] = [
@@ -75,5 +74,13 @@ export class PostComponent implements OnInit {
   teste(){
     alert("olá")
   }
+
+  //deletar
+  mostrar: boolean = false;
+
+  toggle () {
+    this.mostrar = !this.mostrar;
+  }
+
 
 }

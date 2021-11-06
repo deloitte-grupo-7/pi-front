@@ -1,4 +1,4 @@
-<!-- <div class="grid">
+<div class="grid">
   <article *ngFor="let post of posts">
     <img src="{{post.imgUrl}}">
     <div class="text">
@@ -11,39 +11,4 @@
       <button (click)="teste()">Ver mais</button>
     </div>
   </article>
-</div> -->
-
-<section>
-  <div class="container">
-
-    <div class="star-selection">
-      <div class="post">
-        <div class="text">Digite sua avaliação do serviço prestado</div>
-      </div>
-      <div class="star-widget">
-        <input type="radio" name="rate" id="rate-5" value=5 (click)="toggleButtonEnable()">
-        <label for="rate-5" class="fa-solid fa-star" ></label>
-
-        <input type="radio" name="rate" id="rate-4" value=4 (click)="toggleButtonEnable()">
-        <label for="rate-4" class="fa-solid fa-star"></label>
-
-        <input type="radio" name="rate" id="rate-3" value=3 (click)="toggleButtonEnable()">
-        <label for="rate-3" class="fa-solid fa-star"></label>
-
-        <input type="radio" name="rate" id="rate-2" value=2 (click)="toggleButtonEnable()">
-        <label for="rate-2" class="fa-solid fa-star"></label>
-
-        <input type="radio" name="rate" id="rate-1" value=1 (click)="toggleButtonEnable()">
-        <label for="rate-1" class="fa-solid fa-star"></label>
-
-      </div>
-      <button type="submit" id="submit" (click)="submitRate()" disabled>Enviar</button>
-    </div>
-
-
-    <div class="thanks sr-only">
-      Obrigado pela avaliação!
-    </div>
-
-  </div>
-  </section>
+</div>
