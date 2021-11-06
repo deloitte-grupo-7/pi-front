@@ -28,6 +28,7 @@ import { ServiceCreateComponent } from './routes/service-list/service-create/ser
 import { UserComponent } from './components/user/user.component';
 import { UserServicesComponent } from './components/user-services/user-services.component';
 import { RateComponent } from './components/rate/rate.component';
+import { UserPostComponent } from './components/user-post/user-post.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { RateComponent } from './components/rate/rate.component';
     UserServicesComponent,
     UserProfileComponent,
     ServiceList,
-    RateComponent
+    RateComponent,
+    UserPostComponent
 
   ],
   imports: [
