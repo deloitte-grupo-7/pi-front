@@ -11,7 +11,7 @@ import { PostService } from 'src/app/services/post.service';
 export class ServiceCreateComponent implements OnInit {
 
   cancelService:EventEmitter<null> = new EventEmitter();
-  
+    
   newService:Post;
 
   constructor(
@@ -37,6 +37,11 @@ export class ServiceCreateComponent implements OnInit {
     console.log('tentando cancelar')
     this.cancelService.emit();
     this.router.navigateByUrl('/')
+  }
+
+  save(){
+    console.log('tentando salvar')
+    this.router.navigateByUrl('/user')
   }
 
   ngOnInit(): void {

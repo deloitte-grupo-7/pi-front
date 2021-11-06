@@ -7,13 +7,14 @@
   h1{
       color:purple;
       font-size: 45px;
+    //   text-shadow: -2px -2px 2px #fff;
       padding:70px 30px 30px 30px;
   }
 
   .intro p{
       font-size: 25px;
       color: white;
-      padding-left: 20px;
+      padding: 30px;
       line-height: 35px;
       text-align: justify;
       margin-bottom: 70px;
@@ -38,7 +39,8 @@
   article {
       display: flex;
       justify-content: space-around;
-      margin-bottom: 70px;
+      margin-bottom: 60px;
+      margin: 40px;
       align-items: center;
       background-color:white;
       border-radius: 8px;
@@ -46,7 +48,8 @@
 
   article .img img{
       width: 500px;
-      height: 500px;
+      height: 300px;
+      margin: 10px;
       border-radius: 20px;
   }
 }
