@@ -153,6 +153,6 @@ export class ValidationService {
     return this.http.put(`${this.apiURL}/editp`, form)
   }
   static createServicePost(form: NewService){
-    return this.http.post(`${this.apiURL}/creates`, form)
+    return this.http.post(`${this.apiURL}/u/username`, form)
   }
 }

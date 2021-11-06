@@ -7,8 +7,9 @@
                         <input [formControl]="getControl(i)" [type]="fields[i].type" [name]="fields[i].name">
                 </ng-template>
                 <div>
-                        <input [(ngModel)]="staySignedIn" class="checkbox" name="staysignedin" type="checkbox">
-                        <label for="staysignedin">Permanecer logado</label>
+                        <!-- <input [(ngModel)]="staySignedIn" class="checkbox" name="staysignedin" type="checkbox">
+                        <label for="staysignedin">Permanecer logado</label> -->
+                        <p>Não possui conta? Registre-se <a routerLink="../signup">aqui.</a></p>
                 </div>
                 <button type="submit" class="submit">Entrar
                 </button>
