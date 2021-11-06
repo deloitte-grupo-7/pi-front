@@ -5,6 +5,7 @@ import { AboutPage } from './routes/about/about.component';
 import { ContactPage } from './routes/contact/contact.component';
 import { CreatePostComponent } from './routes/create-post/create-post.component';
 import { HomePage } from './routes/home/home.component';
+import { PostPage } from './routes/postPage/post-page.component';
 import { ServiceCreateComponent } from './routes/service-list/service-create/service-create.component';
 import { ServiceList } from './routes/service-list/service-list.component';
 import { SignInPage } from './routes/signin/signin.component';
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'service'   , component: ServiceList},
   { path: 'screate'   , component: ServiceCreateComponent},
   { path: 'user'      , component: UserProfileComponent},
+  { path: 'p'      , component: PostPage},
 ];
 
 @NgModule({
