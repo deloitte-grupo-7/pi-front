@@ -2,16 +2,15 @@
     <form>
         <label>
             Título:
-        <input type="text" name="nome" id="title" [(ngModel)]="newService.title">
+        <input type="text" name="nome" id="title" [(ngModel)]="newPost.title">
         </label>
         <label>
             Descrição:
-            <input type="text" name="descricao" [(ngModel)]="newService.description">        
-        <label action="/upload" method="post" enctype="multipart/form-data">
+            <input type="text" name="descricao" [(ngModel)]="newPost.description">        
+        <label for="photo" action="/upload" method="post" enctype="multipart/form-data">
             Imagem
-            <input type="url" accept="image/*" name="photo">
-            <input type="submit" value="upload">
         </label>
+        <input type="url" accept="image/*" name="photo">
         </label>
         <div class="controles">
             <button (click)="cancel()" type="submit">Cancelar</button> 

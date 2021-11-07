@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-post-page',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostPage {
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
-
 }

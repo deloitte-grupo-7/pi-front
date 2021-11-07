@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './services/auth.service';
 import { NavToggleService } from './services/nav-toggle.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class AppComponent implements OnInit {
   }
 
    ngOnInit() {
-    NavToggleService.getIsNavActive().subscribe((bool) => this.isNavActive = bool );
+    NavToggleService.isNavActive().subscribe((bool) => this.isNavActive = bool);
+    AuthService.init();
    }
 }

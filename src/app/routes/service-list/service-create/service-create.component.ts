@@ -12,12 +12,12 @@ export class ServiceCreateComponent implements OnInit {
 
   cancelService:EventEmitter<null> = new EventEmitter();
   
-  newService!:Post;
+  newPost!:Post;
 
   constructor(private router: Router) {}
 
   postService(){
-    HttpService.postPost(this.newService).subscribe(
+    HttpService.postPost(this.newPost).subscribe(
       {
         next: data => {
           console.log(data)

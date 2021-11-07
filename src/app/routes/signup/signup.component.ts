@@ -30,6 +30,8 @@ export class SignUpPage extends FormTemplate {
   }
 
   signUpRequest(form: Map<string, any>): void {
+    console.log(form);
+    console.log(new SignUpForm(form));
     HttpService.signUpRequest(new SignUpForm(form)).subscribe(
       {
         next: data => {

@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Post } from '../models/Classes';
 import { SignInForm, SignUpForm, User } from '../models/Classes';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -21,6 +22,7 @@ export class HttpService {
   }
 
   static getUser(username: string): Observable<any> {
+    console.log(username);
     return this.http.get<User>(`${this.apiURL}/u/${username}/profile`);
   }
 
@@ -37,6 +39,6 @@ export class HttpService {
   }
 
   static postPost(post: Post): Observable<any> {
-    return this.http.post(`${this.apiURL}/screate`, post);
+    return this.http.post(`${this.apiURL}/u/${AuthService.localContent$.value.username}/services`, post);
   }
 }

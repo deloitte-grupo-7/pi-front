@@ -5,6 +5,7 @@ import { AboutPage } from './routes/about/about.component';
 import { ContactPage } from './routes/contact/contact.component';
 import { CreatePostComponent } from './routes/create-post/create-post.component';
 import { HomePage } from './routes/home/home.component';
+import { PageNotFoundComponent } from './routes/page-not-found/page-not-found.component';
 import { PostPage } from './routes/postPage/post-page.component';
 import { ServiceCreateComponent } from './routes/service-list/service-create/service-create.component';
 import { ServiceList } from './routes/service-list/service-list.component';
@@ -14,16 +15,18 @@ import { UserProfileComponent } from './routes/user-profile/user-profile.compone
 
 
 const routes: Routes = [
-  { path: ''          , component: HomePage },
-  { path: 'signin'    , component: SignInPage },
-  { path: 'signup'    , component: SignUpPage },
-  { path: 'about'     , component: AboutPage },
-  { path: 'contact'   , component: ContactPage },
-  { path: 'post'      , component: PostComponent },
-  { path: 'service'   , component: ServiceList},
-  { path: 'screate'   , component: ServiceCreateComponent},
-  { path: 'user'      , component: UserProfileComponent},
-  { path: 'p'         , component: PostPage},
+  { path: ''            , component: HomePage },
+  { path: 'signin'      , component: SignInPage },
+  { path: 'signup'      , component: SignUpPage },
+  { path: 'about'       , component: AboutPage },
+  { path: 'contact'     , component: ContactPage },
+  { path: 'post'        , component: PostComponent },
+  { path: 'service'     , component: ServiceList },
+  { path: 'screate'     , component: ServiceCreateComponent },
+  { path: 'cs'          , component: CreatePostComponent },
+  { path: 'u/:userslug' , component: UserProfileComponent },
+  { path: 'p'           , component: PostPage },
+  { path: '**'          , component: PageNotFoundComponent },
 ];
 
 @NgModule({

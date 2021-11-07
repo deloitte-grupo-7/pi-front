@@ -10,7 +10,7 @@ export class NavToggleService {
 
   constructor() { }
 
-  public static getIsNavActive(): Observable<boolean> {
+  public static isNavActive(): Observable<boolean> {
     return this.isNavActive$.asObservable();
   }
   public static toggleNav(): void {

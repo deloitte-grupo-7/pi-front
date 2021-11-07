@@ -29,6 +29,7 @@ import { UserComponent } from './components/user/user.component';
 import { UserServicesComponent } from './components/user-services/user-services.component';
 import { RateComponent } from './components/rate/rate.component';
 import { UserPostComponent } from './components/user-post/user-post.component';
+import { PageNotFoundComponent } from './routes/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { UserPostComponent } from './components/user-post/user-post.component';
     UserProfileComponent,
     ServiceList,
     RateComponent,
-    UserPostComponent
+    UserPostComponent,
+    PageNotFoundComponent
 
   ],
   imports: [

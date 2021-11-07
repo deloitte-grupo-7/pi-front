@@ -1,25 +1,37 @@
-<a routerLink="" class="logo"> <img class="logoimg" src="../../../assets/img/logo3.png" alt="">GETSERV</a>
-<div class="container">
-  <input type="text" placeholder="Pesquisar">
-  <div class="search"></div>
-</div>
-<ul>
-    <li>
-        <a routerLink="about">SOBRE</a>
-    </li>
-    <li>
-        <a routerLink="contact">CONTATO</a>
-    </li>
+<header>
+    <a routerLink="" class="logo"> <img class="logoimg" src="../../../assets/img/logo3.png" alt="">GETSERV</a>
+    <div class="container">
+        <input type="text" placeholder="Pesquisar">
+        <div class="search"></div>
+    </div>
+    <nav>
+        <ul>
+            <li>
+                <a routerLink="about">SOBRE</a>
+            </li>
+            <li>
+                <a routerLink="contact">CONTATO</a>
+            </li>
+        </ul>
 
-    <!-- <li>
-      <a routerLink="signup">REGISTRAR</a>
-    </li> -->
-    <li>
-      <a routerLink="post">SERVIÇO</a>
-    </li>
-    <li>
-        <a routerLink="signin">ENTRAR</a>
-    </li>
-  </ul>
+        <div class="user"
+            (click)="navigateToUserProfile(user.username)"
+            *ngIf="isSignedIn; else notSignedIn">
+            <img [src]="user.imgUrl">
+            <p>{{ user.username }}</p>
+            <button (click)="signOut()">SAIR</button>
+        </div>
 
-<button (click)="toggleNav()" class="menu">☰</button>
+        <ng-template #notSignedIn>
+            <ul class="notsignedin">
+                <li class="signin">
+                    <a routerLink="signin">ENTRAR</a>
+                </li>
+                <li class="signup">
+                    <a routerLink="signup">REGISTRAR</a>
+                </li>
+            </ul>
+        </ng-template>
+        <button (click)="toggleNav()" class="menu">☰</button>
+    </nav>
+</header>
