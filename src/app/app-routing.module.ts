@@ -6,7 +6,6 @@ import { ContactPage } from './routes/contact/contact.component';
 import { CreatePostComponent } from './routes/create-post/create-post.component';
 import { HomePage } from './routes/home/home.component';
 import { PageNotFoundComponent } from './routes/page-not-found/page-not-found.component';
-import { PostPage } from './routes/postPage/post-page.component';
 import { ServiceCreateComponent } from './routes/service-list/service-create/service-create.component';
 import { ServiceList } from './routes/service-list/service-list.component';
 import { SignInPage } from './routes/signin/signin.component';
@@ -25,7 +24,6 @@ const routes: Routes = [
   { path: 'screate'     , component: ServiceCreateComponent },
   { path: 'cs'          , component: CreatePostComponent },
   { path: 'u/:userslug' , component: UserProfileComponent },
-  { path: 'p'           , component: PostPage },
   { path: '**'          , component: PageNotFoundComponent },
 ];
 
