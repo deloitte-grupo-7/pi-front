@@ -15,7 +15,6 @@ import { HomePage } from './routes/home/home.component';
 import { ContactPage } from './routes/contact/contact.component';
 import { AboutPage } from './routes/about/about.component';
 import { NavComponent } from './components/nav/nav.component';
-import { PostPage } from './routes/postPage/post-page.component';
 import {IvyCarouselModule} from './components/carousel/carousel.module';
 import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
 import { PostComponent } from './components/post/post.component';
@@ -42,7 +41,6 @@ import { PageNotFoundComponent } from './routes/page-not-found/page-not-found.co
     ContactPage,
     AboutPage,
     NavComponent,
-    PostPage,
     CarouselHomeComponent,
     PostComponent,
     FormTemplate,
