@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'service'   , component: ServiceList},
   { path: 'screate'   , component: ServiceCreateComponent},
   { path: 'user'      , component: UserProfileComponent},
-  { path: 'p'      , component: PostPage},
+  { path: 'p'         , component: PostPage},
 ];
 
 @NgModule({

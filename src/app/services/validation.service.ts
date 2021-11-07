@@ -152,6 +152,9 @@ export class ValidationService {
   static updateProfile(form: ProfileEditForm){
     return this.http.put(`${this.apiURL}/editp`, form)
   }
+
+  // Abaixo já está funcionando em post.service.ts 
+
   static createServicePost(form: NewService){
     return this.http.post(`${this.apiURL}/u/username`, form)
   }
