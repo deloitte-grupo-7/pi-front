@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Post } from 'src/app/models/Classes';
+import { Post } from 'src/app/models/Post';
+import { PostService } from 'src/app/services/post.service';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  selector: 'app-user-post',
+  templateUrl: './user-post.component.html',
+  styleUrls: ['./user-post.component.scss']
 })
-export class PostComponent implements OnInit {
+export class UserPostComponent implements OnInit {
 
-  
   list5:Array<any>= new Array(5);
 
   posts: Post[] = [
@@ -50,21 +49,38 @@ export class PostComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router) { }
+  constructor(private ps: PostService) { }
 
   ngOnInit(): void {
   }
 
   starsB(n?:number){
-    return new Array(n ? n : 0);
+    if(n==null){
+      return new Array(0)
+    }else{
+      return new Array(n);
+    }
   }
 
   starsW(n?:number){
-    return new Array(n ? 5 - n : 5);
+    if(n==null){
+      return new Array(5)
+    }else{
+      let valor= 5-n!;
+      return new Array(valor);
+    }
   }
 
   teste(){
-    this.router.navigateByUrl('/user')
+    alert("olá")
   }
+
+  //deletar
+  mostrar: boolean = false;
+
+  toggle () {
+    this.mostrar = !this.mostrar;
+  }
+
 
 }

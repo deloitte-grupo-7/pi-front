@@ -136,4 +136,24 @@ export class ValidationService {
     ['minor', 'Você deve ter pelo menos 18 anos para se cadastrar'],
     ['passwordsDontMatch', 'As senhas não são iguais'],
   ])
+<<<<<<< HEAD
+=======
+
+  static signUpRequest(form: SignUpForm) {
+    return this.http.post(`${this.apiURL}/signup`, form);
+  }
+
+  static signInRequest(form: SignInForm){
+    return this.http.post(`${this.apiURL}/signin`, form);
+  }
+  static updateProfile(form: ProfileEditForm){
+    return this.http.put(`${this.apiURL}/editp`, form)
+  }
+
+  // Abaixo já está funcionando em post.service.ts 
+
+  static createServicePost(form: NewService){
+    return this.http.post(`${this.apiURL}/u/username`, form)
+  }
+>>>>>>> 71bbca8004feb7362ee24eba3d08b22f602810c6
 }

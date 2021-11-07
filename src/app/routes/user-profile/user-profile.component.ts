@@ -35,6 +35,8 @@ export class UserProfileComponent implements OnInit {
         error: (err: Error) => console.error(err)
       }
     );
+
+    
   }
 
   ngOnInit(): void {

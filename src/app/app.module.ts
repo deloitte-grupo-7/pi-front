@@ -25,6 +25,10 @@ import { FormTemplate } from './components/form/form.component';
 import { UserProfileComponent } from './routes/user-profile/user-profile.component';
 import { ServiceList } from './routes/service-list/service-list.component';
 import { ServiceCreateComponent } from './routes/service-list/service-create/service-create.component';
+import { UserComponent } from './components/user/user.component';
+import { UserServicesComponent } from './components/user-services/user-services.component';
+import { RateComponent } from './components/rate/rate.component';
+import { UserPostComponent } from './components/user-post/user-post.component';
 
 @NgModule({
   declarations: [
@@ -43,8 +47,13 @@ import { ServiceCreateComponent } from './routes/service-list/service-create/ser
     FormTemplate,
     CreatePostComponent,
     ServiceCreateComponent,
-    ServiceList,
+    UserComponent,
+    UserServicesComponent,
     UserProfileComponent,
+    ServiceList,
+    RateComponent,
+    UserPostComponent
+
   ],
   imports: [
     BrowserModule,

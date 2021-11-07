@@ -1,6 +1,6 @@
 <div class="grid">
   <article *ngFor="let post of posts">
-    <img src="{{post.imgUrl}}"> 
+    <img src="{{post.imgUrl}}">
     <div class="text">
       <h3>{{post.title}}</h3>
       <p>{{post.description}}</p>
@@ -8,58 +8,7 @@
         <i class="fa-solid fa-star" *ngFor="let star of starsB(post.rating)"></i>
         <i class="fa-regular fa-star" *ngFor="let star of starsW(post.rating)"></i>
       </div>
-      <button>Ver mais</button>
-      <button (click)="toggle()" (click)="onDelete(post.id)">Deletar</button>
+      <button (click)="teste()">Ver mais</button>
     </div>
   </article>
 </div>
-
-
-<!-- MODAL DELETE PROD -->
-<!-- <ng-template *ngIf="mostrar">
-  <ng-template>
-    <div class="modal">
-      <span>Tem certeza que deseja deletar esse serviço?</span>
-      <div class="buttons">
-        <button class="bnt-s" (click)="onDelete(post.id)">Confirmar</button>
-        <button class="btn-n" (click)="toggle()">Cancelar</button>
-      </div>
-    </div>
-    <div class="overlay"></div>
-  </ng-template>
-</ng-template> -->
-
-<section>
-  <div class="container">
-    
-    <div class="star-selection">
-      <div class="post">
-        <div class="text">Digite sua avaliação do serviço prestado</div>
-      </div>
-      <div class="star-widget">
-        <input type="radio" name="rate" id="rate-5" value=5 (click)="toggleButtonEnable()">
-        <label for="rate-5" class="fa-solid fa-star" ></label>
-  
-        <input type="radio" name="rate" id="rate-4" value=4 (click)="toggleButtonEnable()">
-        <label for="rate-4" class="fa-solid fa-star"></label>
-  
-        <input type="radio" name="rate" id="rate-3" value=3 (click)="toggleButtonEnable()">
-        <label for="rate-3" class="fa-solid fa-star"></label>
-  
-        <input type="radio" name="rate" id="rate-2" value=2 (click)="toggleButtonEnable()">
-        <label for="rate-2" class="fa-solid fa-star"></label>
-  
-        <input type="radio" name="rate" id="rate-1" value=1 (click)="toggleButtonEnable()">
-        <label for="rate-1" class="fa-solid fa-star"></label>
-      
-      </div>
-      <button type="submit" id="submit" (click)="submitRate()" disabled>Enviar</button>
-    </div>
-  
-  
-    <div class="thanks sr-only">
-      Obrigado pela avaliação!
-    </div>
-  
-  </div>
-  </section>

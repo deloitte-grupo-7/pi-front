@@ -1,15 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Post } from 'src/app/models/Classes';
+import { Post } from 'src/app/models/Post';
 
 @Component({
-  selector: 'app-post',
-  templateUrl: './post.component.html',
-  styleUrls: ['./post.component.scss']
+  selector: 'app-user-services',
+  templateUrl: './user-services.component.html',
+  styleUrls: ['./user-services.component.scss']
 })
-export class PostComponent implements OnInit {
-
-  
+export class UserServicesComponent implements OnInit {
+  y:number=0;
   list5:Array<any>= new Array(5);
 
   posts: Post[] = [
@@ -42,7 +40,7 @@ export class PostComponent implements OnInit {
       imgUrl: "assets/img/dog1.jpeg"
     },
     {
-      id:"5",
+      id:"80",
       title:"Pera",
       description: "Aula de  violão para crianças de 10 anos em 3 meses",
       rating:0,
@@ -50,21 +48,47 @@ export class PostComponent implements OnInit {
     },
   ];
 
-  constructor(private router: Router) { }
+
+  constructor() { }
 
   ngOnInit(): void {
   }
 
+  //deletar
+  mostrar: boolean = false;
+
+  prodSelect?:string;
+
+  toggle () {
+    this.mostrar = !this.mostrar;
+  }
+
   starsB(n?:number){
-    return new Array(n ? n : 0);
+    if(n==null){
+      return new Array(0)
+    }else{
+      return new Array(n);
+    }
   }
 
   starsW(n?:number){
-    return new Array(n ? 5 - n : 5);
+    if(n==null){
+      return new Array(5)
+    }else{
+      let valor= 5-n!;
+      return new Array(valor);
+    }
   }
 
-  teste(){
-    this.router.navigateByUrl('/user')
+  onDelete(id?:string){
+    if(id){
+      this.prodSelect=id;
+    } 
+  }
+
+  onConfirmar(){
+    console.log(this.prodSelect);
+    this.toggle();
   }
 
 }

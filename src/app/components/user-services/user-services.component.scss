@@ -3,7 +3,7 @@
 .grid{
     margin:80px;
     display:grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(1, 1fr);
     grid: gap 30px;
     align-items: center;
 }
@@ -28,7 +28,7 @@
     width: 100px;
     border-radius: 100%;
     margin: 5px;
-    height:80px
+    height:100px
 }
 
 .text{
@@ -54,9 +54,9 @@
     border-radius: 8px;
     border:none;
     color:#fff;
-    padding: 10px;
-    width:50%;
-    margin-top:8px ;
+    padding: 8px;
+    width:40%;
+    
 }
 
 .text button:hover{
@@ -65,9 +65,13 @@
 }
 
 .avaliacao i{
-    margin:5px;
+    margin:2px;
 }
 
+.grid button{
+    margin:8px;
+    margin-top:20px; 
+}
 @media(max-width:768px){
     .grid{
         grid-template-columns: repeat(2, 1fr);
@@ -80,4 +84,58 @@
     }
 }
 
+
+//deletar
+.modal {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px #333;
+    min-width: 320px;
+    position: fixed;
+    left: 50%;
+    padding: 24px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    color: black;
+    align-items: center;
+}
+
+.overlay {
+    background: #000;
+    height: 100vh;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 10;
+}
+
+.buttons {
+    display:flex;
+    padding: 10px;
+    justify-content: center;
+    margin-top:8px ;
+    color:#fff;
+}
+
+.buttons button{
+    padding: 10px;
+    background: black;
+    border-radius: 8px;
+    border:none;
+    margin: 10px;
+    justify-content: center;
+}
+
+.buttons span{
+    font-size:50px;
+    text-align:center;
+}
+
+.buttons button:hover{
+    background: purple;
+    cursor: pointer;
+}
 
