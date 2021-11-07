@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from 'src/app/models/Post';
+import { Post } from 'src/app/models/Classes';
 
 @Component({
   selector: 'app-user-services',
@@ -63,24 +63,15 @@ export class UserServicesComponent implements OnInit {
     this.mostrar = !this.mostrar;
   }
 
-  starsB(n?:number){
-    if(n==null){
-      return new Array(0)
-    }else{
-      return new Array(n);
-    }
+  starsB(n?:number) {
+    return new Array(n ? n : 0);
   }
 
   starsW(n?:number){
-    if(n==null){
-      return new Array(5)
-    }else{
-      let valor= 5-n!;
-      return new Array(valor);
-    }
+    return new Array(n ? 5 - n : 5);
   }
 
-  onDelete(id?:string){
+  onDelete(id?: string){
     if(id){
       this.prodSelect=id;
     } 

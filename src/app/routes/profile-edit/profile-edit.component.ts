@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ValidationService } from 'src/app/services/validation.service';
-import { ProfileEditForm } from 'src/app/models/UserForm';
+import { ProfileEditForm } from 'src/app/models/Classes';
 import { Router } from '@angular/router';
 import { FormTemplate } from 'src/app/components/form/form.component';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-profile-edit',
@@ -29,7 +29,7 @@ export class ProfileEditComponent extends FormTemplate {
     });
 
     console.log(new ProfileEditForm(form));
-    ValidationService.updateProfile(new ProfileEditForm(form)).subscribe(
+    HttpService.updateProfile(new ProfileEditForm(form)).subscribe(
       {
         next: data => {
           this.router.navigateByUrl('/profile');

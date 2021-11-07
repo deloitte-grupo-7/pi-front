@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormTemplate } from 'src/app/components/form/form.component';
-import { SignInForm } from 'src/app/models/UserForm';
+import { AuthGuard } from 'src/app/guards/auth.guard';
+import { SignInForm, LocalContent } from 'src/app/models/Classes';
 import { AuthService } from 'src/app/services/auth.service';
-import { ValidationService } from 'src/app/services/validation.service';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-signin',
@@ -15,7 +16,7 @@ export class SignInPage extends FormTemplate {
   staySignedIn: boolean = false;
   showError: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private ag: AuthGuard) {
     super(/(username)|(password)/);
     console.log(window.sessionStorage.getItem('GETSERV_ACC'));
   }
@@ -31,11 +32,12 @@ export class SignInPage extends FormTemplate {
   }
 
   signInRequest(form: Map<string, any>): void {
-    ValidationService.signInRequest(new SignInForm(form)).subscribe(
+    HttpService.signInRequest(new SignInForm(form)).subscribe(
       {
         next: data => {
           console.log(data);
-          AuthService.handleTokenResponse(data, this.staySignedIn);
+          const res: LocalContent = data;
+          AuthService.signIn(res, this.staySignedIn);
           this.router.navigateByUrl('');
         },
         error: err => {

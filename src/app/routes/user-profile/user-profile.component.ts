@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileEditForm } from 'src/app/models/UserForm';
-import { UserService } from 'src/app/services/user.service';
-
-const mockUser = {
-  img:"https://i1.sndcdn.com/artworks-000223684427-ygy1zd-t500x500.jpg",
-  name:"Sprindovaldo",
-  prof:"Catador de coquinho",
-  bio:"Recolho coquinhos pra contribuir com o mundo"
-}
-
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/Classes';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -16,22 +9,9 @@ const mockUser = {
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  user: any;
-  // user: ProfileEditForm[] = [];
+  user!: User;
 
-  constructor(private us: UserService ) {
-    this.user = mockUser;
-
-    this.us.getUser().subscribe(
-      {
-        next: user => {
-          this.user = user;
-        },
-        error: err => console.error(err)
-      }
-    );
-
-    
+  constructor(private router: Router) {     
   }
 
   ngOnInit(): void {

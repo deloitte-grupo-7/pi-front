@@ -1,4 +1,3 @@
-<div class="grid">
     <article *ngFor="let post of posts">
       <img src="{{post.imgUrl}}">
       <div class="text">
@@ -11,7 +10,6 @@
         <button (click)="toggle()">Solicitar orçamento</button>
       </div>
     </article>
-  </div>
 
   <ng-container *ngIf="mostrar">
     <div class="modal">

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Post } from 'src/app/models/Post';
-import { PostService } from 'src/app/services/post.service';
+import { Post } from 'src/app/models/Classes';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-service-list',
@@ -11,11 +11,12 @@ export class ServiceList implements OnInit {
    
   services: Post[] = [];
 
-  constructor( private ps: PostService) { 
-     this.ps.getService().subscribe(
+  constructor() { 
+    const username: string = "sprindovaldo"
+     HttpService.getPosts(username).subscribe(
       {
-        next: services => {
-          this.services = services;
+        next: data => {
+          this.services = data;
         },
         error: err => console.error(err)  
       }

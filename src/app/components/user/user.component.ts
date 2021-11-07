@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
-
-
-const mockUser = {
-  img:"https://i1.sndcdn.com/artworks-000223684427-ygy1zd-t500x500.jpg",
-  name:"Sprindovaldo",
-  prof:"Catador de coquinho",
-  bio:"Recolho coquinhos pra contribuir com o mundo"
-}
-
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/Classes';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-user',
@@ -17,18 +10,18 @@ const mockUser = {
 })
 export class UserComponent implements OnInit {
 
-  user: any;
-  // user: ProfileEditForm[] = [];
+  user!: User;
 
-  constructor(private us: UserService ) { 
-    this.user = mockUser;
+  constructor(private router: Router) { 
+    const username: string = this.router.url.substring(3);
 
-    this.us.getUser().subscribe(
+    HttpService.getUser(username).subscribe(
       {
-        next: user => {
-          this.user = user;
+        next: (data: User)=> {
+          console.log(data);
+          this.user = data;
         },
-        error: err => console.error(err)
+        error: (err: Error) => console.error(err)
       }
     );
   }
