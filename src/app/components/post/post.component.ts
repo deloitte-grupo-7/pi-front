@@ -1,6 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Post } from 'src/app/models/Post';
-import { PostService } from 'src/app/services/post.service';
+import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/Classes';
 
 @Component({
   selector: 'app-post',
@@ -50,26 +49,17 @@ export class PostComponent implements OnInit {
     },
   ];
 
-  constructor(private ps: PostService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
 
   starsB(n?:number){
-    if(n==null){
-      return new Array(0)
-    }else{
-      return new Array(n);
-    }
+    return new Array(n ? n : 0);
   }
 
   starsW(n?:number){
-    if(n==null){
-      return new Array(5)
-    }else{
-      let valor= 5-n!;
-      return new Array(valor);
-    }
+    return new Array(n ? 5 - n : 5);
   }
 
   //rating
@@ -81,9 +71,9 @@ export class PostComponent implements OnInit {
 
   submitRate(){
     const rating = <any> document.getElementsByName('rate')
-    
+   
     for (let i = 0; i < rating.length; i++) {
-      if(rating[i].checked==true){
+      if(rating[i].checked){
         this.y=rating[i].value;
         console.log(rating[i].value)     
       }

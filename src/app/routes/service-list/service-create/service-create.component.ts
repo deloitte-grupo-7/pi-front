@@ -1,7 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { Post } from 'src/app/models/Post';
-import { PostService } from 'src/app/services/post.service';
+import { Post } from 'src/app/models/Classes';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-service-create',
@@ -12,18 +12,12 @@ export class ServiceCreateComponent implements OnInit {
 
   cancelService:EventEmitter<null> = new EventEmitter();
   
-  newService:Post;
+  newService!:Post;
 
-  constructor(
-    private ps:PostService,
-    private router: Router,
-    ) {
-      this.newService = new Post()
-     }
+  constructor(private router: Router) {}
 
-  postService(p: Post){
-    console.log('tentando salvar')
-    this.ps.postService(this.newService).subscribe(
+  postService(){
+    HttpService.postPost(this.newService).subscribe(
       {
         next: data => {
           console.log(data)

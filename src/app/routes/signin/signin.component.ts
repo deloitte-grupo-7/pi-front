@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormTemplate } from 'src/app/components/form/form.component';
-import { SignInForm } from 'src/app/models/UserForm';
+import { SignInForm } from 'src/app/models/Classes';
 import { AuthService } from 'src/app/services/auth.service';
-import { ValidationService } from 'src/app/services/validation.service';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-signin',
@@ -31,7 +31,7 @@ export class SignInPage extends FormTemplate {
   }
 
   signInRequest(form: Map<string, any>): void {
-    ValidationService.signInRequest(new SignInForm(form)).subscribe(
+    HttpService.signInRequest(new SignInForm(form)).subscribe(
       {
         next: data => {
           console.log(data);

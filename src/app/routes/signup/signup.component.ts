@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 import { ValidationService } from 'src/app/services/validation.service';
-import { SignUpForm } from 'src/app/models/UserForm';
+import { SignUpForm } from 'src/app/models/Classes';
 import { Router } from '@angular/router';
 import { FormTemplate } from 'src/app/components/form/form.component';
-import { AbstractControl, FormArray, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import { CpfPipe } from './cpf.pipe';
+import { AbstractControl } from '@angular/forms';
 import { CustomValidator } from 'src/app/models/CustomValidator';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: 'app-signup',
@@ -30,7 +30,7 @@ export class SignUpPage extends FormTemplate {
   }
 
   signUpRequest(form: Map<string, any>): void {
-    ValidationService.signUpRequest(new SignUpForm(form)).subscribe(
+    HttpService.signUpRequest(new SignUpForm(form)).subscribe(
       {
         next: data => {
           this.router.navigateByUrl('');
@@ -42,11 +42,6 @@ export class SignUpPage extends FormTemplate {
         complete: () => console.log("Requisição terminada"),
       }
     )
-  }
-
-  isCPF(name: string) {
-    if (name === 'cpf') return CpfPipe;
-    return null;
   }
 
   showErrors(n: number, yn: boolean) {

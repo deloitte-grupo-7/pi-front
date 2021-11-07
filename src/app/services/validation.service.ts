@@ -1,10 +1,7 @@
-import { HttpClient, HttpHeaders, HttpXhrBackend } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Validators } from '@angular/forms';
 import { CustomValidator } from '../models/CustomValidator';
 import { FieldTemplate } from '../models/FieldTemplate';
-import { NewService } from '../models/NewService';
-import { ProfileEditForm, SignInForm, SignUpForm } from '../models/UserForm';
 
 const fields: FieldTemplate[] = [
   {
@@ -128,9 +125,7 @@ const fields: FieldTemplate[] = [
   providedIn: 'root'
 })
 export class ValidationService {
-  static readonly fields: FieldTemplate[] = fields;
-  private static readonly apiURL: string = 'https://pi-back7.herokuapp.com';
-  static http: HttpClient = new HttpClient(new HttpXhrBackend({ build: () => new XMLHttpRequest() }));
+  static fields: FieldTemplate[] = fields;
 
   static msg: Map<string, string> = new Map ([
     ['required', 'Campo obrigatório'],
@@ -141,18 +136,4 @@ export class ValidationService {
     ['minor', 'Você deve ter pelo menos 18 anos para se cadastrar'],
     ['passwordsDontMatch', 'As senhas não são iguais'],
   ])
-
-  static signUpRequest(form: SignUpForm) {
-    return this.http.post(`${this.apiURL}/signup`, form);
-  }
-
-  static signInRequest(form: SignInForm){
-    return this.http.post(`${this.apiURL}/signin`, form);
-  }
-  static updateProfile(form: ProfileEditForm){
-    return this.http.put(`${this.apiURL}/editp`, form)
-  }
-  static createServicePost(form: NewService){
-    return this.http.post(`${this.apiURL}/creates`, form)
-  }
 }

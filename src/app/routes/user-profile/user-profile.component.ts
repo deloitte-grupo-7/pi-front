@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfileEditForm } from 'src/app/models/UserForm';
-import { UserService } from 'src/app/services/user.service';
+import { Router } from '@angular/router';
+import { User } from 'src/app/models/Classes';
+import { HttpService } from 'src/app/services/http.service';
 
-const mockUser = {
-  img:"https://i1.sndcdn.com/artworks-000223684427-ygy1zd-t500x500.jpg",
-  name:"Sprindovaldo",
-  prof:"Catador de coquinho",
-  bio:"Recolho coquinhos pra contribuir com o mundo"
+const mockUser: User = {
+  id: "1",
+  username: "sprindovaldo",
+  name: "Sprindovaldo",
+  email: "sprindo@valdo.com",
+  tagline:"Catador de coquinho",
+  description:"Recolho coquinhos pra contribuir com o mundo",
+  imgURL:"https://i1.sndcdn.com/artworks-000223684427-ygy1zd-t500x500.jpg",
+  ratings: [ { author: "valdosprindo", score: 5, text: "excelente" }],
 }
 
 
@@ -16,18 +21,18 @@ const mockUser = {
   styleUrls: ['./user-profile.component.scss']
 })
 export class UserProfileComponent implements OnInit {
-  user: any;
-  // user: ProfileEditForm[] = [];
+  user: User;
 
-  constructor(private us: UserService ) { 
+  constructor(private router: Router) { 
     this.user = mockUser;
+    console.log(this.router.url);
 
-    this.us.getUser().subscribe(
+    HttpService.getUser(this.router.url).subscribe(
       {
-        next: user => {
-          this.user = user;
+        next: (data: { user: User })=> {
+          this.user = data.user;
         },
-        error: err => console.error(err)
+        error: (err: Error) => console.error(err)
       }
     );
   }

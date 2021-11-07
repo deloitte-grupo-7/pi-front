@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { ValidationService } from 'src/app/services/validation.service';
 import { Router } from '@angular/router';
 import { FormTemplate } from 'src/app/components/form/form.component';
-import { NewService } from 'src/app/models/NewService';
+import { HttpService } from 'src/app/services/http.service';
+import { Post } from 'src/app/models/Classes';
 
 
 @Component({
@@ -23,14 +23,10 @@ export class CreatePostComponent extends FormTemplate {
 
     const form: Map<string, any> = new Map();
 
-    let i = 0;
-    this.fields.forEach(field => {
-      form.set(field.name, this.form.value[i]);
-      i++;
-    });
+    this.fields.forEach((field, i) => form.set(field.name, this.form.value[i]));
 
-    console.log(new NewService(form));
-    ValidationService.createServicePost(new NewService(form)).subscribe(
+    console.log(new Post(form));
+    HttpService.postPost(new Post(form)).subscribe(
       {
         next: data => {
           this.router.navigateByUrl('');
