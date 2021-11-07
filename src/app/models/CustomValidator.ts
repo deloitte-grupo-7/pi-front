@@ -7,10 +7,11 @@ export class CustomValidator {
             const nums: number[] = Array.from(cpf).map(n => Number(n));
             const tmp: number[] = new Array();
             for (let i = 0; i < 2; i++) {
-                tmp.push(nums.slice(0, 9 + i)
-                             .map((n, j) => n * j)
-                             .reduce((total, current) => total + current)
-                             % 11 % 10);
+                const p = nums.slice(0, 9 + i)
+                              .map((n, j) => n * (10 + i - j))
+                              .reduce((total, current) => total + current)
+                              % 11;
+                tmp.push(p < 2 ? 0 : 11 - p);
             }
             const res = tmp.toString().replace(/\s|,/, '');
             console.log(res);
