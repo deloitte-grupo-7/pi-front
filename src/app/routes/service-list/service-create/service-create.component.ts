@@ -22,7 +22,7 @@ export class ServiceCreateComponent implements OnInit {
      }
 
   postService(p: Post){
-    console.log('tentando salvar')
+    this.router.navigateByUrl('/user')
     this.ps.postService(this.newService).subscribe(
       {
         next: data => {
@@ -38,11 +38,7 @@ export class ServiceCreateComponent implements OnInit {
     this.cancelService.emit();
     this.router.navigateByUrl('/')
   }
-
-  save(){
-    console.log('tentando salvar')
-    this.router.navigateByUrl('/user')
-  }
+ 
 
   ngOnInit(): void {
   }
