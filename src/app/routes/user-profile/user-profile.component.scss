@@ -3,11 +3,11 @@
 
 :host {
   place-self: center;
-  display: grid;
-  grid-template:
-   "user  newpost"  auto
-   "posts posts"    auto /
-   1fr    1fr;
   max-width: 80rem;
   width: 100%;
+  section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }

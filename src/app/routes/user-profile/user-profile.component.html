@@ -1,3 +1,5 @@
+<section>
   <app-user class="user"></app-user>
-  <app-create-post></app-create-post>
-  <app-user-post></app-user-post>
+  <app-create-post *ngIf="isAuthor"></app-create-post>
+</section>
+<app-user-post></app-user-post>
