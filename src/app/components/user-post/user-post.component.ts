@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Post } from 'src/app/models/Classes';
+import { AuthService } from 'src/app/services/auth.service';
 import { HttpService } from 'src/app/services/http.service';
+import { PostsService } from 'src/app/services/posts.service';
 
 @Component({
   selector: 'app-user-post',
@@ -12,53 +14,21 @@ export class UserPostComponent implements OnInit {
 
   list5:Array<any>= new Array(5);
 
+  isAuthor!: boolean;
   posts!: Post[];
-  // posts: Post[]; = [
-  //   {
-  //     id:"1",
-  //     title:"Banana",
-  //     description: "Aula de  violão para crianças de 10 anos em 3 meses",
-  //     rating:2,
-  //     imgUrl: "assets/img/banana.jpg"
-  //   },
-  //   {
-  //     id:"2",
-  //     title:"Narutinho",
-  //     description: "Naruto correndo atrás do sasuke por 9 temporadas",
-  //     rating:2,
-  //     imgUrl: "assets/img/naruto.jpg"
-  //   },
-  //   {
-  //     id:"3",
-  //     title:"Calopsita",
-  //     description: "Aula de  violão para crianças de 10 anos em 3 meses",
-  //     rating:3,
-  //     imgUrl: "assets/img/capos1.jpeg"
-  //   },
-  //   {
-  //     id:"4",
-  //     title:"Dog",
-  //     description: "Aula de  violão para crianças de 10 anos em 3 meses",
-  //     rating:4,
-  //     imgUrl: "assets/img/dog1.jpeg"
-  //   },
-  //   {
-  //     id:"5",
-  //     title:"Pera",
-  //     description: "Aula de  violão para crianças de 10 anos em 3 meses",
-  //     rating:0,
-  //     imgUrl: "assets/img/pera.jpg"
-  //   },
-  // ];
-
+  postToDelete!: string;
+  showDelete: boolean = false;
+  
   constructor(private router: Router) {
-    console.log(this.router.url.substring(3));
-    HttpService.getPosts(this.router.url.substring(3)).subscribe({
-      next: data => {
-        console.log(data);
-        this.posts = data;
-      }
-    })
+    const username: string = this.router.url.substring(3);
+    AuthService.getLocalContent().subscribe({
+      next: data => this.isAuthor = data.username == username
+    });
+    PostsService.load(this.router.url.substring(3));
+    PostsService.getPosts().subscribe({
+      next: data => this.posts = data,
+      error: err => console.log(err)
+    });
   }
 
   ngOnInit(): void {
@@ -72,16 +42,20 @@ export class UserPostComponent implements OnInit {
     return new Array(n ? 5 - n : 5);
   }
 
-  teste(){
-    alert("olá")
+  toggle(id?: string) {
+    this.showDelete = !this.showDelete;
+    if (id) this.postToDelete = id;
   }
 
-  //deletar
-  mostrar: boolean = false;
-
-  toggle () {
-    this.mostrar = !this.mostrar;
+  getImgUrl(i: number) {
+    const imgUrl = this.posts[i].imgUrl;
+    return imgUrl ? imgUrl : 'https://images.unsplash.com/photo-1636306950045-4dbb10b7e0f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80';
   }
 
-
+  deletePost() {
+    HttpService.deletePost(this.router.url.substring(3), this.postToDelete).subscribe({
+      next: data => console.log(data),
+      error: err => console.log(err)
+    })
+  }
 }

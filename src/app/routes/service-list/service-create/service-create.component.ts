@@ -14,7 +14,10 @@ export class ServiceCreateComponent implements OnInit {
   
   newPost!:Post;
 
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private hs: HttpService,
+    ) {}
 
   postService(){
     HttpService.postPost(this.newPost).subscribe(
@@ -25,6 +28,32 @@ export class ServiceCreateComponent implements OnInit {
         error: err => console.error(err)  
       }
     );
+  }
+
+  getImg(){
+    HttpService.getImg().subscribe(
+      {
+        next: data => {
+          this.hs=data;
+        },
+        error: err =>{
+          console.log(err)
+        }
+      }
+    )
+  }
+
+  postImg(){
+    HttpService.postImg(this.newPost).subscribe(
+      {
+        next: data => {
+          console.log(data);
+        },
+        error: err =>{
+          console.log(err)
+        }
+      }
+    )
   }
 
   cancel(){

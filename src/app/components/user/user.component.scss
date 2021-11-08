@@ -3,20 +3,23 @@
 
 :host{
     @include colorLight;
-    padding: 1rem;
     border-radius: 0.5rem;
     display: grid;
-    grid-template:
+    grid-template: 
       "img"   auto
       "name"  auto
       "prof"  auto
       "bio"   auto;
     place-self: center;
+    place-items: center;
+    height: auto;
+    width: 80%;
+    padding: 1rem;
     .personal-figure {
       grid-area: img;
       position: relative;
-      width: 120px;
-      height: 120px;
+      width: 8rem;
+      height: 8rem;
   
       .personal-avatar {
         cursor: pointer;

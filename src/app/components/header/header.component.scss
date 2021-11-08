@@ -58,12 +58,12 @@
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        border-radius: 1.5rem;
+        border-radius: 2rem;
         padding: 0 .5rem 0 0;
         img {
           height: 1.5rem;
           width: 1.5rem;
-          border-radius: 1.5rem;
+          border-radius: 2rem;
         }
 
       }
@@ -71,14 +71,14 @@
       .notsignedin {
         @include colorLight;
         margin-left: 1rem;
-        border-radius: .5rem;
+        border-radius: 2rem;
         .signin {
           padding: .5rem;
         }
         .signup {
           @include colorAlt;
           padding: .5rem;
-          border-radius: .5rem;
+          border-radius: 2rem;
         }
       }
     }
