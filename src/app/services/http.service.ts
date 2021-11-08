@@ -27,8 +27,9 @@ export class HttpService {
   }
 
   static getUser(username: string): Observable<any> {
-    console.log(username);
-    return this.http.get<User>(`${this.apiURL}/u/${username}/profile`);
+    const options = { headers: { Authorization: AuthService.load().refresh_token,
+                                  'Access-Control-Allow-Origin': '*' }};
+    return this.http.get<User>(`${this.apiURL}/u/${username}/profile`, options);
   }
 
   static getPost(id: string): Observable<any> {
@@ -36,7 +37,9 @@ export class HttpService {
   }
 
   static getPosts(username: string): Observable<any> {
-    return this.http.get<Post[]>(`${this.apiURL}/u/${username}/services`);
+    const options = { headers: { Authorization: AuthService.load().refresh_token,
+                                  'Access-Control-Allow-Origin': '*' }};
+    return this.http.get<Post[]>(`${this.apiURL}/u/${username}/services`, options);
   }
 
   static getPostsServices(): Observable<any> {
