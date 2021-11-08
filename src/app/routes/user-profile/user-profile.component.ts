@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from 'src/app/models/Classes';
-import { HttpService } from 'src/app/services/http.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -10,8 +10,13 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class UserProfileComponent implements OnInit {
   user!: User;
+  isAuthor!: boolean;
 
-  constructor(private router: Router) {     
+  constructor(private router: Router) {
+    const username: string = this.router.url.substring(3);
+    AuthService.getLocalContent().subscribe({
+      next: data => this.isAuthor = data.username == username
+    });
   }
 
   ngOnInit(): void {

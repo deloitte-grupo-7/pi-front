@@ -1,10 +1,8 @@
-<figure class="personal-figure">
-    <img
-      [src]="user.imgURL"
-      class="personal-avatar"
-      alt="avatar"
-    />
+  <section>
+  <figure class="personal-figure">
+    <img [src]="getImgUrl()" class="personal-avatar" [alt]="getAltText()" />
   </figure>
-  <strong>{{user.name}}</strong>
-  <h1>{{user.tagline}}</h1>
-  <p>{{user.description}}</p>  
+  <strong>{{ user.name }}</strong>
+  <h1>{{ user.tagline }}</h1>
+  <p>{{ user.description }}</p>
+</section>

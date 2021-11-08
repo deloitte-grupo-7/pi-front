@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthGuard } from 'src/app/guards/auth.guard';
 import { LocalContent } from 'src/app/models/Classes';
 import { AuthService } from 'src/app/services/auth.service';
 import { NavToggleService } from 'src/app/services/nav-toggle.service';
@@ -33,5 +32,6 @@ export class HeaderComponent implements OnInit {
 
   signOut(): void {
     AuthService.signOut();
+    this.router.navigateByUrl('');
   }
 }

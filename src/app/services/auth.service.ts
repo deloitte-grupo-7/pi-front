@@ -41,7 +41,7 @@ export class AuthService {
     const ls = window.localStorage.getItem(STORAGE_KEY);
     if (ss) return JSON.parse(ss);
     else if (ls) return JSON.parse(ls);
-    return { username: '', imgUrl: '', acc_token: '', ref_token: ''};
+    return { username: '', imgUrl: '', access_token: '', refresh_token: ''};
   }
   
   static init(): boolean { 
