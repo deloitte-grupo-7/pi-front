@@ -38,6 +38,10 @@ export class HttpService {
   static getPosts(username: string): Observable<any> {
     return this.http.get<Post[]>(`${this.apiURL}/u/${username}/services`);
   }
+  
+  static getPostsServices(): Observable<any> {
+    return this.http.get<Post[]>(`${this.apiURL}/services`);
+  }
 
   static deletePost(username: string, id: string): Observable<any> {
     return this.http.delete(`${this.apiURL}/u/${username}/services/${id}`)
