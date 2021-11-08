@@ -32,9 +32,9 @@ export class ProfileEditComponent extends FormTemplate {
     HttpService.updateProfile(new ProfileEditForm(form)).subscribe(
       {
         next: data => {
-          this.router.navigateByUrl('/profile');
+          this.router.navigateByUrl('');
           console.log(data);
-          
+
         },
 
         error: err => console.log(err),
