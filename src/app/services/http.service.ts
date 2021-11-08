@@ -39,6 +39,10 @@ export class HttpService {
     return this.http.get<Post[]>(`${this.apiURL}/u/${username}/services`);
   }
 
+  static deletePost(username: string, id: string): Observable<any> {
+    return this.http.delete(`${this.apiURL}/u/${username}/services/${id}`)
+  }
+
   static refreshToken(): Observable<any> {
     console.log(AuthService.load().refresh_token);
     const options = { headers: { Authorization: AuthService.load().refresh_token,

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormTemplate } from 'src/app/components/form/form.component';
 import { HttpService } from 'src/app/services/http.service';
 import { Post } from 'src/app/models/Classes';
+import { PostsService } from 'src/app/services/posts.service';
 
 
 @Component({
@@ -30,13 +31,14 @@ export class CreatePostComponent extends FormTemplate {
       {
         next: data => {
           console.log(data);
+          PostsService.load(this.router.url.substring(3));
         },
 
         error: err => console.log(err),
-        complete: () => console.log("Requisição terminada"),
+        complete: () => {
+          console.log("Requisição terminada");
+        },
       }
     )
-
   }
-
 }
