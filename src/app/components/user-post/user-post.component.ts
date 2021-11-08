@@ -60,4 +60,9 @@ export class UserPostComponent implements OnInit {
       complete: () => PostsService.load(username)
     })
   }
+
+  mostrar: boolean = false;
+  teste(){
+    this.mostrar = !this.mostrar;
+  }
 }
