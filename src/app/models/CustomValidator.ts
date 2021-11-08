@@ -1,6 +1,14 @@
-import { AbstractControl, FormArray, ValidationErrors, ValidatorFn } from "@angular/forms";
+import { AbstractControl, FormArray, ValidationErrors } from "@angular/forms";
+import { Observable } from "rxjs";
+import { HttpService } from "../services/http.service";
 
 export class CustomValidator {
+
+    static async checkUsername(control: AbstractControl): Promise<ValidationErrors> {
+        const username: string = control.value;
+        return HttpService.checkUsername(username);
+    }
+
     static validateCPF(control: AbstractControl): ValidationErrors | null {
         const cpf: string = control.value;
         if (cpf && cpf.length == 11) {

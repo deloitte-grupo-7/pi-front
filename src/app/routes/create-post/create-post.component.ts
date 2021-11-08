@@ -13,7 +13,7 @@ import { Post } from 'src/app/models/Classes';
 export class CreatePostComponent extends FormTemplate {
 
   constructor(private router: Router) {
-    super(/(titulo)|(descricao)/);
+    super(/(title)|(description)/);
    }
 
 
@@ -29,9 +29,7 @@ export class CreatePostComponent extends FormTemplate {
     HttpService.postPost(new Post(form)).subscribe(
       {
         next: data => {
-          this.router.navigateByUrl('');
           console.log(data);
-          window.localStorage.setItem('getserv', JSON.stringify(data));
         },
 
         error: err => console.log(err),

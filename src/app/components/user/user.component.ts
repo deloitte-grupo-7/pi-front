@@ -29,4 +29,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getAltText(): string {
+    return `foto de ${this.user.name}`;
+  }
 }
