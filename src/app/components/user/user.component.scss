@@ -3,7 +3,6 @@
 
 :host{
     @include colorLight;
-    padding: 1rem;
     border-radius: 0.5rem;
     display: grid;
     grid-template:
@@ -12,11 +11,14 @@
       "prof"  auto
       "bio"   auto;
     place-self: center;
+    height: auto;
+    width: 80%;
+    padding: 1rem;
     .personal-figure {
       grid-area: img;
       position: relative;
-      width: 120px;
-      height: 120px;
+      width: 8rem;
+      height: 8rem;
   
       .personal-avatar {
         cursor: pointer;

@@ -12,7 +12,7 @@ const fields: FieldTemplate[] = [
       Validators.required,
       Validators.minLength(2),
       Validators.maxLength(20),
-      Validators.pattern(/[a-zA-Z\d]+/)
+      Validators.pattern(/[a-zA-Z\d]+/),
     ],
   },
   {
@@ -69,7 +69,7 @@ const fields: FieldTemplate[] = [
     ],
   },
   {
-    title: 'Bio',
+    title: 'Descrição',
     name: 'bio',
     type: 'text',
     validators: [
@@ -99,7 +99,7 @@ const fields: FieldTemplate[] = [
   },
   {
     title: 'Título do anuncio',
-    name: 'titulo',
+    name: 'title',
     type: 'text',
     validators: [
       Validators.required,
@@ -109,7 +109,7 @@ const fields: FieldTemplate[] = [
   },
   {
     title: 'Descrição',
-    name: 'descricao',
+    name: 'description',
     type: 'text',
     validators: [
       Validators.required,

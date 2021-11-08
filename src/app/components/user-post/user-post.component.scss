@@ -2,8 +2,11 @@
 @import '../../../assets/css/mixins';
 
 :host {
+    place-self: center;
+    grid-area: posts;
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     flex-wrap: wrap;
     align-items: center;
     article {

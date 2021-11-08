@@ -1,5 +1,7 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import { HttpService } from './services/http.service';
 import { NavToggleService } from './services/nav-toggle.service';
 
 @Component({

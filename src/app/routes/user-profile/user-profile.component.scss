@@ -5,7 +5,9 @@
   place-self: center;
   display: grid;
   grid-template:
-   "user  posts"  auto /
-   1fr    2fr;
+   "user  newpost"  auto
+   "posts posts"    auto /
+   1fr    1fr;
   max-width: 80rem;
+  width: 100%;
 }

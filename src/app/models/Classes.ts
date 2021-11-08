@@ -47,7 +47,7 @@ export class User {
     email: string = '';
     tagline: string = '';
     description: string = '';
-    imgURL: string = '';
+    imgUrl: string = '';
     ratings: Rating[] = [];
 
     constructor (form: Map<string, any>) {
@@ -79,8 +79,8 @@ export class Post {
 export interface LocalContent {
     username: string;
     imgUrl: string;
-    acc_token: string;
-    ref_token: string;
+    access_token: string;
+    refresh_token: string;
 }
 
 const init = (obj: any, form: Map<string, any>) => {

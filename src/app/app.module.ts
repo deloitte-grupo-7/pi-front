@@ -15,7 +15,7 @@ import { HomePage } from './routes/home/home.component';
 import { ContactPage } from './routes/contact/contact.component';
 import { AboutPage } from './routes/about/about.component';
 import { NavComponent } from './components/nav/nav.component';
-import {IvyCarouselModule} from './components/carousel/carousel.module';
+import { IvyCarouselModule } from './components/carousel/carousel.module';
 import { CarouselHomeComponent } from './components/carousel-home/carousel-home.component';
 import { PostComponent } from './components/post/post.component';
 import { CreatePostComponent } from './routes/create-post/create-post.component';
