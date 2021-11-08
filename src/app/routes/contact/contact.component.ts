@@ -13,10 +13,10 @@ export class ContactPage implements OnInit {
   }
 
   mudar(){
-    const form= document.querySelector("div.conteiner");
-    const aviso= document.querySelector("div.aviso");
+    const formulario = document.querySelector('div.form')
+    const aviso = document.querySelector('div.aviso')
 
-    form?.classList.toggle("sr-only");
-    aviso?.classList.remove("sr-only");
+    formulario?.classList.toggle('sr-only')
+    aviso?.classList.toggle('sr-only')
   }
 }

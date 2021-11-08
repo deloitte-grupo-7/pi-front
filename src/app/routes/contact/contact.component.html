@@ -1,25 +1,24 @@
 <section>
-  
-    <h1>CONTATO</h1>
-    <p>Bem vindo ao nosso canal de sac e dúvidas. Adicione ao formulário as suas perguntas.</p>
-    <section class="contact">
-      <div class="conteiner">
+  <h1>CONTATO</h1>
+  <p>Bem vindo ao nosso canal de sac e dúvidas. Adicione ao formulário as suas perguntas.</p>
+  <section class="contact">
+    <div class="container">
+      <div class="form">
         <form action="">
           <label for="name">Nome</label>
           <input type="text" name="name" id="name">
-  
           <label for="email">Email</label>
           <input type="email" name="email" id="email">
-  
           <label for="message">Mensagem</label>
           <!-- <textarea name="message" id="message"></textarea> -->
           <input type="text" name="message" id="message">
           <button type="submit" (click)="mudar()">Enviar</button>
         </form>
       </div>
-    </section>
-    <div class="aviso sr-only">
-      <p>Mensagem enviada</p>
+      <div class="aviso sr-only">
+        <p>Sua mensagem foi enviada com sucesso. Entraremos em contato por email.</p>
+        <button (click)="mudar()">Voltar</button>
+      </div>
     </div>
+  </section>
 </section>
-
