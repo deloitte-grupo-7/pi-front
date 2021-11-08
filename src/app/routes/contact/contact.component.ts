@@ -12,4 +12,11 @@ export class ContactPage implements OnInit {
   ngOnInit(): void {
   }
 
+  mudar(){
+    const form= document.querySelector("div.conteiner");
+    const aviso= document.querySelector("div.aviso");
+
+    form?.classList.toggle("sr-only");
+    aviso?.classList.remove("sr-only");
+  }
 }
