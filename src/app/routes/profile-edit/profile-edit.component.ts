@@ -12,7 +12,7 @@ import { HttpService } from 'src/app/services/http.service';
 export class ProfileEditComponent extends FormTemplate {
 
   constructor(private router: Router) {
-    super(/(username)|(name)|(adress)|(email)|(birthday)|(bio)|(password)|(passconf)/);
+    super(/(username)|(name)|(email)|(bio)|(password)|(passconf)/);
    }
 
 
@@ -34,7 +34,7 @@ export class ProfileEditComponent extends FormTemplate {
         next: data => {
           this.router.navigateByUrl('/profile');
           console.log(data);
-          window.localStorage.setItem('getserv', JSON.stringify(data));
+          
         },
 
         error: err => console.log(err),
