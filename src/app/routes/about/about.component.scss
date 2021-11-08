@@ -87,9 +87,11 @@
   }
 
   article h2{
-      color:black;
-      margin-bottom: 20px;
-      font-size:20px;
+    color:purple;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    margin-bottom:20px;
   }
 
   article{
@@ -119,7 +121,7 @@
   }
 
   h1{
-      color:black;
+      color:purple;
       margin-bottom: 20px;
   }
 
