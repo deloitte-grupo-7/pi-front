@@ -23,12 +23,12 @@ export class UserPostComponent implements OnInit {
     const username: string = this.router.url.substring(3);
     AuthService.getLocalContent().subscribe({
       next: data => this.isAuthor = data.username == username
-    })
+    });
     PostsService.load(this.router.url.substring(3));
     PostsService.getPosts().subscribe({
       next: data => this.posts = data,
       error: err => console.log(err)
-    })
+    });
   }
 
   ngOnInit(): void {
@@ -45,6 +45,11 @@ export class UserPostComponent implements OnInit {
   toggle(id?: string) {
     this.showDelete = !this.showDelete;
     if (id) this.postToDelete = id;
+  }
+
+  getImgUrl(i: number) {
+    const imgUrl = this.posts[i].imgUrl;
+    return imgUrl ? imgUrl : 'https://images.unsplash.com/photo-1636306950045-4dbb10b7e0f4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=870&q=80';
   }
 
   deletePost() {
