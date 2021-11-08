@@ -2,6 +2,11 @@
 @import '../../../assets/css/mixins';
 
 :host{
+    display: grid;
+    place-items: center;
+    section {
+        max-width: 80rem;
+    }
 // Desktop
 @media(min-width: 700px){
   h1{
