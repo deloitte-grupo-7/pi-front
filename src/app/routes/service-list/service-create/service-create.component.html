@@ -2,19 +2,23 @@
     <form>
         <label>
             Título:
-        <input type="text" name="nome" id="title" [(ngModel)]="newPost.title">
+        <input type="text" name="nome" name="newPost.title">
         </label>
         <label>
             Descrição:
-            <input type="text" name="descricao" [(ngModel)]="newPost.description">        
-        <label for="photo" action="/upload" method="post" enctype="multipart/form-data">
-            Imagem
+            <input type="text" name="description" name="newPost.description">        
+        <label>
+            Imagem:
+            <input type="text" name="imgUrl" name="newPost.imgUrl">
         </label>
-        <input type="url" accept="image/*" name="photo">
         </label>
         <div class="controles">
             <button (click)="cancel()" type="submit">Cancelar</button> 
-            <button (click)="postService()">Salvar</button>   
+            <button (click)="postService()">Salvar</button>
         </div>
+        <!-- <img src="https://i.imgur.com/U3V6j87.jpg">
+        <div *ngFor= "let img of newPost" [newPost]="newPost">
+            <img src="{{img.imgUrl}}">
+        </div> -->
     </form>
 </div>

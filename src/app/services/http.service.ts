@@ -41,4 +41,17 @@ export class HttpService {
   static postPost(post: Post): Observable<any> {
     return this.http.post(`${this.apiURL}/u/${AuthService.localContent$.value.username}/services`, post);
   }
+
+  static postImg(newService: Post): Observable <Post>{
+    let token = window.sessionStorage.getItem('token');
+    return this.http.post<Post>(this.apiURL + 'u/provider', 
+    newService, {headers: {Authorization: `${token}`}})
+  }
+
+  
+  static getImg(): Observable<Post[]>{
+    let token = window.sessionStorage.getItem('token');
+    return this.http.get<Post[]>(this.apiURL + 'u/service', 
+    {headers: {Authorization: `${token}`}})
+  }
 }
