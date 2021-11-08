@@ -7,15 +7,16 @@
           <i class="fa-solid fa-star" *ngFor="let star of starsB(post.rating)"></i>
           <i class="fa-regular fa-star" *ngFor="let star of starsW(post.rating)"></i>
         </div>
-        <button (click)="toggle()">Solicitar orçamento</button>
+        <button>Solicitar orçamento</button>
+        <button *ngIf="isAuthor" (click)="toggle(post.id)">Deletar</button>
       </div>
     </article>
 
-  <ng-container *ngIf="mostrar">
+  <ng-container *ngIf="showDelete">
     <div class="modal">
       <span>Tem certeza que deseja deletar esse serviço?</span>
       <div class="buttons">
-        <button class="bnt-s">Confirmar</button>
+        <button class="bnt-s" (click)="deletePost()">Confirmar</button>
         <button class="btn-n" (click)="toggle()">Cancelar</button>
       </div>
     </div>
