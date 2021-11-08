@@ -12,7 +12,7 @@ export class UserComponent implements OnInit {
 
   user!: User;
 
-  constructor(private router: Router) { 
+  constructor(private router: Router) {
     const username: string = this.router.url.substring(3);
 
     HttpService.getUser(username).subscribe(
